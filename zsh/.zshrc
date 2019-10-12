@@ -69,6 +69,7 @@ export UPDATE_ZSH_DAYS=1
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  docker
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -113,7 +114,13 @@ autoload -U _scalafix
 
 zstyle ':completion:*' ignored-patterns 'blockdev'
 
+# mkdir andThen cd
 mkcd () {
   mkdir -p -- "$1" &&
   cd -P -- "$1"
+}
+
+# install custom zsh plugin from github (via oh-my-zsh)
+installZshPlugin () {
+  git clone https://github.com/$1/$2.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$2
 }
