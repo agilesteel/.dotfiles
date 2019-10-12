@@ -37,5 +37,3 @@ export GRAALVM_HOME=/usr/lib/jvm/graalvm/bin
 if [ -d "$GRAALVM_HOME" ] ; then
     PATH="$PATH:$GRAALVM_HOME"
 fi
-
-git --git-dir=/home/vlad/.dotfiles/.git pull
