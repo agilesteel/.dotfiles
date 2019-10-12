@@ -71,6 +71,7 @@ export UPDATE_ZSH_DAYS=1
 plugins=(
   docker
   git
+  mosh
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-z
