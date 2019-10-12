@@ -112,3 +112,8 @@ unfunction _scalafix
 autoload -U _scalafix
 
 zstyle ':completion:*' ignored-patterns 'blockdev'
+
+mkcd () {
+  mkdir -p -- "$1" &&
+  cd -P -- "$1"
+}
