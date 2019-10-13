@@ -125,3 +125,12 @@ mkcd () {
 installZshPlugin () {
   git clone https://github.com/$1/$2.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$2
 }
+
+# stow (th stands for target=home)
+stowth() {
+  stow -vSt ~ $1
+}
+
+unstow() {
+  stow -vDt ~ $1
+}
