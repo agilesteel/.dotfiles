@@ -134,3 +134,11 @@ stowth() {
 unstow() {
   stow -vDt ~ $1
 }
+
+github-clone() {
+  git clone git@github.com:$1/$2.git "${3:-$2}"
+}
+
+github-clone-https() {
+  git clone https://github.com/$1/$2.git "${3:-$2}"
+}
