@@ -3,3 +3,6 @@
 	name = Vladyslav Pekker
 [pager]
 	branch = false
+[alias]
+  l = log --relative-date --graph --abbrev-commit -10
+  ll = log --relative-date --graph --abbrev-commit
