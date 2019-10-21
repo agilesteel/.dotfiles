@@ -136,9 +136,13 @@ unstow() {
 }
 
 github-clone() {
-  git clone git@github.com:$1/$2.git "${3:-$2}"
+  dir="${3:-$2}"
+  git clone git@github.com:$1/$2.git $dir
+  cd $dir
 }
 
 github-clone-https() {
-  git clone https://github.com/$1/$2.git "${3:-$2}"
+  dir="${3:-$2}"
+  git clone https://github.com/$1/$2.git $dir
+  cd $dir
 }
