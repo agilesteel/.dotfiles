@@ -38,5 +38,8 @@ if [ -d "$GRAALVM_HOME" ] ; then
     PATH="$PATH:$GRAALVM_HOME"
 fi
 
+export VISUAL="/usr/bin/vim"
+export EDITOR="/usr/bin/vim"
+
 # source local settings
-[ -f ".local.profile" ] && source ".local.profile"
+[ -f "$HOME/.local.profile" ] && source "$HOME/.local.profile"

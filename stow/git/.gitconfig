@@ -8,4 +8,4 @@
 [format]
   pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
 [include]
-	path = .local.gitconfig
+	path = ~/.local.gitconfig

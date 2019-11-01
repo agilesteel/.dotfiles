@@ -117,7 +117,7 @@ autoload -U _scalafix
 zstyle ':completion:*' ignored-patterns 'blockdev'
 
 # install custom zsh plugin from github (via oh-my-zsh)
-installZshPlugin () {
+installZshPlugin() {
   git clone https://github.com/$1/$2.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$2
 }
 
@@ -143,5 +143,5 @@ github-clone-https() {
 }
 
 # source local settings
-[ -f ".local.zshrc" ] && source ".local.zshrc"
-[ -f ".local.bash_aliases" ] && source ".local.bash_aliases"
+[ -f "$HOME/.local.zshrc" ] && source "$HOME/.local.zshrc"
+[ -f "$HOME/.local.bash_aliases" ] && source "$HOME/.local.bash_aliases"
