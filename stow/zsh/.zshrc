@@ -142,6 +142,14 @@ github-clone-https() {
   cd $dir
 }
 
+up_widget() {
+  BUFFER="cd .."
+  zle accept-line
+}
+
+zle -N up_widget
+bindkey "^k" up_widget
+
 # source local settings
 [ -f "$HOME/.local.zshrc" ] && source "$HOME/.local.zshrc"
 [ -f "$HOME/.local.bash_aliases" ] && source "$HOME/.local.bash_aliases"
