@@ -4,7 +4,8 @@
 [pager]
 	branch = false
 [alias]
-  l = log --relative-date --graph --abbrev-commit -10
-  ll = log --relative-date --graph --abbrev-commit
+  l = log --relative-date --decorate --all --graph --abbrev-commit
 [format]
   pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+[include]
+	path = .local.gitconfig

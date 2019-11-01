@@ -69,6 +69,7 @@ export UPDATE_ZSH_DAYS=1
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  extract
   docker
   git
   mosh
@@ -140,3 +141,7 @@ github-clone-https() {
   git clone https://github.com/$1/$2.git $dir
   cd $dir
 }
+
+# source local settings
+[ -f ".local.zshrc" ] && source ".local.zshrc"
+[ -f ".local.bash_aliases" ] && source ".local.bash_aliases"
