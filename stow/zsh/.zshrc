@@ -115,12 +115,6 @@ autoload -U _scalafix
 
 zstyle ':completion:*' ignored-patterns 'blockdev'
 
-# mkdir andThen cd
-mkcd () {
-  mkdir -p -- "$1" &&
-  cd -P -- "$1"
-}
-
 # install custom zsh plugin from github (via oh-my-zsh)
 installZshPlugin () {
   git clone https://github.com/$1/$2.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$2
