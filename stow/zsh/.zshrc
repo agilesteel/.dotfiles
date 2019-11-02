@@ -149,7 +149,7 @@ up_widget() {
 }
 
 zle -N up_widget
-bindkey "^k" up_widget
+bindkey "^\\" up_widget
 
 # source local settings
 [ -f "$HOME/.local.zshrc" ] && source "$HOME/.local.zshrc"
