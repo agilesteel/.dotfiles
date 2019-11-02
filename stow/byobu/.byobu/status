@@ -31,4 +31,4 @@ screen_lower_right="color network #disk_io custom #entropy raid reboot_required 
 # Tmux has one status line, with 2 halves for status
 tmux_left=""
 # You can have as many tmux right lines below here, and cycle through them using Shift-F5
-tmux_right="network"
+tmux_right="network time_utc"
