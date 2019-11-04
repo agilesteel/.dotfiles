@@ -1,4 +1,4 @@
-alias aliases='cat ~/.bash_aliases'
+alias aliases='cat ~/.bash_aliases; echo "───── local ────";cat ~/.local.bash_aliases'
 alias b='byobu'
 alias buffer='subl $BYOBU_RUN_DIR/printscreen'
 alias dg='bloop projects --dot-graph | dot -Tpdf -o dependency-graph.pdf && xdg-open dependency-graph.pdf'
