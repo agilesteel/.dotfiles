@@ -152,5 +152,10 @@ zle -N up_widget
 bindkey "^\\" up_widget
 
 # source local settings
-[ -f "$HOME/.local.zshrc" ] && source "$HOME/.local.zshrc"
-[ -f "$HOME/.local.bash_aliases" ] && source "$HOME/.local.bash_aliases"
+if [ -f "$HOME/.local.zshrc" ] ; then
+    source "$HOME/.local.zshrc"
+fi
+
+if [ -f "$HOME/.local.bash_aliases" ] ; then
+    source "$HOME/.local.bash_aliases"
+fi
