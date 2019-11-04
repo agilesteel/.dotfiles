@@ -8,5 +8,13 @@
   ll = log --relative-date --decorate --all --graph --abbrev-commit
 [format]
   pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [include]
 	path = ~/.local.gitconfig
