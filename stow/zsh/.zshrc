@@ -70,6 +70,7 @@ export UPDATE_ZSH_DAYS=1
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   docker
+  dotenv
   extract
   git
   mosh
@@ -159,3 +160,5 @@ fi
 if [ -f "$HOME/.local.bash_aliases" ] ; then
     source "$HOME/.local.bash_aliases"
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
