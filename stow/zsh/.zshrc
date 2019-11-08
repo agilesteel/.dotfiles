@@ -81,7 +81,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source ~/.bash_aliases
 
 # User configuration
 
@@ -151,6 +150,11 @@ up_widget() {
 
 zle -N up_widget
 bindkey "^\\" up_widget
+
+# source global settings
+if [ -f "$HOME/.bash_aliases" ] ; then
+  source "$HOME/.bash_aliases"
+fi
 
 # source local settings
 if [ -f "$HOME/.local.zshrc" ] ; then
