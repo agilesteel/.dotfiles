@@ -1,6 +1,7 @@
 alias aliases='cat ~/.bash_aliases; echo "───── local ────";cat ~/.local.bash_aliases'
 alias b='byobu'
 alias buffer='subl $BYOBU_RUN_DIR/printscreen'
+alias c='code .'
 alias dg='bloop projects --dot-graph | dot -Tpdf -o dependency-graph.pdf && xdg-open dependency-graph.pdf'
 alias gi='git init && git add . && git commit -am "Initial commit"'
 alias gpe='gp && exit'

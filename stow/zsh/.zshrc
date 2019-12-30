@@ -137,6 +137,11 @@ github-clone-https() {
   cd $dir
 }
 
+delete-local-branches() {
+  git checkout master && \
+  git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d
+}
+
 up_widget() {
   BUFFER="cd .."
   zle accept-line
