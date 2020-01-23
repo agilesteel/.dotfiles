@@ -167,3 +167,7 @@ fi
 if [ -f "$HOME/.local.bash_aliases" ] ; then
     source "$HOME/.local.bash_aliases"
 fi
+
+if [ $(command -v direnv) ]; then
+    eval "$(direnv hook zsh)"
+fi
