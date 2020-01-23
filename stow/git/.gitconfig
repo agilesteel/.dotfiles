@@ -1,20 +1,22 @@
+[alias]
+	l = log --relative-date --decorate --graph --abbrev-commit
+	ll = log --relative-date --decorate --all --graph --abbrev-commit
+[core]
+	excludesfile = /home/vlad/.global.gitignore
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[format]
+	pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+[include]
+	path = ~/.local.gitconfig
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[pager]
+	branch = false
 [user]
 	email = agilesteel@gmail.com
 	name = Vladyslav Pekker
-[pager]
-	branch = false
-[alias]
-  l = log --relative-date --decorate --graph --abbrev-commit
-  ll = log --relative-date --decorate --all --graph --abbrev-commit
-[format]
-  pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
-[merge]
-    tool = vscode
-[mergetool "vscode"]
-    cmd = code --wait $MERGED
-[diff]
-    tool = vscode
-[difftool "vscode"]
-    cmd = code --wait --diff $LOCAL $REMOTE
-[include]
-	path = ~/.local.gitconfig
