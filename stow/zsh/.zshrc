@@ -160,12 +160,12 @@ if [ -f "$HOME/.fzf.zsh" ] ; then
 fi
 
 # source local settings
-if [ -f "$HOME/.local.zshrc" ] ; then
-    source "$HOME/.local.zshrc"
+if [ -f "$HOME/.local/.zshrc" ] ; then
+    source "$HOME/.local/.zshrc"
 fi
 
-if [ -f "$HOME/.local.bash_aliases" ] ; then
-    source "$HOME/.local.bash_aliases"
+if [ -f "$HOME/.local/.bash_aliases" ] ; then
+    source "$HOME/.local/.bash_aliases"
 fi
 
 if [ $(command -v direnv) ]; then

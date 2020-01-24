@@ -2,7 +2,7 @@
 	l = log --relative-date --decorate --graph --abbrev-commit
 	ll = log --relative-date --decorate --all --graph --abbrev-commit
 [core]
-	excludesfile = /home/vlad/.global.gitignore
+	excludesfile = ~/.global/.gitignore
 [diff]
 	tool = vscode
 [difftool "vscode"]
@@ -10,7 +10,7 @@
 [format]
 	pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
 [include]
-	path = ~/.local.gitconfig
+	path = ~/.local/.gitconfig
 [merge]
 	tool = vscode
 [mergetool "vscode"]

@@ -42,4 +42,6 @@ export VISUAL="/usr/bin/vim"
 export EDITOR="/usr/bin/vim"
 
 # source local settings
-[ -f "$HOME/.local.profile" ] && source "$HOME/.local.profile"
+if [ -f "$HOME/.local/.profile" ] ; then
+    source "$HOME/.local/.profile"
+fi
