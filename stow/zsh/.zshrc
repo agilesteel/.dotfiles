@@ -121,7 +121,7 @@ stowth() {
   stow -vSt ~ $1
 }
 
-unstow() {
+unstowth() {
   stow -vDt ~ $1
 }
 
