@@ -1,8 +1,6 @@
 [alias]
 	l = log --relative-date --decorate --graph --abbrev-commit
 	ll = log --relative-date --decorate --all --graph --abbrev-commit
-[core]
-	excludesfile = ~/.global/.gitignore
 [diff]
 	tool = vscode
 [difftool "vscode"]
