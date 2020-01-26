@@ -38,11 +38,6 @@ if [ -d "$GRAALVM_HOME" ] ; then
 	PATH="$PATH:$GRAALVM_HOME"
 fi
 
-# source local settings
-if [ -f "$HOME/.local/.profile" ] ; then
-	source "$HOME/.local/.profile"
-fi
-
 # environment variables
 export EDITOR="/usr/bin/vim"
 export VISUAL=$EDITOR
@@ -53,3 +48,8 @@ export JAVA_TOOL_OPTIONS="
 -XX:+CMSClassUnloadingEnabled
 -XX:+UseConcMarkSweepGC
 -XX:MaxJavaStackTraceDepth=-1"
+
+# source local settings
+if [ -f "$HOME/.local/.profile" ] ; then
+	source "$HOME/.local/.profile"
+fi
