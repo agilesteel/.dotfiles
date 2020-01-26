@@ -48,8 +48,8 @@ export EDITOR="/usr/bin/vim"
 export VISUAL=$EDITOR
 
 export JAVA_TOOL_OPTIONS="
--Duser.timezone=UTC
 -Dconfig.override_with_env_vars=true
+-Duser.timezone=UTC
 -XX:+CMSClassUnloadingEnabled
 -XX:+UseConcMarkSweepGC
 -XX:MaxJavaStackTraceDepth=-1"
