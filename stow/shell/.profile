@@ -49,4 +49,7 @@ export VISUAL=$EDITOR
 
 export JAVA_TOOL_OPTIONS="
 -Duser.timezone=UTC
--Dconfig.override_with_env_vars=true"
+-Dconfig.override_with_env_vars=true
+-XX:+CMSClassUnloadingEnabled
+-XX:+UseConcMarkSweepGC
+-XX:MaxJavaStackTraceDepth=-1"
