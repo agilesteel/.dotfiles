@@ -10,38 +10,43 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
+	# include .bashrc if it exists
+	if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
-    fi
+	fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+	PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+	PATH="$HOME/.local/bin:$PATH"
 fi
 
 # set PATH so it includes bloop if it exists
 if [ -d "$HOME/.bloop" ] ; then
-    PATH="$HOME/.bloop:$PATH"
+	PATH="$HOME/.bloop:$PATH"
 fi
 
 export GRAALVM_HOME=/usr/lib/jvm/graalvm/bin
 
 # set PATH so it includes GRAALVM_HOME if it exists
 if [ -d "$GRAALVM_HOME" ] ; then
-    PATH="$PATH:$GRAALVM_HOME"
+	PATH="$PATH:$GRAALVM_HOME"
 fi
-
-export EDITOR="/usr/bin/vim"
-export VISUAL=$EDITOR
 
 # source local settings
 if [ -f "$HOME/.local/.profile" ] ; then
-    source "$HOME/.local/.profile"
+	source "$HOME/.local/.profile"
 fi
+
+# environment variables
+export EDITOR="/usr/bin/vim"
+export VISUAL=$EDITOR
+
+export JAVA_TOOL_OPTIONS="
+-Duser.timezone=UTC
+-Dconfig.override_with_env_vars=true"
