@@ -125,6 +125,11 @@ unstowth() {
   stow -vDt ~ $1
 }
 
+diy-install() {
+  wget -q https://script.install.devinsideyou.com/$1
+  sudo chmod +x $1 && ./$1
+}
+
 github-clone() {
   dir="${3:-$2}"
   git clone git@github.com:$1/$2.git $dir
