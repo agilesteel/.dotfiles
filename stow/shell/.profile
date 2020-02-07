@@ -27,7 +27,9 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Homebrew
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+if [ -f "/home/linuxbrew/.linuxbre/bin/brew" ] ; then
+	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
 
 # set PATH so it includes bloop if it exists
 if [ -d "$HOME/.bloop" ] ; then
