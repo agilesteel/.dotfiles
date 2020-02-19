@@ -155,24 +155,28 @@ up_widget() {
 zle -N up_widget
 bindkey "^\\" up_widget
 
+if [ $(command -v direnv) ]; then
+  eval "$(direnv hook zsh)"
+fi
+
+if [ $(command -v nvim) ]; then
+  alias vim="nvim"
+fi
+
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
 fi
 
 if [ -f "$HOME/.fzf.zsh" ] ; then
-    source "$HOME/.fzf.zsh"
+  source "$HOME/.fzf.zsh"
 fi
 
 # source local settings
 if [ -f "$HOME/.local/.zshrc" ] ; then
-    source "$HOME/.local/.zshrc"
+  source "$HOME/.local/.zshrc"
 fi
 
 if [ -f "$HOME/.local/.bash_aliases" ] ; then
-    source "$HOME/.local/.bash_aliases"
-fi
-
-if [ $(command -v direnv) ]; then
-    eval "$(direnv hook zsh)"
+  source "$HOME/.local/.bash_aliases"
 fi
