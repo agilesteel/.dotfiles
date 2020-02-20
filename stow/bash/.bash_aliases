@@ -9,6 +9,7 @@ alias gcan!='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git comm
 alias gcangpf!='gcan! && gpf!'
 alias gi='git init && git add . && git commit -am "Initial commit"'
 alias gpe='gp && exit'
+alias gpf!e='gpf! && exit'
 alias gwipe='gwip && exit'
 alias gwipgp='gwip && gp'
 alias gwipgpe='gwip && gpe'
