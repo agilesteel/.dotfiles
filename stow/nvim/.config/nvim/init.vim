@@ -30,5 +30,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'derekwyatt/vim-scala' " Scala
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conquer of Completion
+Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'} " Metals
 
 call plug#end()
