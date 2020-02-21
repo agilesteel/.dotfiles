@@ -44,7 +44,7 @@ if [ -d "$GRAALVM_HOME" ] ; then
 fi
 
 # environment variables
-export EDITOR="/usr/bin/nvim"
+export EDITOR="/usr/local/bin/nvim"
 export VISUAL=$EDITOR
 
 export JAVA_TOOL_OPTIONS="
