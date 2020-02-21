@@ -41,3 +41,11 @@ Thumbs.db
 .envrc
 .env
 .local.application.conf
+
+# Scala #
+###############
+.bloop/
+.idea/
+.metals/
+*.worksheet.sc
+metals.sbt
