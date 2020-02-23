@@ -1,14 +1,8 @@
-" Enable line numbers relative to current line while replacing 0 with current line number.
-set number relativenumber
-
-" Use 2 spaces instead of tabs.
-set shiftwidth=2 tabstop=2 expandtab
-
-" Set spell check language to English.
-set spelllang=en
-
-" Add custom English dictionary.
-set spellfile=~/.config/nvim/en.utf-8.add
+set number relativenumber " Enable line numbers relative to current one while replacing 0 with current number.
+set shiftwidth=2 tabstop=2 expandtab " Use 2 spaces instead of tabs.
+set spelllang=en " Set spell check language to English.
+set spellfile=~/.config/nvim/en.utf-8.add " Add custom English dictionary.
+set mouse=a " Enable mouse support
 
 " Bind Ctrl+S to save the file in any more.
  noremap <silent> <C-S>      :update<CR>
@@ -38,9 +32,9 @@ Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'} " Metals
 
 call plug#end()
 
+" Select colorscheme
+colorscheme spacegray
+
 " Color scheme settings
 " Don't allow the color scheme to change background
 au ColorScheme * hi Normal ctermbg=None
-
-" Select colorscheme
-colorscheme spacegray
