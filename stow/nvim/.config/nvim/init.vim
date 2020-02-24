@@ -27,14 +27,18 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'ajh17/Spacegray.vim' " Color scheme
 Plug 'derekwyatt/vim-scala' " Scala
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conquer of Completion
 Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'} " Metals
 
 call plug#end()
 
-" Select colorscheme
-colorscheme spacegray
-
-" Color scheme settings
+" Color scheme settings (this lines needs to come before the colorscheme spacegray line)
 " Don't allow the color scheme to change background
 au ColorScheme * hi Normal ctermbg=None
+
+" set termguicolors " this line overrides the previous line for some reason
+
+" Select colorscheme
+colorscheme spacegray
