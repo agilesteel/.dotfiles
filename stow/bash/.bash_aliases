@@ -2,6 +2,7 @@ alias aliases='cat ~/.bash_aliases; echo "───── local ─────"
 alias b='bloop'
 alias buffer='subl $BYOBU_RUN_DIR/printscreen'
 alias c='code .'
+alias ce='code . && exit'
 alias config='cd ~/.dotfiles'
 alias dg='bloop projects --dot-graph | dot -Tpdf -o dependency-graph.pdf && xdg-open dependency-graph.pdf'
 alias di='touch .envrc .env && direnv allow'
