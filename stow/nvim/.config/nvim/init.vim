@@ -1,3 +1,19 @@
+" Install the vim-plug plugin manager.
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+endif
+
+" Install plugins:
+call plug#begin('~/.local/share/nvim/plugged')
+source plugins.vim
+call plug#end()
+
+" Configure plugins:
+source plugins-init.vim
+
+" Configure vim:
 set number relativenumber " Enable line numbers relative to current one while replacing 0 with current number.
 set shiftwidth=2 tabstop=2 expandtab " Use 2 spaces instead of tabs.
 set spelllang=en " Set spell check language to English.
@@ -14,25 +30,6 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Configuration for vim-scala
 au BufRead,BufNewFile *.sbt set filetype=scala
-
-" Install the vim-plug plugin manager.
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
-endif
-
-" Install plugins:
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'ajh17/Spacegray.vim' " Color scheme
-Plug 'derekwyatt/vim-scala' " Scala
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conquer of Completion
-Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'} " Metals
-
-call plug#end()
 
 " Color scheme settings (this lines needs to come before the colorscheme spacegray line)
 " Don't allow the color scheme to change background
