@@ -7,11 +7,11 @@ endif
 
 " Install plugins:
 call plug#begin('~/.local/share/nvim/plugged')
-source plugins.vim
+source ~/.config/nvim/plugins.vim
 call plug#end()
 
 " Configure plugins:
-source plugins-init.vim
+source ~/.config/nvim/plugins-init.vim
 
 " Configure vim:
 set number relativenumber " Enable line numbers relative to current one while replacing 0 with current number.
