@@ -111,8 +111,10 @@ autoload -U compinit
 fpath=($HOME/.bloop/zsh $fpath)
 compinit
 
-unfunction _scalafix
-autoload -U _scalafix
+if [ $(command -v direnv) ]; then
+  unfunction _scalafix
+  autoload -U _scalafix
+fi
 
 zstyle ':completion:*' ignored-patterns 'blockdev'
 
