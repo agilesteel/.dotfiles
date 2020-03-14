@@ -39,3 +39,15 @@ au ColorScheme * hi Normal ctermbg=None
 
 " Select colorscheme
 colorscheme spacegray
+
+" Change the ESC key to jk
+inoremap jk <ESC>
+
+" Map leader to space instead of ESC
+let mapleader = " "
+
+" Basics
+filetype plugin indent on
+syntax on
+set encoding=utf-8
+" set clipboard=unnamedplus
