@@ -49,3 +49,8 @@ Thumbs.db
 .metals/
 *.worksheet.sc
 metals.sbt
+
+# VS Code #
+###########
+*.http
+*.rest
