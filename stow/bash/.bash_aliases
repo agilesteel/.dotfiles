@@ -26,5 +26,6 @@ alias new-install-repo='sbtnoss new git@github.com:agilesteel/install-seed.g8.gi
 alias new-sbt-project='sbt new devinsideyou/scala-seed.g8'
 alias sbtd='sbt -jvm-debug 5005'
 alias sbtnoss='sbt --supershell=false'
+alias update='sudo apt update && sudo apt -y upgrade && sudo apt -y dist-upgrade && sudo apt -y autoremove'
 alias vimc='vim ~/.config/nvim/init.vim'
 alias vimp='vim ~/.config/nvim/plugins.vim'
