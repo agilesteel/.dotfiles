@@ -1,5 +1,5 @@
 Plug 'airblade/vim-gitgutter'
-Plug 'ajh17/Spacegray.vim' " Color scheme
+Plug 'agilesteel/Spacegray.vim' " Color scheme
 Plug 'derekwyatt/vim-scala' " Scala
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
