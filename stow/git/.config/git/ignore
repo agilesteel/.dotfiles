@@ -43,9 +43,13 @@ Thumbs.db
 .local.application.conf
 
 # Scala #
-###############
+#########
 .bloop/
 .idea/
 .metals/
 *.worksheet.sc
 metals.sbt
+
+# VS Code #
+###########
+.vscode/settings.json
