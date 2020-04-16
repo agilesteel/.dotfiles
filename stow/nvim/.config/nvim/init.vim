@@ -1,4 +1,4 @@
-" Install the vim-plug plugin manager.
+" install the vim-plug plugin manager.
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -24,6 +24,9 @@ set mouse=a " Enable mouse support
  noremap <silent> <C-S>      :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
+
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " Remove trailing whitespaces on save.
 autocmd BufWritePre * %s/\s\+$//e
