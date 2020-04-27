@@ -19,6 +19,7 @@ set shiftwidth=2 tabstop=2 expandtab " Use 2 spaces instead of tabs.
 set spelllang=en " Set spell check language to English.
 set spellfile=~/.config/nvim/en.utf-8.add " Add custom English dictionary.
 set mouse=a " Enable mouse support
+set autoread
 
 " Bind Ctrl+S to save the file in any more.
  noremap <silent> <C-S>      :update<CR>
