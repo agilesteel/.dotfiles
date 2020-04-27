@@ -44,8 +44,9 @@ au ColorScheme * hi Normal ctermbg=None
 " Select colorscheme
 colorscheme spacegray
 
-" Change the ESC key to jk
+" Change the ESC key to jk or kj
 inoremap jk <ESC>
+inoremap kj <ESC>
 
 " Map leader to space instead of ESC
 let mapleader = " "
