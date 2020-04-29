@@ -1,5 +1,5 @@
 " Configure vim:
-set number relativenumber " Enable line numbers relative to current one while replacing 0 with current number.
+set number " Enable line numbers.
 set shiftwidth=2 tabstop=2 expandtab " Use 2 spaces instead of tabs.
 set spelllang=en " Set spell check language to English.
 set spellfile=~/.config/nvim/en.utf-8.add " Add custom English dictionary.
