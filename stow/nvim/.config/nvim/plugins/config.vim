@@ -7,7 +7,7 @@ endif
 
 " Install plugins:
 call plug#begin('~/.local/share/nvim/plugged')
-source ~/.config/nvim/plugins/list.vim
+source ~/.config/nvim/plugins/all.vim
 call plug#end()
 
 source ~/.config/nvim/plugins/settings.vim
