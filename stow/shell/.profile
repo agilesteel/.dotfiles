@@ -39,6 +39,7 @@ if [ -d "$HOME/.bloop" ] ; then
 fi
 
 export GRAALVM_HOME=/usr/lib/jvm/graalvm/bin
+export JAVA_HOME=/usr/lib/jvm/graalvm
 
 # set PATH so it includes GRAALVM_HOME if it exists
 if [ -d "$GRAALVM_HOME" ] ; then
