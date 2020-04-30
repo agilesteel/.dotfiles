@@ -12,3 +12,8 @@ inoremap kj <ESC>
 
 " Map leader to space instead of ESC
 let mapleader = " "
+
+" fzf
+map <C-P> :Files<CR>
+map <C-[> :Buffers<CR>
+map <C-W> :bd<CR>
