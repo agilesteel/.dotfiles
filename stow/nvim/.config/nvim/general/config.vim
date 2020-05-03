@@ -12,10 +12,6 @@ autocmd BufWritePre * %s/\s\+$//e
 " Configuration for vim-scala
 au BufRead,BufNewFile *.sbt set filetype=scala
 
-" Color scheme settings (this lines needs to come before the colorscheme spacegray line)
-" Don't allow the color scheme to change background
-au ColorScheme * hi Normal ctermbg=None
-
 " set termguicolors " this line overrides the previous line for some reason
 
 " Select colorscheme
