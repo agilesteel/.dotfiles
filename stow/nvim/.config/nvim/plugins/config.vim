@@ -15,3 +15,4 @@ source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/nerdcommenter.vim
+source ~/.config/nvim/plugins/quick-scope.vim
