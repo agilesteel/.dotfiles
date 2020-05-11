@@ -107,16 +107,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-autoload -U compinit
-fpath=($HOME/.bloop/zsh $fpath)
-compinit
-
 if [ $(command -v direnv) ]; then
   unfunction _scalafix
   autoload -U _scalafix
 fi
-
-zstyle ':completion:*' ignored-patterns 'blockdev'
 
 # stow (th stands for target=home)
 stowth() {

@@ -10,32 +10,32 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-	# include .bashrc if it exists
-	if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-	fi
+  # include .bashrc if it exists
+  if [ -f "$HOME/.bashrc" ]; then
+  . "$HOME/.bashrc"
+  fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-	PATH="$HOME/bin:$PATH"
+  PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
-	PATH="$HOME/.local/bin:$PATH"
+  PATH="$HOME/.local/bin:$PATH"
 fi
 
 umask 022
 
 # Homebrew
 if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] ; then
-	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
-# set PATH so it includes bloop if it exists
-if [ -d "$HOME/.bloop" ] ; then
-	PATH="$HOME/.bloop:$PATH"
+# set PATH so it includes coursier bin if it exists
+if [ -d "$HOME/.local/share/coursier/bin" ] ; then
+  PATH="$PATH:$HOME/.local/share/coursier/bin"
 fi
 
 export GRAALVM_HOME=/usr/lib/jvm/graalvm/bin
@@ -43,7 +43,7 @@ export JAVA_HOME=/usr/lib/jvm/graalvm
 
 # set PATH so it includes GRAALVM_HOME if it exists
 if [ -d "$GRAALVM_HOME" ] ; then
-	PATH="$PATH:$GRAALVM_HOME"
+  PATH="$PATH:$GRAALVM_HOME"
 fi
 
 # environment variables
@@ -57,5 +57,5 @@ export JAVA_TOOL_OPTIONS="
 
 # source local settings
 if [ -f "$HOME/.local/.profile" ] ; then
-	source "$HOME/.local/.profile"
+  source "$HOME/.local/.profile"
 fi
