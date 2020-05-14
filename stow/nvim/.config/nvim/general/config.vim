@@ -47,7 +47,11 @@ set spelllang=en " Set spell check language to English.
 set spellfile=~/.config/nvim/en.utf-8.add " Add custom English dictionary.
 set autoread
 
-" set termguicolors " this line overrides the previous line for some reason
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  " set termguicolors this line overrides the previous line for some reason
+endif
 
 " Select colorscheme
 colorscheme spacegray
