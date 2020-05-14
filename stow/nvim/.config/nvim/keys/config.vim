@@ -3,6 +3,7 @@
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 
+" NERDCommenter
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
@@ -10,10 +11,7 @@ vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 inoremap jk <ESC>
 inoremap kj <ESC>
 
-" Map leader to space instead of ESC
-let mapleader = " "
-
 " fzf
-map <C-P> :Files<CR>
-map <C-[> :Buffers<CR>
-map <C-W> :bd<CR>
+noremap <C-p> :Files<CR>
+noremap <C-w> :bd<CR> " close/delete buffer
+noremap <M-p> :Buffers<CR>
