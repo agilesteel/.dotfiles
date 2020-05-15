@@ -107,9 +107,21 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# bloop autocompletion
+autoload -U compinit
+fpath=($HOME/.bloop/zsh $fpath)
+compinit
+
+# scalafix autocompletion
+unfunction _scalafix
+autoload -U _scalafix
+
 if [ $(command -v direnv) ]; then
-  unfunction _scalafix
-  autoload -U _scalafix
+  eval "$(direnv hook zsh)"
+fi
+
+if [ $(command -v nvim) ]; then
+  alias vim="nvim"
 fi
 
 # stow (th stands for target=home)
@@ -146,13 +158,7 @@ up_widget() {
 zle -N up_widget
 bindkey "^\\" up_widget
 
-if [ $(command -v direnv) ]; then
-  eval "$(direnv hook zsh)"
-fi
 
-if [ $(command -v nvim) ]; then
-  alias vim="nvim"
-fi
 
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
