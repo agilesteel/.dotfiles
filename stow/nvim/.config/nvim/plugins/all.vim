@@ -1,6 +1,7 @@
 Plug 'agilesteel/Spacegray.vim' " Color scheme
 Plug 'airblade/vim-gitgutter'
 Plug 'derekwyatt/vim-scala' " Scala
+Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conquer of Completion
