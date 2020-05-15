@@ -24,9 +24,9 @@ nnoremap <silent> <S-TAB> :bprevious<CR>
 nnoremap <silent> <C-PageDown> :bprevious<CR>
 
 " Alternate way to save
- noremap <silent> <C-S>       :update<CR>
-vnoremap <silent> <C-S> <C-C> :update<CR>
-inoremap <silent> <C-S> <C-O> :update<CR>
+ noremap <silent> <C-S>      :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>gv
+inoremap <silent> <C-S> <C-O>:update<CR>
 " Alternate way to quit
 nnoremap <C-Q> :wq!<CR>
 " Use control-c instead of escape
@@ -52,6 +52,8 @@ nmap <silent> <C-_> <Plug>NERDCommenterToggle
 vmap <silent> <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " fzf
-noremap <C-p> :Files<CR>
+noremap <silent> <C-p> :Files<CR>
 noremap <silent> <C-w> :bd<CR> " close/delete buffer
-noremap <M-p> :Buffers<CR>
+noremap <silent> <M-p> :Buffers<CR>
+
+noremap <silent> <Esc> :noh<CR> " removes highlighting after escape is pressed
