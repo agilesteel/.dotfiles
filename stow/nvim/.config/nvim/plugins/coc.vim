@@ -1,3 +1,5 @@
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
