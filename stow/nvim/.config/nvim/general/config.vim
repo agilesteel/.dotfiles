@@ -31,10 +31,10 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=100                      " By default timeoutlen is 1000 ms
-set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 "set autochdir                           " Your working directory will always be the same as your working directory
 
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro " stop newline continution of comments
 autocmd BufWritePre * %s/\s\+$//e       " Remove trailing whitespaces on save.
 au! BufWritePost $MYVIMRC source %      " Auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 au BufRead,BufNewFile *.sbt set filetype=scala " Configuration for vim-scala
