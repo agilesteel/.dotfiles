@@ -52,7 +52,7 @@ nmap <silent> <C-_> <Plug>NERDCommenterToggle
 vmap <silent> <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " fzf
-noremap <silent> <C-p> :Files<CR>
+noremap <silent> <C-p> :GitFiles<CR>
 noremap <silent> <C-w> :bd<CR> " close/delete buffer
 noremap <silent> <M-p> :Buffers<CR>
 
