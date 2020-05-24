@@ -10,7 +10,6 @@
     "scala",
     "yaml"
   ],
-  "explorer.width": 30,
   "explorer.icon.enableNerdfont": false,
   "explorer.previewAction.onHover": false,
   "explorer.keyMappings": {
