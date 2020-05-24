@@ -10,7 +10,7 @@
     "scala",
     "yaml"
   ],
-  "explorer.icon.enableNerdfont": false,
+  "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
   "explorer.keyMappings": {
     "<cr>": [
