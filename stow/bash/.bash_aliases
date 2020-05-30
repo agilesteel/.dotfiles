@@ -29,6 +29,7 @@ alias new-install-repo='sbtnoss new git@github.com:agilesteel/install-seed.g8.gi
 alias new-sbt-project='sbt new devinsideyou/scala-seed.g8'
 alias sbtd='sbt -jvm-debug 5005'
 alias sbtnoss='sbt --supershell=false'
+alias scalac-phases='scalac -Xshow-phases'
 alias scalalines='find . -path "*/src*" -name "*.scala" | xargs wc -l | sort -n'
 alias update='sudo apt update && sudo apt -y upgrade && sudo apt -y dist-upgrade && sudo apt -y autoremove'
 alias updatee='update && exit'
