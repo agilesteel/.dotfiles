@@ -17,8 +17,8 @@ inoremap <c-u> <ESC>viwUi
 nnoremap <c-u> viwU<Esc>
 
 " Switching buffers
-nnoremap <silent> <C-PageUp> :bnext<CR>
-nnoremap <silent> <C-PageDown> :bprevious<CR>
+nnoremap <silent> <C-PageDown> :bnext<CR>
+nnoremap <silent> <C-PageUp> :bprevious<CR>
 
 " Alternate way to save
  noremap <silent> <C-S>      :update<CR>
