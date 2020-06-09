@@ -124,6 +124,10 @@ if [ $(command -v nvim) ]; then
   alias vim="nvim"
 fi
 
+if [ $(command -v bat) ]; then
+  alias cat="bat"
+fi
+
 # stow (th stands for target=home)
 stowth() {
   stow -vSt ~ $1
