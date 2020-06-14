@@ -54,3 +54,15 @@ noremap <silent> <C-w> :bd<CR> " close/delete buffer
 noremap <silent> <M-p> :Buffers<CR>
 
 noremap <silent> <Esc> :noh<CR> " removes highlighting after escape is pressed
+
+" soft wrap motions
+vmap <C-j> gj
+vmap <C-k> gk
+vmap <C-4> g$
+vmap <C-6> g^
+vmap <C-0> g^
+nmap <C-j> gj
+nmap <C-k> gk
+nmap <C-4> g$
+nmap <C-6> g^
+nmap <C-0> g^

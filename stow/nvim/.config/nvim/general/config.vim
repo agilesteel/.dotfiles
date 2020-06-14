@@ -4,6 +4,7 @@ let g:mapleader = "\<Space>"
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open
 " set nowrap                              " Display long lines as just one line
+set linebreak                           " Don't break words in half
 set encoding=utf-8                      " The encoding displayed
 " set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
@@ -52,6 +53,12 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#ffffff' gui=underline ctermfg=155 cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+augroup END
 
 " Select colorscheme
 colorscheme spacegray

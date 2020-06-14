@@ -23,5 +23,6 @@
   "snippets.ultisnips.directories": [
     "UltiSnips",
     "~/.config/nvim/utils/snips"
-  ]
+  ],
+  "suggest.autoTrigger": "none"
 }
