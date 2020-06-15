@@ -1,3 +1,6 @@
+" Map leader to space instead of ESC
+let g:mapleader = "\<Space>"
+
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " TextEdit might fail if hidden is not set.
