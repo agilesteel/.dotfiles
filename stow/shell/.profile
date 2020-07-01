@@ -52,8 +52,7 @@ export VISUAL=$EDITOR
 
 export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
--Duser.timezone=UTC
--XX:MaxJavaStackTraceDepth=-1"
+-Duser.timezone=UTC"
 
 # source local settings
 if [ -f "$HOME/.local/.profile" ] ; then
