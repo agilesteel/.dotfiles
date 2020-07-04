@@ -1,5 +1,6 @@
 alias aliases='cat ~/.bash_aliases; echo "───── local ─────";cat ~/.local/.bash_aliases'
 alias b='bloop'
+alias br='bloop exit && bloop about'
 alias buffer='subl $BYOBU_RUN_DIR/printscreen'
 alias c='code .'
 alias cdf='cd $(ls | fzf)'
