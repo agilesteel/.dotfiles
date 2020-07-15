@@ -113,8 +113,8 @@ fpath=($HOME/.bloop/zsh $fpath)
 compinit
 
 # scalafix autocompletion
-unfunction _scalafix
-autoload -U _scalafix
+# unfunction _scalafix
+# autoload -U _scalafix
 
 if [ $(command -v direnv) ]; then
   eval "$(direnv hook zsh)"
