@@ -120,12 +120,21 @@ if [ $(command -v direnv) ]; then
   eval "$(direnv hook zsh)"
 fi
 
+# aliases
+if [ $(command -v bat) ]; then
+  alias cat="bat"
+fi
+
+if [ $(command -v fd) ]; then
+  alias find="fd"
+fi
+
 if [ $(command -v nvim) ]; then
   alias vim="nvim"
 fi
 
-if [ $(command -v bat) ]; then
-  alias cat="bat"
+if [ $(command -v rg) ]; then
+  alias grep="rg"
 fi
 
 # stow (th stands for target=home)

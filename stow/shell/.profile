@@ -38,6 +38,16 @@ if [ -d "$HOME/.local/share/coursier/bin" ] ; then
   PATH="$PATH:$HOME/.local/share/coursier/bin"
 fi
 
+# environment variables
+export EDITOR="/usr/local/bin/nvim"
+export VISUAL=$EDITOR
+
+export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
+
 export GRAALVM_HOME=/usr/lib/jvm/graalvm/bin
 export JAVA_HOME=/usr/lib/jvm/graalvm
 
@@ -45,10 +55,6 @@ export JAVA_HOME=/usr/lib/jvm/graalvm
 if [ -d "$GRAALVM_HOME" ] ; then
   PATH="$PATH:$GRAALVM_HOME"
 fi
-
-# environment variables
-export EDITOR="/usr/local/bin/nvim"
-export VISUAL=$EDITOR
 
 export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
