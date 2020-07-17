@@ -125,16 +125,8 @@ if [ $(command -v bat) ]; then
   alias cat="bat"
 fi
 
-if [ $(command -v fd) ]; then
-  alias find="fd"
-fi
-
 if [ $(command -v nvim) ]; then
   alias vim="nvim"
-fi
-
-if [ $(command -v rg) ]; then
-  alias grep="rg"
 fi
 
 # stow (th stands for target=home)
@@ -170,8 +162,6 @@ up_widget() {
 
 zle -N up_widget
 bindkey "^\\" up_widget
-
-
 
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
