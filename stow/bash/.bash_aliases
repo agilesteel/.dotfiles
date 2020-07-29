@@ -1,5 +1,5 @@
 # alias scalalines='fd -e scala --full-path src/ | xargs wc -l | sort -n'
-alias aliases='cat ~/.bash_aliases; echo "───── local ─────";cat ~/.local/.bash_aliases'
+alias aliases='bat ~/.bash_aliases; echo "───── local ─────";bat ~/.local/.bash_aliases'
 alias b='bloop'
 alias br='bloop exit && bloop about'
 alias buffer='subl $BYOBU_RUN_DIR/printscreen'

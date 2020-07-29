@@ -121,10 +121,6 @@ if [ $(command -v direnv) ]; then
 fi
 
 # aliases
-if [ $(command -v bat) ]; then
-  alias cat="bat"
-fi
-
 if [ $(command -v nvim) ]; then
   alias vim="nvim"
 fi
