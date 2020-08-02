@@ -8,7 +8,7 @@ if [ -n "$SSH_CLIENT" ]; then
 fi
 
 PROMPT='
-%{$fg_bold[${host_color}]%}%n%{$reset_color%}%{$fg_bold[grey]%}@%{$reset_color%}%{$fg_bold[${host_color}]%}%m%{$reset_color%} %{$fg_bold[blue]%}%10c%{$reset_color%} $(git_prompt_info) $(git_remote_status)
+%{$fg_bold[${host_color}]%}%n%{$reset_color%}%{$fg_bold[grey]%}@%{$reset_color%}%{$fg_bold[${host_color}]%}${CUSTOM_WSL_MACHINE_NAME:-%m}%{$reset_color%} %{$fg_bold[blue]%}%10c%{$reset_color%} $(git_prompt_info) $(git_remote_status)
 %{$fg_bold[cyan]%}❯%{$reset_color%} '
 
 RPROMPT='${return_code}%{$reset_color%}'

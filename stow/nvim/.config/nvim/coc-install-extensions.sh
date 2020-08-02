@@ -10,4 +10,4 @@ if [ ! -f package.json ]; then
   echo '{"dependencies":{}}'> package.json
 fi
 
-npm install coc-explorer coc-html coc-css coc-json coc-yaml --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+npm install coc-explorer coc-html coc-css coc-json coc-metals coc-yaml --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
