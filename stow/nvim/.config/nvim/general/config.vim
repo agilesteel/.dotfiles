@@ -37,7 +37,7 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro " stop newline continution of comments
 autocmd BufWritePre * %s/\s\+$//e       " Remove trailing whitespaces on save.
-au! BufWritePost $MYVIMRC source %      " Auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+" au! BufWritePost $MYVIMRC source %      " Auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 au BufRead,BufNewFile *.sbt set filetype=scala " Configuration for vim-scala
 
 " You can't stop me
