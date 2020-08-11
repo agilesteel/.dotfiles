@@ -58,10 +58,6 @@ export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
 -Duser.timezone=UTC"
 
-# run agents
-eval $(gpg-agent --daemon > /dev/null 2>&1)
-# eval $(ssh-agent > /dev/null 2>&1)
-
 # source local settings
 if [ -f "$HOME/.local/.profile" ] ; then
   source "$HOME/.local/.profile"
