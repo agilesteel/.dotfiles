@@ -58,6 +58,9 @@ export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
 -Duser.timezone=UTC"
 
+keychain --nogui --quiet ~/.ssh/id_rsa
+source $HOME/.keychain/agilenomad-sh
+
 # source local settings
 if [ -f "$HOME/.local/.profile" ] ; then
   source "$HOME/.local/.profile"
