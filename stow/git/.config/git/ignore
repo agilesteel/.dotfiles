@@ -53,4 +53,4 @@ dependency-graph.svg
 
 # VS Code #
 ###########
-.vscode/settings.json
+.vscode/
