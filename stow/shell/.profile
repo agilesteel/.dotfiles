@@ -59,7 +59,7 @@ export JAVA_TOOL_OPTIONS="
 -Duser.timezone=UTC"
 
 keychain --nogui --quiet ~/.ssh/id_rsa
-source $HOME/.keychain/agilenomad-sh
+source $HOME/.keychain/$(hostname)-sh
 
 # source local settings
 if [ -f "$HOME/.local/.profile" ] ; then
