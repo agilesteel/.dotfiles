@@ -58,7 +58,7 @@ export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
 -Duser.timezone=UTC"
 
-keychain --nogui --quiet ~/.ssh/id_rsa
+keychain --nogui --quiet $HOME/.ssh/id_rsa
 source $HOME/.keychain/$(hostname)-sh
 
 # source local settings
