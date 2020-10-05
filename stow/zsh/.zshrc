@@ -169,7 +169,7 @@ function fcsi() { # fzf coursier install
 }
 
 function fcsji() { # fzf coursier java install
-  cs java --jvm $(cs java --available | fzf) --env
+  cs java --jvm $(cs java --available | fzf) --setup
 }
 
 function fcsrt() { # fzf coursier resolve tree
