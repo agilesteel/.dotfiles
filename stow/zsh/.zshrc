@@ -107,14 +107,21 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# bloop autocompletion
-autoload -U compinit
-fpath=($HOME/.bloop/zsh $fpath)
+# Setup a custom completions directory
+autoload -U compaudit compinit
+fpath=($HOME/.local/share/zsh/completions $fpath)
 compinit
 
-# scalafix autocompletion
-# unfunction _scalafix
-# autoload -U _scalafix
+# Refresh completions
+function refresh-completions() {
+  local DIR=$HOME/.local/share/zsh/completions
+
+  # bloop
+  curl https://raw.githubusercontent.com/scalacenter/bloop/master/etc/zsh-completions -o $DIR/_bloop
+
+  # gh
+  gh completion -s zsh > $DIR/_gh
+}
 
 if [ $(command -v direnv) ]; then
   eval "$(direnv hook zsh)"
