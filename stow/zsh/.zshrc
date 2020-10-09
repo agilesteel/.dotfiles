@@ -117,7 +117,7 @@ function refresh-completions() {
   local DIR=$HOME/.local/share/zsh/completions
 
   # bloop
-  curl https://raw.githubusercontent.com/scalacenter/bloop/master/etc/zsh-completions -o $DIR/_bloop
+  curl -s https://raw.githubusercontent.com/scalacenter/bloop/master/etc/zsh-completions -o $DIR/_bloop
 
   # gh
   gh completion -s zsh > $DIR/_gh
