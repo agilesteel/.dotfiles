@@ -120,6 +120,9 @@ function refresh-completions() {
   # bloop
   curl -s https://raw.githubusercontent.com/scalacenter/bloop/master/etc/zsh-completions -o $DIR/_bloop
 
+  # cs
+  cs --completions zsh > $DIR/_cs
+
   # gh
   gh completion -s zsh > $DIR/_gh
 }
