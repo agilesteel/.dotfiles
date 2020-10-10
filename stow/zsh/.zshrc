@@ -74,7 +74,7 @@ plugins=(
   git
   mosh
   timer
-  zsh-autocomplete
+  # zsh-autocomplete
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-z
