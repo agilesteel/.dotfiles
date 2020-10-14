@@ -46,13 +46,10 @@ export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 
-export GRAALVM_HOME=/usr/lib/jvm/graalvm/bin
-export JAVA_HOME=/usr/lib/jvm/graalvm
-
-# set PATH so it includes GRAALVM_HOME if it exists
-if [ -d "$GRAALVM_HOME" ] ; then
-  PATH="$PATH:$GRAALVM_HOME"
-fi
+# >>> JVM installed by coursier >>>
+export JAVA_HOME="/home/vlad/.cache/coursier/jvm/graalvm-ce-java8@20.2.0"
+export PATH="$PATH:/home/vlad/.cache/coursier/jvm/graalvm-ce-java8@20.2.0/bin"
+# <<< JVM installed by coursier <<<
 
 export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
