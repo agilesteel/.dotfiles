@@ -1,4 +1,4 @@
-#compdef cs
+#compdef coursier
 
 _coursier() {
   local -a cmds
