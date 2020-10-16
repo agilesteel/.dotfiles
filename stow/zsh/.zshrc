@@ -109,8 +109,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Setup a custom completions directory
-autoload -U compaudit compinit
 fpath=($HOME/.local/share/zsh/completions $fpath)
+
+# Load the completions function
+autoload compinit
+
+# Call the completions function
 compinit
 
 # Refresh completions
