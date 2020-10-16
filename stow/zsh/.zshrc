@@ -131,6 +131,9 @@ function refresh-completions() {
 
   # scalafix
   scalafix --zsh > $DIR/_scalafix
+
+  # scalafmt
+  curl -s https://raw.githubusercontent.com/scalameta/scalafmt/master/bin/_scalafmt -o $DIR/_scalafmt
 }
 
 if [ $(command -v direnv) ]; then
