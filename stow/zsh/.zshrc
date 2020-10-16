@@ -128,6 +128,9 @@ function refresh-completions() {
 
   # gh
   gh completion -s zsh > $DIR/_gh
+
+  # scalafix
+  scalafix --zsh > $DIR/_scalafix
 }
 
 if [ $(command -v direnv) ]; then
