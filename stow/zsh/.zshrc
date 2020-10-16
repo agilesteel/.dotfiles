@@ -112,11 +112,11 @@ source $ZSH/oh-my-zsh.sh
 # Setup a custom completions directory
 fpath=($HOME/.local/share/zsh/completions $fpath)
 
-# Load the completions function
+# Enable the completion system
 autoload compinit
 
-# Call the completions function
-compinit
+# Initialize all completions on $fpath and ignore (-i) all insecure files and directories
+compinit -i
 
 # Refresh completions
 function refresh-completions() {
