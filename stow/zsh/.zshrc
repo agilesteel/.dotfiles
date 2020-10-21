@@ -129,7 +129,7 @@ function refresh-completions() {
   cs --completions zsh > $DIR/_cs
   cs --completions zsh > $DIR/_coursier
 
-  sed -i 's/#compdef coursier/#compdef cs/' $DIR/_cs
+  sed -i 's/#compdef cs/#compdef coursier/' $DIR/_coursier
 
   # gh
   gh completion -s zsh > $DIR/_gh
