@@ -50,9 +50,10 @@ vmap <silent> <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " fzf
 noremap <silent> <C-p> :Files<CR>
-noremap <silent> <C-w> :bd<CR> " close/delete buffer
 noremap <silent> <M-p> :Buffers<CR>
 
+" misc
+noremap <silent> <C-w> :bd<CR> " close/delete buffer
 noremap <silent> <Esc> :noh<CR> " removes highlighting after escape is pressed
 
 " soft wrap motions
