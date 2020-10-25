@@ -45,10 +45,10 @@ export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
 export FZF_DEFAULT_OPTS='--color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--height 100% --preview 'bat --color=always --line-range :50 {}'"
+export FZF_CTRL_T_OPTS="--no-height --preview 'bat --color=always --line-range :50 {}'"
 
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
-export FZF_ALT_C_OPTS="--height 100% --preview 'tree -C {} | head -50'"
+export FZF_ALT_C_OPTS="--no-height --preview 'tree -C {} | head -50'"
 
 # >>> JVM installed by coursier >>>
 export JAVA_HOME="/home/vlad/.cache/coursier/jvm/graalvm-ce-java8@20.2.0"
