@@ -24,6 +24,7 @@ scalafix_opts=(
    "--diff[If\ set,\ only\ apply\ scalafix\ to\ added\ and\ edited\ files\ in\ git\ diff\ against\ the\ master\ branch.]" \
    "--diff-base[If\ set,\ only\ apply\ scalafix\ to\ added\ and\ edited\ files\ in\ git\ diff\ against\ a\ provided\ branch,\ commit\ or\ tag.]" \
    "--syntactic[Run\ only\ syntactic\ rules,\ ignore\ semantic\ rules\ even\ if\ they\ are\ explicitly\ configured\ in\ .scalafix.conf\ or\ via\ --rules]" \
+   "--triggered[Overlay\ the\ default\ rules\ \&\ rule\ settings\ in\ .scalafix.conf\ with\ the\ \`triggered\`\ section]" \
    "--verbose[Print\ out\ additional\ diagnostics\ while\ running\ scalafix.]" \
    "--help[Print\ out\ this\ help\ message\ and\ exit]" \
    "-h[Print\ out\ this\ help\ message\ and\ exit]" \
