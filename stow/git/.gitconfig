@@ -11,6 +11,7 @@
 	path = ~/.local/.gitconfig
 [merge]
 	tool = vscode
+	conflictStyle = diff3
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
 [pager]
