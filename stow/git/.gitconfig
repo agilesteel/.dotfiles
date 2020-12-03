@@ -21,3 +21,5 @@
 	name = Vladyslav Pekker
 [pull]
 	rebase = true
+[rebase]
+	autosquash = true
