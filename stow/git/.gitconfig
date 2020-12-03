@@ -19,3 +19,5 @@
 [user]
 	email = agilesteel@gmail.com
 	name = Vladyslav Pekker
+[pull]
+	rebase = true
