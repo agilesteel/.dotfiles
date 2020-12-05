@@ -25,3 +25,5 @@
 	autosquash = true
 [credential]
 	helper = cache --timeout 3600
+[rerere]
+	enabled = true
