@@ -29,3 +29,5 @@
 	enabled = true
 [core]
 	autocrlf = input
+[init]
+	defaultBranch = main
