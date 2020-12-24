@@ -12,6 +12,7 @@
 [merge]
 	tool = vscode
 	conflictStyle = diff3
+	keepBackup = false
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
 [pager]

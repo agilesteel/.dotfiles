@@ -54,3 +54,7 @@ dependency-graph.svg
 # VS Code #
 ###########
 .vscode/
+
+# Git #
+###########
+*.orig
