@@ -33,7 +33,6 @@ set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=200                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
-set guicursor=                          " Fixes cursor after exit
 "set autochdir                           " Your working directory will always be the same as your working directory
 
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro " stop newline continution of comments
