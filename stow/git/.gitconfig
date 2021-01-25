@@ -34,3 +34,5 @@
 	autocrlf = input
 [init]
 	defaultBranch = main
+[advice]
+	detachedHead = false
