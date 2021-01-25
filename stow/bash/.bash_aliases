@@ -25,6 +25,8 @@ alias vimp='vim ~/.config/nvim/plugins/all.vim'
 
 # Git and GitHub
 
+alias fgco='g checkout $(gb | fzf)'
+alias fgcor='g checkout --track $(gbr | fzf)'
 alias gapaa='gaa -N && gapa .'
 alias gca!='gaa && g commit --amend'
 alias gcaf='gaa && g commit --fixup'
@@ -32,8 +34,6 @@ alias gcam='gaa && gcmsg'
 alias gcan!='gaa && g commit --amend --no-edit'
 alias gcangpf!='gcan! && gpf!'
 alias gcas='gaa && g commit --squash'
-alias gco='g checkout $(gb | fzf)'
-alias gcor='g checkout --track $(gbr | fzf)'
 alias gfa='g fetch --all'
 alias gfap='g fetch --all --prune'
 alias ghdi='gi && gh rcd && gpsup && gh rvw'
