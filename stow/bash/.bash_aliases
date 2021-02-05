@@ -24,7 +24,6 @@ alias vimi='vim ~/.config/nvim/init.vim'
 alias vimp='vim ~/.config/nvim/plugins/all.vim'
 
 # Git and GitHub
-
 alias fgco='gco $(gb | fzf)'
 alias fgcor='gco --track $(gbr | fzf)'
 alias fgcot='gco $(g tag | fzf)'
@@ -40,8 +39,8 @@ alias ghi='gi && gh rc && gpsup && gh rvw'
 alias gi='g init && gcam "Initial commit"'
 alias gim='g init -b master && gcam "Initial commit"'
 alias gitalias='alias | grep git | fzf'
-alias glol='git log --graph --pretty='\''%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'\'''
-alias glola='git log --graph --pretty='\''%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'\'' --all'
+alias glol='g log --graph --pretty='\''%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset'\'''
+alias glola='glol --all'
 alias gpe='gp && exit'
 alias grbiom='gfa && grbi origin/$(git_main_branch)'
 alias grbom='gfa && grb origin/$(git_main_branch)'
