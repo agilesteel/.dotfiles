@@ -30,8 +30,6 @@
 	helper = cache --timeout 3600
 [rerere]
 	enabled = true
-[core]
-	autocrlf = input
 [init]
 	defaultBranch = main
 [advice]
