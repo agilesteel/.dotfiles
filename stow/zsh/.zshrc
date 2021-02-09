@@ -161,7 +161,7 @@ unstowth() {
 
 diy-install() {
   wget -q https://script.install.devinsideyou.com/$1
-  chmod +x $1 && ./$1 $2 $3
+  sudo chmod +x $1 && ./$1 $2 $3
 }
 
 github-clone() {
