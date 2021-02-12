@@ -51,8 +51,8 @@ export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
 # >>> JVM installed by coursier >>>
-export JAVA_HOME="/home/vlad/.cache/coursier/jvm/graalvm-ce-java8@21.0.0"
-export PATH="$PATH:/home/vlad/.cache/coursier/jvm/graalvm-ce-java8@21.0.0/bin"
+export JAVA_HOME="/home/vlad/.cache/coursier/jvm/graalvm-ce-java8@21.0.0.2"
+export PATH="$PATH:/home/vlad/.cache/coursier/jvm/graalvm-ce-java8@21.0.0.2/bin"
 # <<< JVM installed by coursier <<<
 
 export JAVA_TOOL_OPTIONS="
