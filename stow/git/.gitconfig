@@ -1,12 +1,7 @@
-[alias]
-	l = log --relative-date --decorate --graph --abbrev-commit
-	ll = log --relative-date --decorate --all --graph --abbrev-commit
 [diff]
 	tool = vscode
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
-[format]
-	pretty = format:%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
 [merge]
 	tool = vscode
 	conflictStyle = diff3
