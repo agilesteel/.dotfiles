@@ -57,7 +57,10 @@ export PATH="$PATH:/home/vlad/.cache/coursier/jvm/graalvm-ce-java8@21.0.0.2/bin"
 
 export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
+-Djava.net.preferIPv4Stack=true
 -Duser.timezone=UTC"
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 keychain --nogui --quiet $HOME/.ssh/id_rsa
 source $HOME/.keychain/$(hostname)-sh
