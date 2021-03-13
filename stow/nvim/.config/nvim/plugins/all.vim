@@ -6,7 +6,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conquer of Completion
 Plug 'preservim/nerdcommenter'
-Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'} " Metals
 Plug 'tpope/vim-repeat' " Repeat foreign keybindings
 Plug 'tpope/vim-surround' " Surround keybindings
 Plug 'tpope/vim-unimpaired' " Keybindings
