@@ -12,10 +12,6 @@ nnoremap <silent> <M-l> :vertical resize +2<CR>
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-" Easy CAPS
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwU<Esc>
-
 " Switching buffers
 nnoremap <silent> <C-PageDown> :bnext<CR>
 nnoremap <silent> <C-PageUp> :bprevious<CR>
