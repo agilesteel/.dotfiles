@@ -40,11 +40,6 @@ autocmd BufWritePre * %s/\s\+$//e       " Remove trailing whitespaces on save.
 " au! BufWritePost $MYVIMRC source %      " Auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 au BufRead,BufNewFile *.sbt set filetype=scala " Configuration for vim-scala
 
-augroup RestoreCursorShapeOnExit
-    autocmd!
-    autocmd VimLeave * set guicursor=a:ver1
-augroup END
-
 " You can't stop me
 " cmap w!! w !sudo tee %
 
