@@ -65,3 +65,7 @@ colorscheme spacegray
 
 " Basics
 filetype plugin indent on
+
+highlight GitGutterAdd    guifg=#95B47B ctermfg=107
+highlight GitGutterChange guifg=#B294BB ctermfg=13
+highlight GitGutterDelete guifg=#CC6666 ctermfg=9
