@@ -9,6 +9,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-repeat' " Repeat foreign keybindings
 Plug 'tpope/vim-surround' " Surround keybindings
 Plug 'tpope/vim-unimpaired' " Keybindings
+Plug 'tveskag/nvim-blame-line'
 Plug 'unblevable/quick-scope'
 Plug 'vim-airline/vim-airline' " The line at the bottom
 Plug 'vim-airline/vim-airline-themes'
