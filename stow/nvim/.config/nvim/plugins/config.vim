@@ -17,3 +17,4 @@ source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/gitgutter.vim
 source ~/.config/nvim/plugins/nerdcommenter.vim
 source ~/.config/nvim/plugins/quick-scope.vim
+source ~/.config/nvim/plugins/blame-line.vim
