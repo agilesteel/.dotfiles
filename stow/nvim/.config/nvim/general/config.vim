@@ -14,7 +14,6 @@ set iskeyword+=-                      	" treat dash separated words as a word te
 set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
-set t_Co=256                            " Support 256 colors
 set conceallevel=0                      " So that I can see `` in markdown files
 set tabstop=2                           " Insert 2 spaces for a tab
 set shiftwidth=2                        " Change the number of space characters inserted for indentation
@@ -48,24 +47,5 @@ set spelllang=en " Set spell check language to English.
 set spellfile=~/.config/nvim/en.utf-8.add " Add custom English dictionary.
 set autoread
 
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
-
-augroup qs_colors
-  autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary guifg='#ffffff' gui=underline ctermfg=155 cterm=underline
-  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
-augroup END
-
-" Select colorscheme
-colorscheme spacegray
-
 " Basics
 filetype plugin indent on
-
-highlight GitGutterAdd    guifg=#95B47B ctermfg=107
-highlight GitGutterChange guifg=#B294BB ctermfg=13
-highlight GitGutterDelete guifg=#CC6666 ctermfg=9
