@@ -44,6 +44,7 @@ vmap <silent> <C-_> <Plug>NERDCommenterToggle<CR>gv
 nnoremap <C-p> <cmd>Telescope find_files<CR>
 nnoremap <M-p> <cmd>Telescope buffers<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>vrc :lua require('settings.telescope').search_dotfiles()<CR>
 
 " misc
 noremap <silent> <C-w> :bd<CR> " close/delete buffer
