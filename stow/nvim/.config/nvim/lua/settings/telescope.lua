@@ -9,7 +9,9 @@ require('telescope').setup {
       '--with-filename',
       '--line-number',
       '--column',
-      '--smart-case'
+      '--smart-case',
+      '--ignore',
+      '--hidden',
     },
     prompt_position = "bottom",
     prompt_prefix = "> ",
