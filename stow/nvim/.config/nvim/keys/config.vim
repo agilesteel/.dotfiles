@@ -27,10 +27,6 @@ nnoremap <C-c> <Esc>
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" Better tabbing
-vnoremap < <gv
-vnoremap > >gv
-
 " Better window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -44,23 +40,11 @@ nnoremap <Leader>O O<Esc>^Da
 nmap <silent> <C-_> <Plug>NERDCommenterToggle
 vmap <silent> <C-_> <Plug>NERDCommenterToggle<CR>gv
 
-" fzf
-noremap <silent> <C-p> :Files<CR>
-noremap <silent> <M-p> :Buffers<CR>
+" Telescope
+nnoremap <C-p> <cmd>Telescope find_files<CR>
+nnoremap <M-p> <cmd>Telescope buffers<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 
 " misc
 noremap <silent> <C-w> :bd<CR> " close/delete buffer
 noremap <silent> <Esc> :noh<CR> " removes highlighting after escape is pressed
-
-" soft wrap motions
-" they colide with split moves
-" vmap <C-j> gj
-" vmap <C-k> gk
-" vmap <C-4> g$
-" vmap <C-6> g^
-" vmap <C-0> g^
-" nmap <C-j> gj
-" nmap <C-k> gk
-" nmap <C-4> g$
-" nmap <C-6> g^
-" nmap <C-0> g^
