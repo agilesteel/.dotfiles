@@ -1,4 +1,4 @@
-autocmd BufWritePost plugins.lua PackerCompile
+autocmd BufWritePost plugins.lua PackerSync
 
 " Installs the vim-plug plugin manager
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
