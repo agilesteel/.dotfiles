@@ -144,9 +144,13 @@
 " " Resume latest coc list.
 " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 "
-" " Explorer
-" nmap <C-k><C-b> :CocCommand explorer<CR>
+
 " autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 "
 " " Use <c-space> to trigger completion.
 " inoremap <silent><expr> <c-space> coc#refresh()
+
+" nnoremap <C-k><C-b> :NvimTreeToggle<CR>
+
+" " Explorer
+nmap <silent> <C-k><C-b> :CocCommand explorer<CR>
