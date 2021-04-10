@@ -12,10 +12,10 @@ autocmd ColorScheme * highlight Comment ctermbg=NONE ctermfg=167 guibg=NONE guif
 
 augroup qs_colors
   autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary guifg='#ffffff' gui=underline ctermfg=155 cterm=underline
-  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+  autocmd ColorScheme * highlight QuickScopePrimary gui=standout cterm=standout
+  autocmd ColorScheme * highlight QuickScopeSecondary gui=underline cterm=underline
 augroup END
 
-highlight GitGutterAdd    guifg=#95B47B ctermfg=107
-highlight GitGutterChange guifg=#B294BB ctermfg=13
-highlight GitGutterDelete guifg=#CC6666 ctermfg=9
+autocmd ColorScheme * highlight GitGutterAdd    ctermbg=NONE guibg=NONE
+autocmd ColorScheme * highlight GitGutterChange ctermbg=NONE guibg=NONE
+autocmd ColorScheme * highlight GitGutterDelete ctermbg=NONE guibg=NONE
