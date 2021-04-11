@@ -150,7 +150,8 @@
 " " Use <c-space> to trigger completion.
 " inoremap <silent><expr> <c-space> coc#refresh()
 
-" nnoremap <C-k><C-b> :NvimTreeToggle<CR>
+nnoremap <C-k><C-b> :NvimTreeToggle<CR>
+nnoremap <C-k><C-f> :NvimTreeFindFile<CR>
 
 " " Explorer
-nmap <silent> <C-k><C-b> :CocCommand explorer<CR>
+" nmap <silent> <C-k><C-b> :CocCommand explorer<CR>

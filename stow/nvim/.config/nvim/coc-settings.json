@@ -1,15 +1,4 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "graphql",
-    "html",
-    "javascript",
-    "json",
-    "markdown",
-    "python",
-    "scala",
-    "yaml"
-  ],
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
@@ -20,9 +9,5 @@
       "open"
     ],
     "v": "open:vsplit"
-  },
-  "snippets.ultisnips.directories": [
-    "UltiSnips",
-    "~/.config/nvim/utils/snips"
-  ]
+  }
 }

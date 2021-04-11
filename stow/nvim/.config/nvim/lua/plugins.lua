@@ -20,6 +20,7 @@ return require('packer').startup(function()
   --   cmd = "MarkdownPreview",
   -- })
   use({ "kevinhwang91/nvim-bqf" })
+  use({ "kyazdani42/nvim-tree.lua" })
   use({ "kyazdani42/nvim-web-devicons" })
   use({ "liuchengxu/vista.vim" })
   use({ "machakann/vim-sandwich" })

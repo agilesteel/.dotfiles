@@ -35,10 +35,14 @@ require("lspsaga").init_lsp_saga({
   code_action_prompt = { virtual_text = false },
 })
 
-g["mapleader"] = "<Space>"
+g["mapleader"] = " "
 g["netrw_gx"] = "<cWORD>"
 -- g["indentLine_char"] = "┊"
 -- g["indentLine_setColors"] = 0
+
+g["nvim_tree_indent_markers"] = 1
+g["nvim_tree_group_empty"] = 1
+-- g["nvim_tree_lsp_diagnostics"] = 1
 
 g["vim_markdown_conceal"] = 0
 g["vim_markdown_conceal_code_blocks"] = 0
