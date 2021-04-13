@@ -17,7 +17,7 @@ require("settings.compe").setup()
 require("settings.lsp").setup()
 
 require("settings.galaxyline").setup()
-require("nvim-autopairs").setup()
+-- require("nvim-autopairs").setup()
 
 require("nvim-treesitter.configs").setup({
   playground = { enable = true },
@@ -53,21 +53,21 @@ vim.o.path = vim.o.path .. "**"
 
 -- -- global
 -- opt("o", "termguicolors", true)
--- opt("o", "hidden", true)
+opt("o", "hidden", true)
 -- opt("o", "showtabline", 1)
 -- opt("o", "updatetime", 300)
--- opt("o", "showmatch", true)
+opt("o", "showmatch", true)
 -- opt("o", "laststatus", 2)
--- opt("o", "wildignore", ".git,*/node_modules/*,*/target/*,.metals,.bloop")
+opt("o", "wildignore", ".git,*/node_modules/*,*/target/*,.metals,.bloop")
 -- opt("o", "ignorecase", true)
--- opt("o", "smartcase", true)
+opt("o", "smartcase", true)
 -- opt("o", "clipboard", "unnamed")
--- opt("o", "completeopt", "menu,menuone,noselect")
+opt("o", "completeopt", "menu,menuone,noselect")
 
 -- -- window-scoped
 -- opt("w", "wrap", false)
 -- opt("w", "cursorline", true)
--- opt("w", "signcolumn", "yes")
+opt("w", "signcolumn", "yes")
 
 -- -- buffer-scoped
 -- opt("b", "tabstop", indent)
@@ -147,10 +147,10 @@ cmd([[augroup end]])
 ----------------------------------
 -- LSP Settings ------------------
 ----------------------------------
-fn.sign_define("LspDiagnosticsSignError", { text = "▬" })
-fn.sign_define("LspDiagnosticsSignWarning", { text = "▬" })
-fn.sign_define("LspDiagnosticsSignInformation", { text = "▬" })
-fn.sign_define("LspDiagnosticsSignHint", { text = "▬" })
+fn.sign_define("LspDiagnosticsSignError", { text = "•" })
+fn.sign_define("LspDiagnosticsSignWarning", { text = "•" })
+fn.sign_define("LspDiagnosticsSignInformation", { text = "•" })
+fn.sign_define("LspDiagnosticsSignHint", { text = "•" })
 
 vim.cmd([[hi! link LspReferenceText CursorColumn]])
 vim.cmd([[hi! link LspReferenceRead CursorColumn]])

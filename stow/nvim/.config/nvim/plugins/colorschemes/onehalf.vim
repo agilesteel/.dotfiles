@@ -12,7 +12,7 @@ autocmd ColorScheme * highlight Comment ctermbg=NONE ctermfg=167 guibg=NONE guif
 
 augroup qs_colors
   autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary gui=standout cterm=standout
+  autocmd ColorScheme * highlight QuickScopePrimary gui=underline cterm=underline
   autocmd ColorScheme * highlight QuickScopeSecondary gui=underline cterm=underline
 augroup END
 
