@@ -1,5 +1,5 @@
 # alias scalalines='fd -e scala --full-path src/ | xargs wc -l | sort -n'
-alias aliases='bat ~/.bash_aliases && echo "───── local ─────" && bat ~/.local/.bash_aliases 2>/dev/null'
+alias aliases='bat ~/.bash_aliases --pager never && bat ~/.local/.bash_aliases --pager never 2>/dev/null'
 
 alias b='bloop'
 alias br='bloop exit && bloop about'
