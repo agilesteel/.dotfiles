@@ -58,7 +58,8 @@ export PATH="$PATH:/home/vlad/.cache/coursier/jvm/graalvm-ce-java8@21.1.0/bin"
 export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
 -Djava.net.preferIPv4Stack=true
--Duser.timezone=UTC"
+-Duser.timezone=UTC
+-Dquill.macro.log=false"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
