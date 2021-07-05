@@ -59,7 +59,8 @@ export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
 -Djava.net.preferIPv4Stack=true
 -Duser.timezone=UTC
--Dquill.macro.log=false"
+-Dquill.macro.log=false
+"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
