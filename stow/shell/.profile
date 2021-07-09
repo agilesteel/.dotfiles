@@ -64,8 +64,10 @@ export JAVA_TOOL_OPTIONS="
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-keychain --nogui --quiet $HOME/.ssh/id_rsa || true
-source $HOME/.keychain/$(hostname)-sh || true
+if [ $(command -v keychain) ]; then
+  keychain --nogui --quiet $HOME/.ssh/id_rsa
+  source $HOME/.keychain/$(hostname)-sh
+fi
 
 # source local settings
 if [ -f "$HOME/.local/.profile" ] ; then
