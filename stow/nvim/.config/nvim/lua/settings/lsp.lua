@@ -114,14 +114,6 @@ M.setup = function()
     },
   })
 
-  --lsp_config.groovyls.setup({
-  --  cmd = {
-  --    "java",
-  --    "-jar",
-  --    "/Users/ckipp/Documents/groovy-workspace/groovy-language-server/build/libs/groovy-language-server-all.jar",
-  --  },
-  --})
-
   -- Uncomment for trace logs from neovim
   --vim.lsp.set_log_level('trace')
 end
