@@ -190,15 +190,15 @@ function fcsi() { # fzf coursier install
     unzip -l "$(cs fetch "$1":latest.stable)" | grep json | sed -r 's/.*:[0-9]{2}\s*(.+)\.json$/\1/'
   }
 
-  cs install --contrib "$(cat <(csl io.get-coursier:apps) <(csl io.get-coursier:apps-contrib) | sort -r | fzf)"
+  cs install --contrib "$(cat <(csl io.get-coursier:apps) <(csl io.get-coursier:apps-contrib) | sort -r | fzf)" 2>/dev/null
 }
 
 function fcsji() { # fzf coursier java install
-  cs java --jvm $(cs java --available | fzf) --setup
+  cs java --jvm $(cs java --available | fzf) --setup 2>/dev/null
 }
 
 function fcsrt() { # fzf coursier resolve tree
-  $(cs resolve -t "$1" | fzf --reverse --ansi)
+  $(cs resolve -t "$1" | fzf --reverse --ansi) 2>/dev/null
 }
 
 # source global settings
