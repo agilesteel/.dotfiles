@@ -16,6 +16,7 @@
 	name = Vladyslav Pekker
 [pull]
 	rebase = true
+	twohead = ort
 [rebase]
 	autosquash = true
 	abbreviateCommands = true
