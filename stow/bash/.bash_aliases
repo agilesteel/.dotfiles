@@ -19,7 +19,7 @@ alias jpsk='jps | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill 2>/dev/nu
 alias ld='lazydocker'
 alias new-install-repo='g8 git@github.com:agilesteel/install-seed.g8.git'
 alias sbtd='sbt -jvm-debug 5005'
-alias sbtnoss='sbt --supershell=false'
+alias sbtnoss='sbt -Dsbt.supershell=false'
 alias scalac-phases='scalac -Xshow-phases'
 alias scalalines='find . -path "*/src*" -name "*.scala" | xargs wc -l | sort -n'
 alias update='sudo apt update && sudo apt -y full-upgrade && sudo apt -y autoremove && cs update && refresh-completions && config'
