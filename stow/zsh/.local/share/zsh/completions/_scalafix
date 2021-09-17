@@ -4,10 +4,10 @@ local context state line
 
 _rule_names () {
    _values "rules" "DisableSyntax[Reports\ an\ error\ for\ disabled\ features\ such\ as\ var\ or\ XML\ literals.]" \
-  "ExplicitResultTypes[Inserts\ type\ annotations\ for\ inferred\ public\ members.\ Only\ compatible\ with\ Scala\ 2.11.12,\ 2.12.12,\ 2.12.13,\ 2.12.14,\ 2.13.4,\ 2.13.5,\ 2.13.6.]" \
+  "ExplicitResultTypes[Inserts\ type\ annotations\ for\ inferred\ public\ members.\ Only\ compatible\ with\ Scala\ 2.11.12,\ 2.12.13,\ 2.12.14,\ 2.12.15,\ 2.13.4,\ 2.13.5,\ 2.13.6.]" \
   "NoAutoTupling[Inserts\ explicit\ tuples\ for\ adapted\ argument\ lists\ for\ compatibility\ with\ -Yno-adapted-args]" \
   "NoValInForComprehension[Removes\ deprecated\ val\ inside\ for-comprehension\ binders]" \
-  "ProcedureSyntax[Replaces\ deprecated\ procedure\ syntax\ with\ explicit\ \':\ Unit\ \=\'This\ rule\ is\ specific\ to\ scala\ 2,\ since\ procedure\ syntax\ is\ not\ supported\ in\ Scala\ 3]" \
+  "ProcedureSyntax[Replaces\ deprecated\ procedure\ syntax\ with\ explicit\ \':\ Unit\ \=\']" \
   "RemoveUnused[Removes\ unused\ imports\ and\ terms\ that\ reported\ by\ the\ compiler\ under\ -Ywarn-unused]" \
   "LeakingImplicitClassVal[Adds\ \'private\'\ to\ val\ parameters\ of\ implicit\ value\ classes]"
 }
