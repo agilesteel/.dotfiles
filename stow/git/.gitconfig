@@ -11,6 +11,10 @@
 	cmd = code --wait $MERGED
 [pager]
 	branch = false
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
 [user]
 	email = agilesteel@gmail.com
 	name = Vladyslav Pekker
@@ -30,3 +34,15 @@
 	detachedHead = false
 [include]
 	path = ~/.local/.gitconfig
+[delta]
+	syntax-theme = base16-ocean.dark
+	line-numbers = true
+	plus-style = syntax omit
+	minus-style = syntax omit
+	line-numbers-minus-style = red
+	line-numbers-plus-style = green
+	minus-emph-style = red omit
+	plus-emph-style = green omit
+	side-by-side = true
+	plus-empty-line-marker-style = omit
+	minus-empty-line-marker-style = omit
