@@ -46,3 +46,5 @@
 	side-by-side = true
 	plus-empty-line-marker-style = omit
 	minus-empty-line-marker-style = omit
+[submodule]
+	recurse = true
