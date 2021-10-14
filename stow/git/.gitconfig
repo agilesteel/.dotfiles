@@ -41,8 +41,8 @@
 	minus-style = red
 	line-numbers-minus-style = black
 	line-numbers-plus-style = black
-	minus-emph-style = syntax
-	plus-emph-style = syntax
+	minus-emph-style = red
+	plus-emph-style = green
 	side-by-side = false
 	plus-empty-line-marker-style = omit
 	minus-empty-line-marker-style = omit
