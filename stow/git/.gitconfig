@@ -37,14 +37,17 @@
 [delta]
 	syntax-theme = base16-ocean.dark
 	line-numbers = true
-	plus-style = syntax omit
-	minus-style = syntax omit
-	line-numbers-minus-style = red
-	line-numbers-plus-style = green
-	minus-emph-style = red omit
-	plus-emph-style = green omit
-	side-by-side = true
+	plus-style = green
+	minus-style = red
+	line-numbers-minus-style = black
+	line-numbers-plus-style = black
+	minus-emph-style = syntax
+	plus-emph-style = syntax
+	side-by-side = false
 	plus-empty-line-marker-style = omit
 	minus-empty-line-marker-style = omit
+	zero-style = black
+	line-numbers-right-style = black
+	line-numbers-left-style = black
 [submodule]
 	recurse = true

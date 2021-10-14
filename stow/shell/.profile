@@ -60,7 +60,6 @@ export JAVA_TOOL_OPTIONS="
 -Djava.net.preferIPv4Stack=true
 -Duser.timezone=UTC
 -Dquill.macro.log=false
--XX:+UseShenandoahGC
 "
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
