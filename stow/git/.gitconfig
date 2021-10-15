@@ -35,19 +35,21 @@
 [include]
 	path = ~/.local/.gitconfig
 [delta]
-	syntax-theme = base16-ocean.dark
 	line-numbers = true
-	plus-style = green
-	minus-style = red
+	line-numbers-left-style = black
 	line-numbers-minus-style = black
 	line-numbers-plus-style = black
-	minus-emph-style = red
-	plus-emph-style = green
-	side-by-side = false
-	plus-empty-line-marker-style = omit
-	minus-empty-line-marker-style = omit
-	zero-style = black
 	line-numbers-right-style = black
-	line-numbers-left-style = black
+	minus-emph-style = red
+	minus-empty-line-marker-style = omit
+	minus-style = red
+	navigate = false
+	plus-emph-style = green
+	plus-empty-line-marker-style = omit
+	plus-style = green
+	side-by-side = false
+	syntax-theme = base16-ocean.dark
+	true-color = true
+	zero-style = black
 [submodule]
 	recurse = true
