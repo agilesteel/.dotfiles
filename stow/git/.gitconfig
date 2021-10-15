@@ -35,11 +35,18 @@
 [include]
 	path = ~/.local/.gitconfig
 [delta]
+	file-decoration-style = black ul
+	file-style = black
+	hunk-header-decoration-style = black box
+	hunk-header-line-number-style = black
 	line-numbers = true
+	line-numbers-left-format = {nm:>3}│
 	line-numbers-left-style = black
 	line-numbers-minus-style = black
 	line-numbers-plus-style = black
+	line-numbers-right-format = {np:>3}│
 	line-numbers-right-style = black
+	line-numbers-zero-style = black
 	minus-emph-style = red
 	minus-empty-line-marker-style = omit
 	minus-style = red
