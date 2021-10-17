@@ -47,11 +47,11 @@
 	line-numbers-right-format = {np:>3}│
 	line-numbers-right-style = black
 	line-numbers-zero-style = black
-	minus-emph-style = red
+	minus-emph-style = red bold
 	minus-empty-line-marker-style = omit
 	minus-style = red
 	navigate = false
-	plus-emph-style = green
+	plus-emph-style = green bold
 	plus-empty-line-marker-style = omit
 	plus-style = green
 	side-by-side = false
