@@ -1,4 +1,3 @@
-# alias scalalines='fd -e scala --full-path src/ | xargs wc -l | sort -n'
 alias aliases='bat ~/.bash_aliases --pager never && bat ~/.local/.bash_aliases --pager never 2>/dev/null'
 
 alias b='bloop'
@@ -12,7 +11,6 @@ alias dg-with-tests='bloop projects --dot-graph | dot -Tsvg -o dependency-graph.
 alias dg='bloop projects --dot-graph | sed "/-test/d" | dot -Tsvg -o dependency-graph.svg'
 alias di='touch .envrc .env && direnv allow'
 alias ipp='curl ifconfig.me && echo'
-# alias jps='jps -lvm'
 alias jps='jps -lm'
 alias jpsk9='jps | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill -9 2>/dev/null'
 alias jpsk='jps | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill 2>/dev/null'
