@@ -56,7 +56,7 @@
 	plus-style = green
 	side-by-side = false
 	syntax-theme = base16-ocean.dark
-	true-color = true
+	true-color = auto
 	zero-style = black
 [submodule]
 	recurse = true
