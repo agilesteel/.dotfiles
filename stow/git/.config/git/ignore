@@ -44,11 +44,17 @@ Thumbs.db
 
 # Scala #
 #########
+.ammonite/
 .bloop/
+.bsp/
+.dotty-ide*
 .idea/
 .metals/
+.scala/
+.vscode/
 *.worksheet.sc
 metals.sbt
+target/
 dependency-graph.svg
 
 # VS Code #
