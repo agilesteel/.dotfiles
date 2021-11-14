@@ -218,3 +218,8 @@ fi
 if [ -f "$HOME/.local/.bash_aliases" ] ; then
   source "$HOME/.local/.bash_aliases"
 fi
+
+# >>> scala-cli completions >>>
+fpath=("/home/vlad/.local/share/scalacli/completions/zsh" $fpath)
+compinit
+# <<< scala-cli completions <<<
