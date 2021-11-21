@@ -11,6 +11,7 @@ alias dg-with-tests='bloop projects --dot-graph | dot -Tsvg -o dependency-graph.
 alias dg='bloop projects --dot-graph | sed "/-test/d" | dot -Tsvg -o dependency-graph.svg'
 alias di='touch .envrc .env && direnv allow'
 alias ipp='curl ifconfig.me && echo'
+alias java-switch='cs java --jvm $(cs java --available | fzf) --env 2>/dev/null > .envrc && di'
 alias jps='jps -lm'
 alias jpsk9='jps | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill -9 2>/dev/null'
 alias jpsk='jps | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill 2>/dev/null'
