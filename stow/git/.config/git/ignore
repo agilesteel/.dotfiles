@@ -47,6 +47,7 @@ Thumbs.db
 .ammonite/
 .bloop/
 .bsp/
+.coursier/
 .dotty-ide*
 .idea/
 .metals/
