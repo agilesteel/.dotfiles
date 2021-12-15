@@ -156,7 +156,7 @@ stowth() {
 }
 
 unstow() {
-  stow -vD $1
+  stow -vDt ~ $1
 }
 
 diy-install() {
