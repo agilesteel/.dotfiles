@@ -75,3 +75,5 @@ if [ -f "$HOME/.local/.profile" ] ; then
 fi
 
 export PATH="$PATH:/home/vlad/.cache/scalacli/local-repo/bin/scala-cli"
+
+if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

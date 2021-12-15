@@ -155,8 +155,8 @@ stowth() {
   stow -vSt ~ $1
 }
 
-unstowth() {
-  stow -vDt ~ $1
+unstow() {
+  stow -vD $1
 }
 
 diy-install() {
@@ -223,3 +223,33 @@ fi
 fpath=("/home/vlad/.local/share/scalacli/completions/zsh" $fpath)
 compinit
 # <<< scala-cli completions <<<
+
+if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+nixify() {
+  if [ ! -e ./.envrc ]; then
+    echo "use nix" > .envrc
+    direnv allow
+  fi
+  if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
+    cat > default.nix <<'EOF'
+with import <nixpkgs> {};
+mkShell {
+  nativeBuildInputs = [
+    bashInteractive
+  ];
+}
+EOF
+    ${EDITOR:-vim} default.nix
+  fi
+}
+
+flakify() {
+  if [ ! -e flake.nix ]; then
+    nix flake new -t github:nix-community/nix-direnv .
+  elif [ ! -e .envrc ]; then
+    echo "use flake" > .envrc
+    direnv allow
+  fi
+  ${EDITOR:-vim} flake.nix
+}
