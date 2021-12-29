@@ -13,9 +13,9 @@ aliases:
     prc: pr checkout
     prv: pr view
     prvw: pr view --web
-    rc: '!gh repo create $(basename $(pwd)) --public -y'
-    rcp: '!gh repo create $(basename $(pwd)) --private -y'
-    rcd: '!gh repo create devinsideyou/$(basename $(pwd)) --public -y'
-    rcdp: '!gh repo create devinsideyou/$(basename $(pwd)) --private -y'
+    rc: '!gh repo create $(basename $(pwd)) --public && git remote add origin git@github.com:agilesteel/$(basename $(pwd)).git'
+    rcp: '!gh repo create $(basename $(pwd)) --private && git remote add origin git@github.com:agilesteel/$(basename $(pwd)).git'
+    rcd: '!gh repo create devinsideyou/$(basename $(pwd)) --public && git remote add origin git@github.com:DevInsideYou/$(basename $(pwd)).git'
+    rcdp: '!gh repo create devinsideyou/$(basename $(pwd)) --private && git remote add origin git@github.com:DevInsideYou/$(basename $(pwd)).git'
     rv: repo view
     rvw: repo view --web
