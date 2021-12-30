@@ -10,7 +10,6 @@ end
 
 return require('packer').startup(function()
   use({ "michaeljsmith/vim-indent-object" })
-
   use({ "glepnir/galaxyline.nvim" })
   use({ "glepnir/lspsaga.nvim" })
   -- use({ "joshdick/onedark.vim" })
@@ -52,7 +51,7 @@ return require('packer').startup(function()
   use({ 'airblade/vim-gitgutter' })
   use({ 'editorconfig/editorconfig-vim' })
   use({ 'preservim/nerdcommenter' })
-  -- use({ 'sonph/onehalf', { 'rtp': 'vim' } })
+  -- use({ 'sonph/onehalf', rtp = { { "vim" } } })
   use({ 'tpope/vim-repeat' })
   use({ 'tpope/vim-surround' })
   use({ 'tpope/vim-unimpaired' })

@@ -1,4 +1,4 @@
-set t_Co=256                            " Support 256 colors
+set t_Co=256 " Support 256 colors
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
