@@ -68,3 +68,6 @@ alias gwipgpe='gwip && gpe'
 alias gwipp='gcmsg "--wip-- [skip ci]" --no-verify --no-gpg-sign'
 alias hk='gcam housekeeping && gpe'
 alias lg='lazygit'
+
+# Nix
+alias nix-shell-q='echo -e ${buildInputs// /\\n} | cut -d - -f 2,3 | sort' # like nix-env -q
