@@ -201,24 +201,6 @@ function fcsrt() { # fzf coursier resolve tree
   $(cs resolve -t "$1" | fzf --reverse --ansi) 2>/dev/null
 }
 
-# source global settings
-if [ -f "$HOME/.bash_aliases" ] ; then
-  source "$HOME/.bash_aliases"
-fi
-
-if [ -f "$HOME/.fzf.zsh" ] ; then
-  source "$HOME/.fzf.zsh"
-fi
-
-# source local settings
-if [ -f "$HOME/.local/.zshrc" ] ; then
-  source "$HOME/.local/.zshrc"
-fi
-
-if [ -f "$HOME/.local/.bash_aliases" ] ; then
-  source "$HOME/.local/.bash_aliases"
-fi
-
 # >>> scala-cli completions >>>
 fpath=("/home/vlad/.local/share/scalacli/completions/zsh" $fpath)
 compinit
@@ -253,3 +235,27 @@ flakify() {
   fi
   ${EDITOR:-vim} flake.nix
 }
+
+# source global settings
+if [ -f "$HOME/.bash_aliases" ] ; then
+  source "$HOME/.bash_aliases"
+fi
+
+if [ -f "$HOME/.fzf.zsh" ] ; then
+  source "$HOME/.fzf.zsh"
+fi
+
+# source nix rc
+if [ -f "$HOME/.znixrc" ] ; then
+  source "$HOME/.znixrc"
+fi
+
+# source local settings
+if [ -f "$HOME/.local/.zshrc" ] ; then
+  source "$HOME/.local/.zshrc"
+fi
+
+if [ -f "$HOME/.local/.bash_aliases" ] ; then
+  source "$HOME/.local/.bash_aliases"
+fi
+
