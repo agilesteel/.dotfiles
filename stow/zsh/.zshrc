@@ -246,8 +246,8 @@ if [ -f "$HOME/.fzf.zsh" ] ; then
 fi
 
 # source nix rc
-if [ -f "$HOME/.znixrc" ] ; then
-  source "$HOME/.znixrc"
+if [ -f "$HOME/.znixrc.sh" ] ; then
+  source "$HOME/.znixrc.sh"
 fi
 
 # source local settings
