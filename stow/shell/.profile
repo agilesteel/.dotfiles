@@ -37,7 +37,7 @@ if [ -d "$HOME/.local/share/coursier/bin" ] ; then
 fi
 
 # environment variables
-export EDITOR="/usr/local/bin/nvim"
+export EDITOR="nvim"
 export VISUAL=$EDITOR
 
 # fzf
