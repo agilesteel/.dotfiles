@@ -145,6 +145,11 @@ if [ $(command -v direnv) ]; then
   eval "$(direnv hook zsh)"
 fi
 
+# starship
+if [ $(command -v starship) ]; then
+  eval "$(starship init zsh)"
+fi
+
 # aliases
 if [ $(command -v nvim) ]; then
   alias vim="nvim"
@@ -207,34 +212,6 @@ compinit
 # <<< scala-cli completions <<<
 
 if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-nixify() {
-  if [ ! -e ./.envrc ]; then
-    echo "use nix" > .envrc
-    direnv allow
-  fi
-  if [[ ! -e shell.nix ]] && [[ ! -e default.nix ]]; then
-    cat > default.nix <<'EOF'
-with import <nixpkgs> {};
-mkShell {
-  nativeBuildInputs = [
-    bashInteractive
-  ];
-}
-EOF
-    ${EDITOR:-vim} default.nix
-  fi
-}
-
-flakify() {
-  if [ ! -e flake.nix ]; then
-    nix flake new -t github:nix-community/nix-direnv .
-  elif [ ! -e .envrc ]; then
-    echo "use flake" > .envrc
-    direnv allow
-  fi
-  ${EDITOR:-vim} flake.nix
-}
 
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
