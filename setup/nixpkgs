@@ -2,6 +2,7 @@ bat
 byobu
 delta
 direnv
+duf
 fd
 fzf
 git
