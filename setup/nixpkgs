@@ -13,5 +13,6 @@ neofetch
 neovim
 ripgrep
 ripgrep-all
-startship
+starship
+tig
 zsh
