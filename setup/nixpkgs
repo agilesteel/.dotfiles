@@ -1,5 +1,6 @@
 bat
 byobu
+cmatrix
 delta
 direnv
 duf
@@ -13,6 +14,7 @@ neofetch
 neovim
 ripgrep
 ripgrep-all
+sl
 stow
 tig
 zsh
