@@ -53,3 +53,11 @@ nnoremap <leader>vrc :lua require('settings.telescope').search_dotfiles()<CR>
 " misc
 noremap <silent> <C-w> :bd<CR> " close/delete buffer
 noremap <silent> <Esc> :noh<CR> " removes highlighting after escape is pressed
+
+" macros
+if exists('g:vscode')
+    nnoremap z= <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
+    call setreg('p', "f.s\<CR>package \<Esc><Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>", 'linewise')
+else
+    call setreg('p', "f.s\<CR>package \<Esc>", 'linewise')
+endif
