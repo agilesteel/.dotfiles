@@ -44,6 +44,7 @@ Thumbs.db
 
 # Scala #
 #########
+*.worksheet.sc
 .ammonite/
 .bloop/
 .bsp/
@@ -51,11 +52,12 @@ Thumbs.db
 .dotty-ide*
 .idea/
 .metals/
+.scala-build/
 .scala/
 .vscode/
-*.worksheet.sc
 metals.sbt
 target/
+
 dependency-graph.svg
 
 # VS Code #
