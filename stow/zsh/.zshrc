@@ -135,7 +135,7 @@ function refresh-completions() {
   gh completion -s zsh > $DIR/_gh
 
   # scalafix
-  scalafix --zsh > $DIR/_scalafix
+  # scalafix --zsh > $DIR/_scalafix
 
   # scalafmt
   curl -s https://raw.githubusercontent.com/scalameta/scalafmt/master/bin/_scalafmt -o $DIR/_scalafmt
