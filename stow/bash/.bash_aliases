@@ -16,6 +16,7 @@ alias java-switch='cs java --jvm $(cs java --available | fzf) --env 2>/dev/null 
 alias jps='jps -lm'
 alias jpsk9='jps | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill -9 2>/dev/null'
 alias jpsk='jps | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill 2>/dev/null'
+alias k='kubectl'
 alias ld='lazydocker'
 alias new-install-repo='g8 git@github.com:agilesteel/install-seed.g8.git'
 alias sbtd='sbt -jvm-debug 5005'
