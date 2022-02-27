@@ -64,9 +64,11 @@ export JAVA_TOOL_OPTIONS="
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
+if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
 if [ $(command -v keychain) ]; then
-  keychain --nogui --quiet $HOME/.ssh/id_rsa
-  source $HOME/.keychain/$(hostname)-sh
+  keychain --quiet id_rsa
+  source ~/.keychain/*-sh
 fi
 
 # source local settings
@@ -74,6 +76,3 @@ if [ -f "$HOME/.local/.profile" ] ; then
   source "$HOME/.local/.profile"
 fi
 
-export PATH="$PATH:/home/vlad/.cache/scalacli/local-repo/bin/scala-cli"
-
-if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
