@@ -11,6 +11,7 @@ alias dg='bloop projects --dot-graph | sed "/-test/d" | dot -Tsvg -o dependency-
 alias di='echo dotenv >> .envrc && touch .env && direnv allow'
 alias din='echo "use nix" > .envrc && echo "watch_file nix/*" >> .envrc && di'
 alias dots='cd ~/.dotfiles'
+alias dr='direnv reload'
 alias ipp='curl ifconfig.me && echo'
 alias java-switch='cs java --jvm $(cs java --available | fzf) --env 2>/dev/null > .envrc && di'
 alias jps='jps -lm'
