@@ -1,5 +1,9 @@
 #!/bin/bash
 
+nixpkgs=()
+
 while read package; do
-  nix-env -iA nixpkgs.$package
+  nixpkgs+=(nixpkgs.$package)
 done < ~/.dotfiles/setup/nixpkgs
+
+nix-env -iA "${nixpkgs[@]}"
