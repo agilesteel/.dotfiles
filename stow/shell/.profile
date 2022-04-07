@@ -36,10 +36,6 @@ if [ -d "$HOME/.local/share/coursier/bin" ] ; then
   PATH="$PATH:$HOME/.local/share/coursier/bin"
 fi
 
-# environment variables
-export EDITOR="nvim"
-export VISUAL=$EDITOR
-
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
 export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'

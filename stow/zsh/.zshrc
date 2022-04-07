@@ -151,16 +151,19 @@ if [ $(command -v starship) ]; then
 fi
 
 # aliases
+alias v="vim"
+
 if [ $(command -v nvim) ]; then
-  alias vim="nvim"
+  export EDITOR=$(which nvim)
+  alias vim=$EDITOR
+  alias v=$EDITOR
 fi
+
+export SUDO_EDITOR=$EDITOR
+export VISUAL=$EDITOR
 
 # stow (th stands for target=home)
 stowth() {
-  stow -vSt ~ $1
-}
-
-unstowth() {
   stow -vDt ~ $1
 }
 
