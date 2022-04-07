@@ -66,7 +66,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-if [ $(command -v keychain) ]; then
+if [[ $(command -v keychain) && -e ~/.ssh/id_rsa ]]; then
   keychain --quiet id_rsa
   source ~/.keychain/*-sh
 fi
