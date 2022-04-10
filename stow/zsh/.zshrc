@@ -214,8 +214,6 @@ fpath=("/home/vlad/.local/share/scalacli/completions/zsh" $fpath)
 compinit
 # <<< scala-cli completions <<<
 
-if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
