@@ -14,6 +14,7 @@ less
 mosh
 neofetch
 neovim
+nix-direnv
 ripgrep
 ripgrep-all
 sl
