@@ -164,6 +164,10 @@ export VISUAL=$EDITOR
 
 # stow (th stands for target=home)
 stowth() {
+  stow -vSt ~ $1
+}
+
+unstowth() {
   stow -vDt ~ $1
 }
 
