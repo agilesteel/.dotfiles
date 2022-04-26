@@ -67,6 +67,10 @@ if [[ $(command -v keychain) && -e ~/.ssh/id_rsa ]]; then
   source ~/.keychain/*-sh
 fi
 
+# Let's wait a bit
+# export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}"
+# export PATH="$PATH:$JAVA_HOME/bin"
+
 # source local settings
 if [ -f "$HOME/.local/.profile" ] ; then
   source "$HOME/.local/.profile"
