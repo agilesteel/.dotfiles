@@ -1,5 +1,6 @@
 alias aliases='bat ~/.bash_aliases --pager never && bat ~/.local/.bash_aliases --pager never 2>/dev/null'
 
+alias asl='aws sso login'
 alias b='bloop'
 alias br='bloop exit && bloop about'
 alias buffer='subl $BYOBU_RUN_DIR/printscreen'
