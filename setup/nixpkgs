@@ -1,3 +1,4 @@
+asciiquarium
 awscli2
 bat
 cmatrix
@@ -5,6 +6,7 @@ delta
 direnv
 duf
 fd
+figlet
 fx
 fzf
 gh
@@ -14,6 +16,7 @@ graphviz
 ipfetch
 keychain
 less
+lolcat
 mosh
 neofetch
 neovim
