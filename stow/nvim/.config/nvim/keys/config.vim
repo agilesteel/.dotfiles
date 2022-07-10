@@ -47,12 +47,12 @@ vmap <silent> <C-_> <Plug>NERDCommenterToggle<CR>gv
 " Telescope
 nnoremap <C-p> <cmd>Telescope find_files<CR>
 nnoremap <M-p> <cmd>Telescope buffers<CR>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>vrc :lua require('settings.telescope').search_dotfiles()<CR>
 
 " misc
-noremap <silent> <C-w> :bd<CR> " close/delete buffer
-noremap <silent> <Esc> :noh<CR> " removes highlighting after escape is pressed
+nnoremap <silent> <C-w> :bd<CR>
+nnoremap <silent> <Esc> :noh<CR>
 
 " macros
 if exists('g:vscode')
