@@ -26,15 +26,25 @@ if [ -d "$HOME/.local/bin" ] ; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Homebrew
-if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] ; then
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-fi
-
 # set PATH so it includes coursier bin if it exists
 if [ -d "$HOME/.local/share/coursier/bin" ] ; then
   PATH="$PATH:$HOME/.local/share/coursier/bin"
 fi
+
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+  . /home/vlad/.nix-profile/etc/profile.d/nix.sh;
+fi # added by Nix installer
+
+if [ -e $HOME/.nix-profile/bin/java ]; then
+  export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}"
+fi
+
+export JAVA_TOOL_OPTIONS="
+-Dconfig.override_with_env_vars=true
+-Djava.net.preferIPv4Stack=true
+-Duser.timezone=UTC
+-Dquill.macro.log=false
+"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
@@ -46,30 +56,13 @@ export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
-# >>> JVM installed by coursier >>>
-export JAVA_HOME="/home/vlad/.cache/coursier/jvm/graalvm-ce-java17@22.1.0"
-export PATH="$PATH:/home/vlad/.cache/coursier/jvm/graalvm-ce-java17@22.1.0/bin"
-# <<< JVM installed by coursier <<<
-
-export JAVA_TOOL_OPTIONS="
--Dconfig.override_with_env_vars=true
--Djava.net.preferIPv4Stack=true
--Duser.timezone=UTC
--Dquill.macro.log=false
-"
-
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 if [[ $(command -v keychain) && -e ~/.ssh/id_rsa ]]; then
   keychain --quiet id_rsa
   source ~/.keychain/*-sh
 fi
-
-# Let's wait a bit
-# export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}"
-# export PATH="$PATH:$JAVA_HOME/bin"
 
 # source local settings
 if [ -f "$HOME/.local/.profile" ] ; then
