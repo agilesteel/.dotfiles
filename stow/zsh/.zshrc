@@ -120,14 +120,14 @@ compinit -i
 
 # ──────────────────────────────────────────────────
 
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+  . $HOME/.nix-profile/etc/profile.d/nix.sh;
+fi # added by Nix installer
+
 # set PATH so it includes coursier bin if it exists
 if [ -d "$HOME/.local/share/coursier/bin" ] ; then
   PATH="$PATH:$HOME/.local/share/coursier/bin"
 fi
-
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-  . $HOME/.nix-profile/etc/profile.d/nix.sh;
-fi # added by Nix installer
 
 if [ -e $HOME/.nix-profile/bin/java ]; then
   export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}"
@@ -150,11 +150,11 @@ export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
+# MANPAGER
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-if [[ $(command -v keychain) && -e "$HOME/.ssh/id_rsa" ]]; then
-  keychain --quiet id_rsa
-  source $HOME/.keychain/*-sh
+if [ $(command -v keychain) ]; then
+  eval `keychain --eval --quiet --ignore-missing id_rsa`
 fi
 
 # Refresh completions
