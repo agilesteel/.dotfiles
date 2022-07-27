@@ -16,7 +16,9 @@ git
 glow
 graphviz
 ipfetch
+k9s
 keychain
+kubectl
 less
 lolcat
 mosh
