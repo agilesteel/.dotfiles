@@ -8,7 +8,7 @@ export ZSH="/home/vlad/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="intheloop"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,7 +74,7 @@ plugins=(
   extract
   git
   mosh
-  timer
+  # timer
   # zsh-autocomplete
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -266,6 +266,14 @@ if [ -f "$HOME/.fzf.zsh" ] ; then
   source "$HOME/.fzf.zsh"
 fi
 
+if [ $(command -v fzf-share) ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # source nix rc
 if [ -f "$HOME/.znixrc.sh" ] ; then
   source "$HOME/.znixrc.sh"
@@ -279,4 +287,3 @@ fi
 if [ -f "$HOME/.local/.bash_aliases" ] ; then
   source "$HOME/.local/.bash_aliases"
 fi
-
