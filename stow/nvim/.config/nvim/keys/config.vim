@@ -10,7 +10,6 @@ nnoremap <silent> <M-l> :vertical resize +2<CR>
 
 " I hate escape more than anything else
 inoremap jk <Esc>
-inoremap kj <Esc>
 
 " Switching buffers
 nnoremap <silent> <C-PageDown> :bnext<CR>
@@ -53,6 +52,9 @@ nnoremap <leader>vrc :lua require('settings.telescope').search_dotfiles()<CR>
 " misc
 nnoremap <silent> <C-w> :bd<CR>
 nnoremap <silent> <Esc> :noh<CR>
+
+nnoremap  <C-d> <C-d>zz
+nnoremap  <C-u> <C-u>zz
 
 " macros
 if exists('g:vscode')
