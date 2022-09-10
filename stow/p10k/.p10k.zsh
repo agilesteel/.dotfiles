@@ -65,7 +65,8 @@
     # dotnet_version        # .NET version (https://dotnet.microsoft.com)
     # php_version           # php version (https://www.php.net/)
     # laravel_version       # laravel php framework version (https://laravel.com/)
-    java_version          # java version (https://www.java.com/)
+    java_version            # java version (https://www.java.com/)
+    my_sbt_version          # sbt_version (https://www.scala-sbt.org/)
     # package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
     rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
     rvm                     # ruby version from rvm (https://rvm.io)
@@ -1557,6 +1558,26 @@
   typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=
   # Custom prefix.
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
+
+  function prompt_my_sbt_version() {
+    if [ -f "project/build.properties" ] ; then
+      local sv=$(awk -F "=" '/^sbt\.version/{print $NF}' project/build.properties 2>/dev/null || echo 'bug')
+    else
+      return
+    fi
+
+    # TODO cache this
+    local url=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/sbt/sbt/releases/latest)
+    local latest_sv=$(echo $url | awk -F "v" '/^https:\/\/github.com\/sbt\/sbt\/releases\/tag\//{print $NF}')
+
+    if [[ -z "$url" || "$sv" == "$latest_sv" ]]; then
+       local state=UP_TO_DATE
+       p10k segment -s $state -f 196 -i '' -t "$sv"
+    else
+       local state=NOT_UP_TO_DATE
+       p10k segment -s $state -f 196 -i '' -t "⇣$sv"
+    fi
+  }
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
