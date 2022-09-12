@@ -1567,8 +1567,9 @@
     fi
 
     # TODO cache this
-    local url=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/sbt/sbt/releases/latest)
-    local latest_sv=$(echo $url | awk -F "v" '/^https:\/\/github.com\/sbt\/sbt\/releases\/tag\//{print $NF}')
+    # local url=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/sbt/sbt/releases/latest)
+    # local latest_sv=$(echo $url | awk -F "v" '/^https:\/\/github.com\/sbt\/sbt\/releases\/tag\//{print $NF}')
+    local latest_sv="1.7.1"
 
     if [[ -z "$url" || "$sv" == "$latest_sv" ]]; then
        local state=UP_TO_DATE
