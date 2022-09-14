@@ -11,6 +11,7 @@ require('plugins')
 require('settings.keys')
 require('settings.telescope')
 
+require("nvim-tree").setup()
 require("settings.functions")
 require("settings.compe").setup()
 -- require("settings.telescope").setup()

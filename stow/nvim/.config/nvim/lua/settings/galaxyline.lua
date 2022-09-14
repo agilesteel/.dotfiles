@@ -99,7 +99,7 @@ M.setup = function()
       provider = function()
         return ""
       end,
-      separator = " ",
+      separator = "",
       separator_highlight = { colors.line_bg, colors.line_bg },
       highlight = { colors.bg, colors.line_bg },
     },
