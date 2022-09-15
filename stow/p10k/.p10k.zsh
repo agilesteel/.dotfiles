@@ -1561,22 +1561,59 @@
 
   function prompt_my_sbt_version() {
     if [ -f "project/build.properties" ] ; then
-      local sv=$(awk -F "=" '/^sbt\.version/{print $NF}' project/build.properties 2>/dev/null || echo 'bug')
+      # read lines from project/build.properties in reverse
+      local lines=$(tac project/build.properties)
+
+      # extract first version and exit
+      # trim left and right spaces
+      local sv=$(echo $lines | awk -F "=" '/sbt\.version/{gsub(/ /,"");print $NF;exit;}' 2>/dev/null || echo 'bug')
     else
       return
     fi
 
-    # TODO cache this
-    # local url=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/sbt/sbt/releases/latest)
-    # local latest_sv=$(echo $url | awk -F "v" '/^https:\/\/github.com\/sbt\/sbt\/releases\/tag\//{print $NF}')
-    local latest_sv="1.7.1"
+    local cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}/p10k-${(%):-%n}/devinsideyou
+    mkdir -p $cache_dir # just ensuring that it exists
+    local cache_file=$cache_dir/sbt.version
 
-    if [[ -z "$url" || "$sv" == "$latest_sv" ]]; then
-       local state=UP_TO_DATE
-       p10k segment -s $state -f 196 -i '' -t "$sv"
-    else
+    local timeout_in_hours=4
+    local timeout_in_seconds=$((4*60*60))
+
+    # if $cache_file exists and
+    # it's not older than timeout
+    # get the content which is the version
+    # else get the version from GitHub
+    # make sure it's on Maven
+    # write to $cache_file
+    # or at least touch it to modify the timestamp
+
+    if [[ ! (-f "$cache_file" && $(($(date +%s) - $(stat -c '%Y' "$cache_file") < $timeout_in_seconds)) -gt 0) ]]; then
+      local github_url=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/sbt/sbt/releases/latest)
+      local latest_sv=$(echo $github_url | awk -F "v" '/^https:\/\/github.com\/sbt\/sbt\/releases\/tag\//{print $NF}')
+      local maven_url="https://ossindex.sonatype.org/component/pkg:maven/org.scala-sbt/sbt@$latest_sv"
+      local maven_return_code=$(curl -o /dev/null -s -w "%{http_code}\n" $maven_url)
+
+      # if url has nonzero length and
+      # and latest_sv has nonzero length and
+      # it's published to maven
+      if [[ -n "$github_url" && -n "$latest_sv" && $maven_return_code -eq 200 ]]; then
+         echo "$latest_sv" > $cache_file
+      else
+         touch $cache_file
+      fi
+    fi
+
+    local latest_sv=$(cat $cache_file)
+
+    # if url has nonzero length and
+    # versions differ
+    if [[ -n "$latest_sv" && "$sv" != "$latest_sv" ]]; then
        local state=NOT_UP_TO_DATE
+
        p10k segment -s $state -f 196 -i '' -t "⇣$sv"
+    else
+       local state=UP_TO_DATE
+
+       p10k segment -s $state -f 196 -i '' -t "$sv"
     fi
   }
 
