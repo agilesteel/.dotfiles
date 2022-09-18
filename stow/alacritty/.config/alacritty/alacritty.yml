@@ -1,40 +1,43 @@
 window:
   dynamic_padding: true
   startup_mode: Fullscreen
+  opacity: 1
 
 scrolling:
   multiplier: 0
 
 font:
   normal:
-    family: FiraCode Nerd Font
+    family: FiraCode NFM
 
   size: 18
 
+  builtin_box_drawing: true
+
 colors:
   primary:
-    background: "#2B303B"
-    foreground: "#C0C5CE"
+    background: '#2B303B'
+    foreground: '#C0C5CE'
 
   normal:
-    black: "#4C4C4C"
-    red: "#FF3C3C"
-    green: "#0DBC79"
-    yellow: "#E5E510"
-    blue: "#3B8EEA"
-    magenta: "#BC3FBC"
-    cyan: "#11A8CD"
-    white: "#E5E5E5"
+    black:   '#4C4C4C'
+    red:     '#FF3C3C'
+    green:   '#0DBC79'
+    yellow:  '#E5E510'
+    blue:    '#3B8EEA'
+    magenta: '#BC3FBC'
+    cyan:    '#11A8CD'
+    white:   '#E5E5E5'
 
   bright:
-    black: "#666666"
-    red: "#F14C4C"
-    green: "#23D18B"
-    yellow: "#F5F543"
-    blue: "#3B8EEA"
-    magenta: "#D670D6"
-    cyan: "#29B8DB"
-    white: "#E5E5E5"
+    black:   '#666666'
+    red:     '#F14C4C'
+    green:   '#23D18B'
+    yellow:  '#F5F543'
+    blue:    '#3B8EEA'
+    magenta: '#D670D6'
+    cyan:    '#29B8DB'
+    white:   '#E5E5E5'
 
 mouse:
   hide_when_typing: true
