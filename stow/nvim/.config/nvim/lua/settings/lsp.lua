@@ -60,37 +60,37 @@ M.setup = function()
     require("metals").setup_dap()
   end
 
-  -- sumneko lua
-  lsp_config.sumneko_lua.setup({
-    cmd = {
-      "/Users/ckipp/Documents/lua-workspace/lua-language-server/bin/macOS/lua-language-server",
-      "-E",
-      "/Users/ckipp/Documents/lua-workspace/lua-language-server/main.lua",
-    },
-    commands = {
-      Format = {
-        function()
-          require("stylua-nvim").format_file()
-        end,
-      },
-    },
-    settings = {
-      Lua = {
-        runtime = {
-          version = "LuaJIT", -- since using mainly for neovim
-          path = vim.split(package.path, ";"),
-        },
-        diagnostics = { globals = { "vim", "it" } },
-        workspace = {
-          -- Make the server aware of Neovim runtime files
-          library = {
-            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-          },
-        },
-      },
-    },
-  })
+  -- -- sumneko lua
+  -- lsp_config.sumneko_lua.setup({
+  --   cmd = {
+  --     "/Users/ckipp/Documents/lua-workspace/lua-language-server/bin/macOS/lua-language-server",
+  --     "-E",
+  --     "/Users/ckipp/Documents/lua-workspace/lua-language-server/main.lua",
+  --   },
+  --   commands = {
+  --     Format = {
+  --       function()
+  --         require("stylua-nvim").format_file()
+  --       end,
+  --     },
+  --   },
+  --   settings = {
+  --     Lua = {
+  --       runtime = {
+  --         version = "LuaJIT", -- since using mainly for neovim
+  --         path = vim.split(package.path, ";"),
+  --       },
+  --       diagnostics = { globals = { "vim", "it" } },
+  --       workspace = {
+  --         -- Make the server aware of Neovim runtime files
+  --         library = {
+  --           [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+  --           [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+  --         },
+  --       },
+  --     },
+  --   },
+  -- })
 
   lsp_config.dockerls.setup({})
   lsp_config.html.setup({})

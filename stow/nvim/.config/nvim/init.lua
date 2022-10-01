@@ -31,10 +31,10 @@ require("nvim-treesitter.configs").setup({
   -- highlight = { enable = true },
 })
 
-require("lspsaga").init_lsp_saga({
-  server_filetype_map = { metals = { "sbt", "scala" } },
-  code_action_prompt = { virtual_text = false },
-})
+-- require("lspsaga").init_lsp_saga({
+--   server_filetype_map = { metals = { "sbt", "scala" } },
+--   code_action_prompt = { virtual_text = false },
+-- })
 
 g["mapleader"] = " "
 g["netrw_gx"] = "<cWORD>"
@@ -88,20 +88,20 @@ map("n", "<leader>tv", ":vnew | :te<cr>")
 
 -- LSP
 map("n", "gd", [[<cmd>lua vim.lsp.buf.definition()<CR>]])
-map("n", "K", [[<cmd>lua require"lspsaga.hover".render_hover_doc()<CR>]])
+-- map("n", "K", [[<cmd>lua require"lspsaga.hover".render_hover_doc()<CR>]])
 map("n", "gi", [[<cmd>lua vim.lsp.buf.implementation()<CR>]])
 map("n", "gr", [[<cmd>lua vim.lsp.buf.references()<CR>]])
 map("n", "<leader>ccl", [[<cmd>lua vim.lsp.codelens.run()<CR>]])
 map("n", "gds", [[<cmd>lua require"telescope.builtin".lsp_document_symbols()<CR>]])
 map("n", "gws", [[<cmd>lua require"settings.telescope".lsp_workspace_symbols()<CR>]])
-map("n", "<leader>rn", [[<cmd>lua require"lspsaga.rename".rename()<CR>]])
-map("n", "<leader>ca", [[<cmd>lua require"lspsaga.codeaction".code_action()<CR>]])
-map("v", "<leader>ca", [[<cmd>lua require"lspsaga.codeaction".range_code_action()<CR>]])
+-- map("n", "<leader>rn", [[<cmd>lua require"lspsaga.rename".rename()<CR>]])
+-- map("n", "<leader>ca", [[<cmd>lua require"lspsaga.codeaction".code_action()<CR>]])
+-- map("v", "<leader>ca", [[<cmd>lua require"lspsaga.codeaction".range_code_action()<CR>]])
 map("n", "<leader>ws", [[<cmd>lua require"metals".worksheet_hover()<CR>]])
 map("n", "<leader>a", [[<cmd>lua require"metals".open_all_diagnostics()<CR>]])
 map("n", "<leader>d", [[<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>]]) -- buffer diagnostics only
-map("n", "]c", [[<cmd>lua require"lspsaga.diagnostic".lsp_jump_diagnostic_next()<CR>]])
-map("n", "[c", [[<cmd>lua require"lspsaga.diagnostic".lsp_jump_diagnostic_prev()<CR>]])
+-- map("n", "]c", [[<cmd>lua require"lspsaga.diagnostic".lsp_jump_diagnostic_next()<CR>]])
+-- map("n", "[c", [[<cmd>lua require"lspsaga.diagnostic".lsp_jump_diagnostic_prev()<CR>]])
 map("n", "<leader>ln", [[<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<CR>]])
 
 -- completion
@@ -158,5 +158,5 @@ vim.cmd([[hi! link LspReferenceText CursorColumn]])
 vim.cmd([[hi! link LspReferenceRead CursorColumn]])
 vim.cmd([[hi! link LspReferenceWrite CursorColumn]])
 
-vim.cmd([[hi! link LspSagaFinderSelection CursorColumn]])
-vim.cmd([[hi! link LspSagaDocTruncateLine LspSagaHoverBorder]])
+-- vim.cmd([[hi! link LspSagaFinderSelection CursorColumn]])
+-- vim.cmd([[hi! link LspSagaDocTruncateLine LspSagaHoverBorder]])
