@@ -28,10 +28,22 @@ alias sbtk='(echo 1000 > /proc/self/oom_score_adj && exec sbt)'
 alias sbtnoss='sbt -Dsbt.supershell=false'
 alias scalac-phases='scalac -Xshow-phases'
 alias scalalines='find . -path "*/src*" -name "*.scala" | xargs wc -l | sort -n'
-alias update='sudo apt update && sudo apt -y full-upgrade && sudo apt -y autoremove && cs update && refresh-completions && nix-channel --update && nix-env -u && cd ~/.dotfiles && gfa && nvim --headless +PackerSync +PlugUpdate +qall && figlet Dev Inside You | lolcat'
 alias vimc='vim ~/.config/nvim/general/config.vim'
 alias vimi='vim ~/.config/nvim/init.vim'
 alias vimp='vim ~/.config/nvim/plugins/all.vim'
+
+alias update='\
+  sudo apt update && \
+  sudo apt -y full-upgrade && \
+  sudo apt -y autoremove && \
+  cs update && \
+  refresh-completions && \
+  nix-channel --update && \
+  nix-env -u && \
+  cd ~/.dotfiles && \
+  gfa && \
+  nvim --headless +PackerSync +PlugUpdate +qall && \
+  fortune | cowsay | lolcat'
 
 # Git and GitHub
 alias fgco='gco $(gb | fzf)'
