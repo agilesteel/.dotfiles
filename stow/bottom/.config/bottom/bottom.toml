@@ -56,7 +56,7 @@ temperature_type = "celsius"
 # Show memory values in the processes widget as values by default
 #mem_as_value = false
 # Show tree mode by default in the processes widget.
-tree = true
+tree = false
 # Shows an indicator in table widgets tracking where in the list you are.
 show_table_scroll_position = true
 # Show processes as their commands by default in the process widget.
