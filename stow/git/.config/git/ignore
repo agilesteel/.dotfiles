@@ -38,6 +38,7 @@ Thumbs.db
 
 # Environment #
 ###############
+.direnv/
 .envrc
 .env
 .local.application.conf
