@@ -183,7 +183,7 @@ function refresh-completions() {
 }
 
 if [ $(command -v direnv) ]; then
-  # export DIRENV_LOG_FORMAT=
+  export DIRENV_LOG_FORMAT=
   eval "$(direnv hook zsh)"
 fi
 
