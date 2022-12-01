@@ -42,8 +42,7 @@ alias update='\
   nix-env -u && \
   cd ~/.dotfiles && \
   gfa && \
-  nvim --headless +PackerSync +PlugUpdate +qall && \
-  fortune | cowsay | lolcat'
+  nvim --headless +PackerSync +PlugUpdate +qall'
 
 # Git and GitHub
 alias fgco='gco $(gb | fzf)'
