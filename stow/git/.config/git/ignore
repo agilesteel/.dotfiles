@@ -51,6 +51,7 @@ Thumbs.db
 .bsp/
 .coursier/
 .dotty-ide*
+.history/
 .idea/
 .metals/
 .scala-build/
