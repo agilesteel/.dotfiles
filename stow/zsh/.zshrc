@@ -124,6 +124,10 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
   . $HOME/.nix-profile/etc/profile.d/nix.sh;
 fi # added by Nix installer
 
+if [ -d "$HOME/bin" ] ; then
+  PATH="$PATH:$HOME/bin"
+fi
+
 # set PATH so it includes coursier bin if it exists
 if [ -d "$HOME/.local/share/coursier/bin" ] ; then
   PATH="$PATH:$HOME/.local/share/coursier/bin"
@@ -139,6 +143,8 @@ export JAVA_TOOL_OPTIONS="
 -Duser.timezone=UTC
 -Dquill.macro.log=false
 "
+# wsl
+export BROWSER=wslview
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
