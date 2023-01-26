@@ -1,9 +1,15 @@
 local wezterm = require 'wezterm'
 
+local wsl_domains = wezterm.default_wsl_domains()
+
 wezterm.on("gui-startup", function(cmd)
   local _, _, window = wezterm.mux.spawn_window(cmd or {})
   window:gui_window():toggle_fullscreen()
 end)
+
+for _, domain in ipairs(wsl_domains) do
+  domain.default_cwd = "~"
+end
 
 return {
   adjust_window_size_when_changing_font_size = false,
@@ -86,4 +92,5 @@ return {
     top = '0.2cell',
     bottom = 0,
   },
+  wsl_domains = wsl_domains,
 }
