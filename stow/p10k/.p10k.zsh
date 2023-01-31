@@ -105,6 +105,7 @@
     # time                  # current time
     # =========================[ Line #2 ]=========================
     newline
+    # my_doppler_config # too slow
     # ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
@@ -1558,6 +1559,16 @@
   typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=
   # Custom prefix.
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
+
+  function prompt_my_doppler_config() {
+    local result=$(doppler --no-check-version configure --json | jq -r '.[] | {"enclave.project","enclave.config"}| join(".")')
+
+    if [[ "$result" == "." ]] ; then
+      return
+    else
+      p10k segment -f 32 -i '' -t "$result"
+    fi
+  }
 
   function prompt_my_sbt_version() {
     if [ -f "project/build.properties" ] ; then
