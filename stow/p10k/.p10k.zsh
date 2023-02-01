@@ -96,8 +96,8 @@
     midnight_commander      # midnight commander shell (https://midnight-commander.org/)
     # vpn_ip                # virtual private network indicator
     # load                  # CPU load
-    ram                   # free RAM
-    disk_usage            # disk usage
+    ram                     # free RAM
+    disk_usage              # disk usage
     # swap                  # used swap
     todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
