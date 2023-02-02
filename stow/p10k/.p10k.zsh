@@ -36,6 +36,7 @@
     context                 # user@hostname
     dir                     # current directory
     vcs                     # git status
+    # my_doppler_config       # too slow
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
@@ -105,7 +106,6 @@
     # time                  # current time
     # =========================[ Line #2 ]=========================
     newline
-    # my_doppler_config # too slow
     # ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
