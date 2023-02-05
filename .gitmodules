@@ -1,3 +1,6 @@
 [submodule "stow/bat/.config/bat/themes/spacegray"]
 	path = stow/bat/.config/bat/themes/spacegray
 	url = git@github.com:kkga/spacegray.git
+[submodule "stow/bat/.config/bat/themes/catppuccin"]
+	path = stow/bat/.config/bat/themes/catppuccin
+	url = git@github.com:catppuccin/bat.git
