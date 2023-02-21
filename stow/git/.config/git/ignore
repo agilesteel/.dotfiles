@@ -69,3 +69,10 @@ dependency-graph.svg
 # Git #
 ###########
 *.orig
+
+# Mac #
+###########
+**/.DS_Store
+**/._.DS_Store
+.DS_Store
+._.DS_Store
