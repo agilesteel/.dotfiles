@@ -20,4 +20,4 @@ source ~/.config/nvim/plugins/gitgutter.vim
 source ~/.config/nvim/plugins/nerdcommenter.vim
 source ~/.config/nvim/plugins/quick-scope.vim
 source ~/.config/nvim/plugins/blame-line.vim
-source ~/.config/nvim/plugins/colorschemes/onehalf.vim
+source ~/.config/nvim/plugins/colorschemes/catppuccin/frappe.vim

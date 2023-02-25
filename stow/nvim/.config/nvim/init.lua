@@ -10,6 +10,7 @@ local opt = f.opt
 require('plugins')
 require('settings.keys')
 require('settings.telescope')
+require('settings.catppuccin').setup()
 
 require("nvim-tree").setup()
 require("settings.functions")
@@ -23,9 +24,9 @@ require("settings.galaxyline").setup()
 require("nvim-treesitter.configs").setup({
   -- playground = { enable = true },
   -- query_linter = {
-    -- enable = true,
-    -- use_virtual_text = true,
-    -- lint_events = { "BufWrite", "CursorHold" },
+  -- enable = true,
+  -- use_virtual_text = true,
+  -- lint_events = { "BufWrite", "CursorHold" },
   -- },
   -- ensure_installed = "maintained",
   -- highlight = { enable = true },
@@ -128,7 +129,8 @@ map("n", "<leader>dsi", [[<cmd>lua require"dap".step_into()<CR>]])
 cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
 cmd([[autocmd FileType markdown setlocal textwidth=80]])
 cmd([[autocmd BufEnter *.js call matchadd('ColorColumn', '\%81v', 100)]])
-cmd([[autocmd BufReadPost,BufNewFile *.md,*.txt,COMMIT_EDITMSG set wrap linebreak nolist spell spelllang=en_us complete+=kspell]])
+cmd(
+  [[autocmd BufReadPost,BufNewFile *.md,*.txt,COMMIT_EDITMSG set wrap linebreak nolist spell spelllang=en_us complete+=kspell]])
 cmd([[autocmd BufReadPost,BufNewFile .html,*.txt,*.md,*.adoc set spell spelllang=en_us]])
 cmd([[autocmd TermOpen * startinsert]])
 

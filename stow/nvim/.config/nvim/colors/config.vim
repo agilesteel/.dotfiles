@@ -6,4 +6,4 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme onehalfdark
+colorscheme catppuccin-frappe
