@@ -30,4 +30,3 @@ fi
 if [ -f "$HOME/.local/.profile" ] ; then
   source "$HOME/.local/.profile"
 fi
-
