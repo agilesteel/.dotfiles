@@ -44,6 +44,8 @@ alias update='\
   refresh-completions && \
   nix-channel --update && \
   nix-env -u && \
+  nix flake update ~/.dotfiles/nix/home-manager && \
+  hms && \
   cd ~/.dotfiles && \
   gfa && \
   nvim --headless +PackerSync +PlugUpdate +qall'
