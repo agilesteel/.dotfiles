@@ -10,6 +10,7 @@
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = _: true;
 
   home.packages = with pkgs; [
     asciiquarium
@@ -46,14 +47,14 @@
     neofetch
     neovim
     nix-direnv
-    # ookla-speedtest
+    ookla-speedtest
     pulumi
     ripgrep
     ripgrep-all
     scala-cli
     sl
     stow
-    # sublime4
+    sublime4
     tig
     tree
     wl-clipboard
