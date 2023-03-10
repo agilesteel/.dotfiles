@@ -40,6 +40,7 @@
       ncdu
       neofetch
       neovim
+      ngrok
       nix-direnv
       ookla-speedtest
       pulumi
@@ -51,7 +52,9 @@
       sublime4
       tig
       tree
+      unzip
       wl-clipboard
+      zip
       zsh
     ];
 
