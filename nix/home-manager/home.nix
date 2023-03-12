@@ -42,6 +42,7 @@
       neovim
       ngrok
       nix-direnv
+      nvd
       ookla-speedtest
       pulumi
       ripgrep
