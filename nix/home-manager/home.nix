@@ -16,6 +16,7 @@
       cowsay
       delta
       direnv
+      dive
       docker
       docker-compose
       doppler

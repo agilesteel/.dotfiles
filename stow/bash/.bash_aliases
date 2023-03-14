@@ -11,12 +11,6 @@ alias di='echo dotenv >> .envrc && touch .env && direnv allow'
 alias din='echo "use nix" > .envrc && echo "watch_file nix/*" >> .envrc && di'
 alias dots='cd ~/.dotfiles'
 alias dr='direnv reload'
-alias hm='home-manager'
-alias hmd='cd ~/.dotfiles/nix/home-manager'
-alias hmgd='echo && home-manager generations | head -n 2 | tac | cut -d " " -f 7 | xargs nix store diff-closures'
-alias hmp='home-manager packages'
-alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager#vlad && hmgd'
-alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'
 alias hydrate='gfa && gcd && gl && gbdanr'
 alias ipp='curl ifconfig.me && echo'
 alias jps='jps -lm'
@@ -48,6 +42,15 @@ alias update='\
   nix flake update ~/.dotfiles/nix/home-manager && \
   hms && \
   nvim --headless +PackerSync +PlugUpdate +qall'
+
+# Nix Home Manager
+alias hm='home-manager'
+alias hmd='cd ~/.dotfiles/nix/home-manager'
+alias hmgd='echo && home-manager generations | head -n 2 | tac | cut -d " " -f 7 | xargs nix store diff-closures'
+alias hmp='home-manager packages'
+alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager#vlad && hmgd'
+alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'
+alias hmhe='nvim ~/.dotfiles/nix/home-manager/home.nix'
 
 # Git and GitHub
 alias fgco='gco $(gb | fzf)'
