@@ -46,7 +46,7 @@ alias update='\
 # Nix Home Manager
 alias hm='home-manager'
 alias hmd='cd ~/.dotfiles/nix/home-manager'
-alias hmgd='echo && home-manager generations | head -n 2 | tac | cut -d " " -f 7 | xargs nix store diff-closures'
+alias hmgd='home-manager generations | head -n 2 | tac | cut -d " " -f 7 | xargs nix store diff-closures'
 alias hmp='home-manager packages'
 alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager#vlad && hmgd'
 alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'
