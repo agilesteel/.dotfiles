@@ -43,6 +43,19 @@ alias update='\
   hms && \
   nvim --headless +PackerSync +PlugUpdate +qall'
 
+alias updates='\
+  sudo apt update && \
+  sudo apt -y full-upgrade && \
+  sudo apt -y autoremove && \
+  cs update && \
+  refresh-completions && \
+  nix-channel --update && \
+  nix-env -u && \
+  cd ~/.dotfiles && \
+  gl && \
+  hms && \
+  nvim --headless +PackerSync +PlugUpdate +qall'
+
 # Nix Home Manager
 alias hm='home-manager'
 alias hmd='cd ~/.dotfiles/nix/home-manager'
