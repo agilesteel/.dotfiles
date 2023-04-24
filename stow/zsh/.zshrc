@@ -261,6 +261,19 @@ function fcsrt() { # fzf coursier resolve tree
   $(cs resolve -t "$1" | fzf --reverse --ansi) 2>/dev/null
 }
 
+removecontainers() {
+    docker stop $(docker ps -aq)
+    docker rm $(docker ps -aq)
+}
+
+armageddon() {
+    removecontainers
+    docker network prune -f
+    docker rmi -f $(docker images --filter dangling=true -qa)
+    docker volume rm $(docker volume ls --filter dangling=true -q)
+    docker rmi -f $(docker images -qa)
+}
+
 # >>> scala-cli completions >>>
 fpath=("/home/vlad/.local/share/scalacli/completions/zsh" $fpath)
 compinit
