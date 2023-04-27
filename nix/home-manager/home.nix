@@ -55,7 +55,6 @@
       tig
       tree
       unzip
-      wl-clipboard
       zip
       zsh
     ];
