@@ -1,3 +1,3 @@
-source ~/.local/.zprofile
 source ~/.zshrc
+source ~/.local/.zprofile
 
