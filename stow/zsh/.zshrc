@@ -134,8 +134,7 @@ if [ -d "$HOME/.local/share/coursier/bin" ] ; then
 fi
 
 if [ -e $HOME/.nix-profile/bin/java ]; then
-  export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}" 2>/dev/null # linux
-  export JAVA_HOME="${$(readlink $HOME/.nix-profile/bin/java)%*/bin/java}" 2>/dev/null    # mac
+  export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}"
 fi
 
 export JAVA_TOOL_OPTIONS="
