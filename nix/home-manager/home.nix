@@ -12,6 +12,7 @@
       bottom
       cachix
       cmatrix
+      coreutils
       coursier
       cowsay
       delta
@@ -51,7 +52,6 @@
       scala-cli
       sl
       stow
-      sublime4
       tig
       tree
       unzip

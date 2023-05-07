@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/vlad/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -134,7 +136,8 @@ if [ -d "$HOME/.local/share/coursier/bin" ] ; then
 fi
 
 if [ -e $HOME/.nix-profile/bin/java ]; then
-  export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}"
+  export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}" 2>/dev/null # linux
+  export JAVA_HOME="${$(readlink $HOME/.nix-profile/bin/java)%*/bin/java}" 2>/dev/null    # mac
 fi
 
 export JAVA_TOOL_OPTIONS="
