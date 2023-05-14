@@ -133,6 +133,10 @@ if [ -d "$HOME/.local/share/coursier/bin" ] ; then
   PATH="$PATH:$HOME/.local/share/coursier/bin"
 fi
 
+if [ -d "$HOME/Library/Application Support/Coursier/bin" ] ; then
+  PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
+fi
+
 if [ -e $HOME/.nix-profile/bin/java ]; then
   export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}" 2>/dev/null
 fi
