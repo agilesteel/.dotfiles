@@ -2,6 +2,7 @@ alias aliases='bat ~/.bash_aliases --pager never && bat ~/.local/.bash_aliases -
 
 alias asl='aws sso login'
 alias b='bloop'
+alias bcb='bat cache --build'
 alias br='bloop exit && bloop about'
 alias c='code .'
 alias ce='code . && exit'
