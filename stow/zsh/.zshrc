@@ -1,3 +1,8 @@
+# source local settings
+if [ -f "$HOME/.zshrc4mac" ] ; then
+  source "$HOME/.zshrc4mac"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 

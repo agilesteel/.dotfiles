@@ -1,0 +1,5 @@
+# Mac manages zsh so every mac upgrade overrides /etc/zshrc that includes these lines.
+# If exists, this file is loaded as the very first thing in ~/.zshrc thus fixing the issue.
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
