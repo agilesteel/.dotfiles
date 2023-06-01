@@ -1,5 +1,9 @@
 alias aliases='bat ~/.bash_aliases --pager never && bat ~/.local/.bash_aliases --pager never 2>/dev/null'
 
+# for mac
+alias l='ls -lah --color=auto'
+alias ll='ls -lh --color=auto'
+
 alias asl='aws sso login'
 alias b='bloop'
 alias bcb='bat cache --build'
