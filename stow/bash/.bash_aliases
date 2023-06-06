@@ -41,7 +41,6 @@ alias update='\
   cs update && \
   refresh-completions && \
   nix-channel --update && \
-  nix-env -u && \
   cd ~/.dotfiles && \
   gl && \
   nix flake update ~/.dotfiles/nix/home-manager && \
@@ -55,7 +54,6 @@ alias updates='\
   cs update && \
   refresh-completions && \
   nix-channel --update && \
-  nix-env -u && \
   cd ~/.dotfiles && \
   gl && \
   hms && \
