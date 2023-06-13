@@ -152,8 +152,6 @@ export JAVA_TOOL_OPTIONS="
 -Duser.timezone=UTC
 -Dquill.macro.log=false
 "
-# wsl
-export BROWSER=wslview
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
