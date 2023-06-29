@@ -53,7 +53,8 @@ alias updates='\
   sudo apt -y autoremove && \
   cs update && \
   refresh-completions && \
-  nix upgrade-nix && \
+  nix-channel --update && \
+  nix-env -u && \
   cd ~/.dotfiles && \
   gl && \
   hms && \
