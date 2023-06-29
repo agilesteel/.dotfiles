@@ -40,7 +40,8 @@ alias update='\
   sudo apt -y autoremove && \
   cs update && \
   refresh-completions && \
-  nix upgrade-nix && \
+  nix-channel --update && \
+  nix-env -u && \
   cd ~/.dotfiles && \
   gl && \
   nix flake update ~/.dotfiles/nix/home-manager && \
