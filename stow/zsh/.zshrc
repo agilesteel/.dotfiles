@@ -289,10 +289,6 @@ if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
 fi
 
-if [ -f "$HOME/.fzf.zsh" ] ; then
-  source "$HOME/.fzf.zsh"
-fi
-
 if [ $(command -v fzf-share) ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
