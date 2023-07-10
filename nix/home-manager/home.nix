@@ -12,6 +12,7 @@
       bottom
       cachix
       cmatrix
+      cocogitto
       coreutils
       coursier
       cowsay
