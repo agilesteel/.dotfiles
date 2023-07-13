@@ -16,30 +16,18 @@ return {
   audible_bell = 'Disabled',
   background = {
     {
-      source = {
-        -- File = 'd:\\btsync\\shared\\ricki\\illustrations\\ricki-do-not-delete-this-one.png',
-        File = 'D:\\BTSync\\agilenet\\nodes\\common\\WezTerm\\themes\\catpuccin\\frappe\\background.png',
-        -- File = 'D:\\BTSync\\agilenet\\nodes\\common\\WezTerm\\themes\\catpuccin\\mocha\\background.png',
-      },
+      source = { File = "/Users/vlad/btsync/agilenet/nodes/common/WezTerm/themes/catpuccin/frappe/background.png" }
     },
-    -- {
-    --   source = {
-    --     -- File = 'D:\\BTSync\\shared\\ricki\\Illustrations\\Illustration_02_1920x1080.png',
-    --     -- File = 'D:\\BTSync\\shared\\ricki\\Illustrations\\Illustration_02_1920x1080_v02.png',
-    --     -- File = 'D:\\BTSync\\shared\\ricki\\Illustrations\\Illustration_02_3840x2160_v02.png',
-    --     -- File = 'D:\\BTSync\\shared\\ricki\\i4.png',
-    --     -- File = 'D:\\BTSync\\shared\\ricki\\i5.png',
-    --     -- File = 'D:\\test.png',
-    --     File = 'D:\\elephant.png',
-    --   },
-    --   horizontal_align = 'Center',
-    --   vertical_align = 'Middle',
-    --   height = 'Contain',
-    --   width = 'Contain',
-    --   repeat_x = 'NoRepeat',
-    --   repeat_y = 'NoRepeat',
-    --   opacity = 0.1
-    -- },
+    {
+      source = { File = "/Users/vlad/btsync/agilenet/nodes/common/WezTerm/backgrounds/devinsideyou/office-1080p.png" },
+      horizontal_align = 'Center',
+      vertical_align = 'Middle',
+      height = 'Contain',
+      width = 'Contain',
+      repeat_x = 'NoRepeat',
+      repeat_y = 'NoRepeat',
+      opacity = 0.1
+    },
   },
   color_scheme = 'Catppuccin Frappe',
   disable_default_key_bindings = true,
