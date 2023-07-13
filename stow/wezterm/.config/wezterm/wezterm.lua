@@ -16,7 +16,8 @@ return {
   audible_bell = 'Disabled',
   background = {
     {
-      source = { File = "/Users/vlad/btsync/agilenet/nodes/common/WezTerm/themes/catpuccin/frappe/background.png" }
+      source = { File = "/Users/vlad/btsync/agilenet/nodes/common/WezTerm/themes/catpuccin/frappe/background.png" },
+      -- opacity = 0.8
     },
     {
       source = { File = "/Users/vlad/btsync/agilenet/nodes/common/WezTerm/backgrounds/devinsideyou/office-1080p.png" },
@@ -57,6 +58,7 @@ return {
   show_update_window = true,
   use_dead_keys = false,
   unicode_version = 15,
+  macos_window_background_blur = 100,
   window_close_confirmation = 'NeverPrompt',
   window_padding = {
     left = 0,
