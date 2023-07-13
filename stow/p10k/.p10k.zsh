@@ -1617,9 +1617,9 @@
 
     # if latest_sv has nonzero length and versions differ
     if [[ -n "$latest_sbt_version" && "$sbt_version" != "$latest_sbt_version" ]]; then
-       p10k segment -s "NOT_UP_TO_DATE" -f 32 -i '' -t "⇣$sbt_version"
+       p10k segment -s "NOT_UP_TO_DATE" -f 32 -i '󰛸' -t "⇣$sbt_version"
     else
-       p10k segment -s "UP_TO_DATE" -f 32 -i '' -t "$sbt_version"
+       p10k segment -s "UP_TO_DATE" -f 32 -i '󰛸' -t "$sbt_version"
     fi
   }
 
