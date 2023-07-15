@@ -30,12 +30,12 @@
       gh
       git
       glow
-      graalvm17-ce
       graphviz
       gum
       heroku
       htop
       ipfetch
+      jdk
       keychain
       less
       lolcat
