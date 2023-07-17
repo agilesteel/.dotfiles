@@ -50,7 +50,9 @@
       pulumi
       ripgrep
       ripgrep-all
+      sbt
       scala-cli
+      scalafmt
       sl
       stow
       tig
