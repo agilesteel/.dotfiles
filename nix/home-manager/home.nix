@@ -21,6 +21,7 @@
       dive
       docker
       docker-compose
+      dogdns
       doppler
       duf
       fd
