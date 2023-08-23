@@ -50,7 +50,7 @@
       ookla-speedtest
       pulumi
       ripgrep
-      ripgrep-all
+      # ripgrep-all
       sbt
       scala-cli
       scalafmt
