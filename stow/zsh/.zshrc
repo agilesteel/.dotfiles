@@ -249,21 +249,8 @@ up_widget() {
 zle -N up_widget
 bindkey "^\\" up_widget
 
-# Coursier
-function fcsi() { # fzf coursier install
-  function csl() {
-    unzip -l "$(cs fetch "$1":latest.stable)" | grep json | sed -r 's/.*:[0-9]{2}\s*(.+)\.json$/\1/'
-  }
-
-  cs install --contrib "$(cat <(csl io.get-coursier:apps) <(csl io.get-coursier:apps-contrib) | sort -r | fzf)" 2>/dev/null
-}
-
-function fcsji() { # fzf coursier java install
-  cs java --jvm $(cs java --available | fzf) --setup 2>/dev/null
-}
-
-function fcsrt() { # fzf coursier resolve tree
-  $(cs resolve -t "$1" | fzf --reverse --ansi) 2>/dev/null
+which-gc() {
+  jcmd $1 VM.info | grep -ohE "[^\s^,]+\sgc"
 }
 
 removecontainers() {
