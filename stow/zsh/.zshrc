@@ -148,7 +148,6 @@ export JAVA_TOOL_OPTIONS="
 -Dconfig.override_with_env_vars=true
 -Djava.net.preferIPv4Stack=true
 -Duser.timezone=UTC
--Dquill.macro.log=false
 "
 
 # fzf
