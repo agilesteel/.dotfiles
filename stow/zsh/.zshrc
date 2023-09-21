@@ -77,8 +77,6 @@ plugins=(
   extract
   git
   mosh
-  # timer
-  # zsh-autocomplete
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-z
@@ -120,6 +118,34 @@ autoload compinit
 
 # Initialize all completions on $fpath and ignore (-i) all insecure files and directories
 compinit -i
+
+# Refresh completions
+function refresh-completions() {
+  local DIR=$HOME/.local/share/zsh/completions
+
+  # bloop
+  curl -s https://raw.githubusercontent.com/scalacenter/bloop/master/etc/zsh-completions -o $DIR/_bloop
+
+  # cs
+  # cs --completions zsh > $DIR/_cs
+  # cs --completions zsh > $DIR/_coursier
+
+  # sed -i 's/#compdef cs/#compdef coursier/' $DIR/_coursier
+
+  # gh
+  gh completion -s zsh > $DIR/_gh
+
+  # scalafix
+  # scalafix --zsh > $DIR/_scalafix
+
+  # scalafmt
+  curl -s https://raw.githubusercontent.com/scalameta/scalafmt/master/bin/_scalafmt -o $DIR/_scalafmt
+}
+
+# >>> scala-cli completions >>>
+fpath=("$HOME/.local/share/scalacli/completions/zsh" $fpath)
+compinit
+# <<< scala-cli completions <<<
 
 # ──────────────────────────────────────────────────
 
@@ -169,29 +195,6 @@ if [[ $(command -v keychain) && -e ~/.ssh/id_rsa ]]; then
   eval `keychain --eval --quiet id_rsa`
 fi
 
-# Refresh completions
-function refresh-completions() {
-  local DIR=$HOME/.local/share/zsh/completions
-
-  # bloop
-  curl -s https://raw.githubusercontent.com/scalacenter/bloop/master/etc/zsh-completions -o $DIR/_bloop
-
-  # cs
-  # cs --completions zsh > $DIR/_cs
-  # cs --completions zsh > $DIR/_coursier
-
-  # sed -i 's/#compdef cs/#compdef coursier/' $DIR/_coursier
-
-  # gh
-  gh completion -s zsh > $DIR/_gh
-
-  # scalafix
-  # scalafix --zsh > $DIR/_scalafix
-
-  # scalafmt
-  curl -s https://raw.githubusercontent.com/scalameta/scalafmt/master/bin/_scalafmt -o $DIR/_scalafmt
-}
-
 if [ $(command -v direnv) ]; then
   export DIRENV_LOG_FORMAT=
   eval "$(direnv hook zsh)"
@@ -228,18 +231,6 @@ diy-install() {
   sudo chmod +x $1 && ./$1 $2 $3
 }
 
-github-clone() {
-  dir="${3:-$2}"
-  git clone git@github.com:$1/$2.git $dir
-  cd $dir
-}
-
-github-clone-https() {
-  dir="${3:-$2}"
-  git clone https://github.com/$1/$2.git $dir
-  cd $dir
-}
-
 up_widget() {
   BUFFER="cd .."
   zle accept-line
@@ -252,23 +243,14 @@ which-gc() {
   jcmd $1 VM.info | grep -ohE "[^\s^,]+\sgc"
 }
 
-removecontainers() {
-    docker stop $(docker ps -aq)
-    docker rm $(docker ps -aq)
+docker-armageddon() {
+  docker stop $(docker ps -aq) # stop containers
+  docker rm $(docker ps -aq) # rm containers
+  docker network prune -f # rm networks
+  docker rmi -f $(docker images --filter dangling=true -qa) # rm dangling images
+  docker volume rm $(docker volume ls --filter dangling=true -q) # rm volumes
+  docker rmi -f $(docker images -qa) # rm all images
 }
-
-armageddon() {
-    removecontainers
-    docker network prune -f
-    docker rmi -f $(docker images --filter dangling=true -qa)
-    docker volume rm $(docker volume ls --filter dangling=true -q)
-    docker rmi -f $(docker images -qa)
-}
-
-# >>> scala-cli completions >>>
-fpath=("/home/vlad/.local/share/scalacli/completions/zsh" $fpath)
-compinit
-# <<< scala-cli completions <<<
 
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
