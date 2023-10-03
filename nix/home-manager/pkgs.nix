@@ -1,6 +1,6 @@
 nixpkgs: system: let
   mangling = {
-    java = "graalvm17-ce";
+    java = "graalvm-ce";
   };
 
   overlays = let
@@ -18,7 +18,7 @@ nixpkgs: system: let
     scalaCliOverlay = final: prev: {
       scala-cli = prev.scala-cli.override {
         # hardcoded because scala-cli requires 17 or above
-        jre = final.graalvm17-ce;
+        jre = final.${mangling.java};
       };
     };
   in [
