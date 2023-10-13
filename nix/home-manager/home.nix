@@ -37,7 +37,9 @@
       htop
       ipfetch
       jdk
+      k9s
       keychain
+      kubectl
       less
       lolcat
       mosh
