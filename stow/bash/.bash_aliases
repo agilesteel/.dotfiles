@@ -62,6 +62,9 @@ alias updates='\
   hms && \
   nvim --headless +PackerSync +PlugUpdate +qall'
 
+# Nix
+alias nfu='nix flake update'
+
 # Nix Home Manager
 alias hm='home-manager'
 alias hmd='cd ~/.dotfiles/nix/home-manager'
