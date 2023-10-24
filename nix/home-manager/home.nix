@@ -9,6 +9,7 @@
     packages = with pkgs; [
       asciiquarium
       bat
+      bloop
       bottom
       cachix
       cmatrix
