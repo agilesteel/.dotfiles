@@ -4,7 +4,10 @@
   ...
 }: {
   home = {
-    homeDirectory = if pkgs.stdenv.isLinux then "/home/vlad" else "/Users/vlad";
+    homeDirectory =
+      if pkgs.stdenv.isLinux
+      then "/home/vlad"
+      else "/Users/vlad";
 
     packages = with pkgs; [
       asciiquarium
@@ -69,7 +72,6 @@
     stateVersion = "23.05";
     username = "vlad";
   };
-
 
   programs.home-manager.enable = true;
 }
