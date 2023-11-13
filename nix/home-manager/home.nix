@@ -67,6 +67,7 @@
       tig
       tree
       unzip
+      xq
       zip
       zsh
     ];
