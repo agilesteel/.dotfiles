@@ -29,7 +29,7 @@
       doppler
       duf
       fd
-      figlet
+      # figlet
       fx
       fzf
       gh
