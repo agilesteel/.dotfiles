@@ -45,7 +45,7 @@ alias update='\
   nix-env -u && \
   cd ~/.dotfiles && \
   gl && \
-  nix flake update ~/.dotfiles/nix/home-manager && \
+  nix flake update --flake ~/.dotfiles/nix/home-manager && \
   hms && \
   nvim --headless +PackerSync +PlugUpdate +qall'
 
