@@ -19,3 +19,4 @@ aliases:
     rcdp: '!gh repo create devinsideyou/$(basename $(pwd)) --private && git remote add origin git@github.com:DevInsideYou/$(basename $(pwd)).git'
     rv: repo view
     rvw: repo view --web
+version: "1"
