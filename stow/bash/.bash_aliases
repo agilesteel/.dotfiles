@@ -123,3 +123,6 @@ alias lg='lazygit'
 # Nix
 alias nix-shell-q='echo -e ${buildInputs// /\\n} | cut -d - -f 2- | sort' # like nix-env -q
 alias nix-shell-qq='echo -e ${buildInputs// /\\n} | sort -t- -k2,2 -k3,3' # like nix-env -q
+
+# Kickstart
+alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
