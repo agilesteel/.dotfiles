@@ -27,7 +27,7 @@ return {
       width = 'Contain',
       repeat_x = 'NoRepeat',
       repeat_y = 'NoRepeat',
-      opacity = 0.1
+      opacity = 0.05
     },
   },
   color_scheme = 'Catppuccin Frappe',
