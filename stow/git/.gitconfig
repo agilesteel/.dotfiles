@@ -60,3 +60,5 @@
 	zero-style = black
 [submodule]
 	recurse = true
+[maintenance]
+	repo = /Users/vlad/dev/github/devinsideyou/nixpkgs
