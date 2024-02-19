@@ -18,6 +18,7 @@
 [user]
 	email = agilesteel@gmail.com
 	name = Vladyslav Pekker
+	signingKey = ~/.ssh/id_rsa.pub
 [pull]
 	rebase = true
 	twohead = ort
@@ -62,3 +63,7 @@
 	recurse = true
 [maintenance]
 	repo = /Users/vlad/dev/github/devinsideyou/nixpkgs
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
