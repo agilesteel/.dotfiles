@@ -37,7 +37,6 @@
       glow
       graphviz
       gum
-      heroku
       htop
       ipfetch
       jdk
