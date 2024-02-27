@@ -14,6 +14,7 @@
       bat
       bloop
       bottom
+      btop
       cachix
       cmatrix
       cocogitto
@@ -28,6 +29,7 @@
       dogdns
       doppler
       duf
+      dust
       fd
       figlet
       fx
