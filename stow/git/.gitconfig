@@ -63,6 +63,11 @@
 	recurse = true
 [maintenance]
 	repo = /Users/vlad/dev/github/devinsideyou/nixpkgs
+	repo = /Users/vlad/dev/github/formslogic/fl/1
+	repo = /Users/vlad/dev/github/formslogic/fl/2
+	repo = /Users/vlad/dev/github/formslogic/fl/3
+	repo = /Users/vlad/dev/github/formslogic/fl/4
+	repo = /Users/vlad/dev/github/formslogic/fl/5
 [gpg]
 	format = ssh
 [commit]
