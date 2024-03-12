@@ -40,7 +40,7 @@ return {
     style = 'Normal',
     harfbuzz_features = { 'cv29', 'cv30', 'ss01', 'ss03', 'ss06', 'ss07', 'ss09' },
   },
-  font_size = 18,
+  font_size = 16,
   force_reverse_video_cursor = true,
   hide_mouse_cursor_when_typing = true,
   hide_tab_bar_if_only_one_tab = true,
