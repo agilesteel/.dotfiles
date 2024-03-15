@@ -13,11 +13,8 @@ alias ce='code . && exit'
 alias dg-with-tests='bloop projects --dot-graph | dot -Tsvg -o dependency-graph.svg'
 alias dg='bloop projects --dot-graph | sed "/-test/d" | dot -Tsvg -o dependency-graph.svg'
 alias di='echo dotenv >> .envrc && touch .env && direnv allow'
-alias din='echo "use nix" > .envrc && echo "watch_file nix/*" >> .envrc && di'
 alias dots='cd ~/.dotfiles'
 alias dr='direnv reload'
-alias gunwip='git log -n 1 | grep -q -c "\--wip--" && git reset HEAD~1'
-alias hydrate='gfa && gcd && gl && gbdanr'
 alias ipp='curl ifconfig.me && echo'
 alias jps='jps -lm'
 alias jpsk9='jps | fzf --reverse -m -e -i | cut -d " " -f1 | xargs kill -9 2>/dev/null'
@@ -62,18 +59,6 @@ alias updates='\
   hms && \
   nvim --headless +PackerSync +PlugUpdate +qall'
 
-# Nix
-alias nfu='nix flake update'
-
-# Nix Home Manager
-alias hm='home-manager'
-alias hmd='cd ~/.dotfiles/nix/home-manager'
-alias hmgd='home-manager generations | head -n 2 | tac | cut -d " " -f 7 | xargs nix store diff-closures'
-alias hmp='home-manager packages'
-alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager#vlad && hmgd'
-alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'
-alias hmhe='nvim ~/.dotfiles/nix/home-manager/home.nix'
-
 # Git and GitHub
 alias fgco='gco $(gb | fzf)'
 alias fgcor='gco --track $(gbr | fzf)'
@@ -113,17 +98,32 @@ alias gs='git -c delta.side-by-side=true'
 alias gsd='gs diff'
 alias gsds='gs diff --staged'
 alias gstfu='g commit --amend && grbc'
+alias gunwip='git log -n 1 | grep -q -c "\--wip--" && git reset HEAD~1'
 alias gwipe='gwip && exit'
 alias gwipgp='gwip && gp'
 alias gwipgpe='gwip && gpe'
 alias gwipp='gcmsg "--wip-- [skip ci]" --no-verify --no-gpg-sign'
 alias hk='gcam housekeeping && gpe'
+alias hydrate='gfa && gcd && gl && gbdanr'
 alias lg='lazygit'
 alias nu='gcam "chore: nix flake update" && gpe'
-
-# Nix
-alias nix-shell-q='echo -e ${buildInputs// /\\n} | cut -d - -f 2- | sort' # like nix-env -q
-alias nix-shell-qq='echo -e ${buildInputs// /\\n} | sort -t- -k2,2 -k3,3' # like nix-env -q
+alias refresh='gfa grb grbom'
+alias refreshd='gfa && grbod'
 
 # Kickstart
 alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+
+# Nix
+alias din='echo "use nix" > .envrc && echo "watch_file nix/*" >> .envrc && di'
+alias nfu='nix flake update'
+alias nix-shell-q='echo -e ${buildInputs// /\\n} | cut -d - -f 2- | sort' # like nix-env -q
+alias nix-shell-qq='echo -e ${buildInputs// /\\n} | sort -t- -k2,2 -k3,3' # like nix-env -q
+
+# Nix Home Manager
+alias hm='home-manager'
+alias hmd='cd ~/.dotfiles/nix/home-manager'
+alias hmgd='home-manager generations | head -n 2 | tac | cut -d " " -f 7 | xargs nix store diff-closures'
+alias hmp='home-manager packages'
+alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager#vlad && hmgd'
+alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'
+alias hmhe='nvim ~/.dotfiles/nix/home-manager/home.nix'
