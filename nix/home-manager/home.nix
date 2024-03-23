@@ -30,6 +30,7 @@
       doppler
       duf
       dust
+      eza
       fd
       figlet
       fx
