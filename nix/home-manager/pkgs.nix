@@ -1,4 +1,4 @@
-nixpkgs: system: let
+nixpkgs: nixpkgsForJava: system: let
   mangling = {
     java = "graalvm-ce";
   };
@@ -25,15 +25,22 @@ nixpkgs: system: let
       };
     };
 
-    javaOverlay = final: _: {
-      jdk = final.${mangling.java};
-      jre = final.${mangling.java};
+    javaOverlay = _: _: let
+      pkgsForJava = import nixpkgsForJava {
+        inherit system;
+      };
+    in {
+      jdk = pkgsForJava.${mangling.java};
+      jre = pkgsForJava.${mangling.java};
     };
 
-    scalaCliOverlay = final: prev: {
+    scalaCliOverlay = _: prev: let
+      pkgsForJava = import nixpkgsForJava {
+        inherit system;
+      };
+    in {
       scala-cli = prev.scala-cli.override {
-        # hardcoded because scala-cli requires 17 or above
-        jre = final.${mangling.java};
+        jre = pkgsForJava.${mangling.java};
       };
     };
   in [

@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgsForJava.url = "github:nixos/nixpkgs?rev=1939434b4ae04cb855edec936573c778a9ddeab0";
 
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -14,6 +15,7 @@
 
   outputs = {
     nixpkgs,
+    nixpkgsForJava,
     flake-utils,
     home-manager,
     ...
@@ -27,7 +29,7 @@
   in
     flake-utils.lib.eachSystem supportedSystems (
       system: let
-        pkgs = import ./pkgs.nix nixpkgs system;
+        pkgs = import ./pkgs.nix nixpkgs nixpkgsForJava system;
       in {
         formatter = pkgs.alejandra;
 
