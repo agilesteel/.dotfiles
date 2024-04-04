@@ -55,6 +55,7 @@
       neovim
       ngrok
       nix-direnv
+      nnn
       nvd
       ookla-speedtest
       pulumi
