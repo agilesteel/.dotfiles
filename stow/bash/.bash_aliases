@@ -4,6 +4,11 @@ alias aliases='bat ~/.bash_aliases --pager never && bat ~/.local/.bash_aliases -
 alias l='ls -lah --color=auto'
 alias ll='ls -lh --color=auto'
 
+# for eza
+alias el='eza --long --binary --icons=always --sort=name --all --all --modified --git'
+alias ell='eza --long --binary --icons=always --sort=name --all --modified --git'
+alias ellr='eza --long --binary --icons=always --sort=modified --reverse --all --modified --git'
+
 alias asl='aws sso login'
 alias b='bloop'
 alias bcb='bat cache --build'
