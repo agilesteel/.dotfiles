@@ -262,9 +262,9 @@ if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
 fi
 
-if [ $(command -v fzf-share) ]; then
-  source "$(fzf-share)/key-bindings.zsh"
-  source "$(fzf-share)/completion.zsh"
+if [ $(command -v fzf) ]; then
+  # Set up fzf key bindings and fuzzy completion
+  eval "$(fzf --zsh)"
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
