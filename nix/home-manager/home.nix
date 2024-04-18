@@ -64,6 +64,7 @@
       sbt
       scala-cli
       scalafmt
+      scc
       sl
       stow
       tailspin
