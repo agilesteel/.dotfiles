@@ -10,6 +10,7 @@
       else "/Users/vlad";
 
     packages = with pkgs; [
+      alejandra
       asciiquarium
       bat
       bloop
@@ -55,6 +56,7 @@
       neovim
       ngrok
       nix-direnv
+      nixd
       nnn
       nvd
       ookla-speedtest
