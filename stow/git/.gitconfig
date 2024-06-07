@@ -74,3 +74,5 @@
 	gpgsign = true
 [gpg "ssh"]
 	allowedSignersFile = ~/.config/git/allowed-signers
+[tag]
+	gpgSign = true
