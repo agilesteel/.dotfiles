@@ -51,7 +51,7 @@
       less
       lolcat
       mosh
-      ncdu
+      # ncdu
       neofetch
       neovim
       ngrok
