@@ -60,7 +60,7 @@
       nnn
       nvd
       ookla-speedtest
-      pulumi
+      # pulumi
       ripgrep
       ripgrep-all
       sbt
