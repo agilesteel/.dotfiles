@@ -28,7 +28,7 @@
       docker
       docker-compose
       dogdns
-      doppler
+      # doppler
       duf
       dust
       eza
