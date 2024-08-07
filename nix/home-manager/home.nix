@@ -28,7 +28,7 @@
       docker
       docker-compose
       dogdns
-      # doppler
+      doppler
       duf
       dust
       eza
@@ -51,7 +51,7 @@
       less
       lolcat
       mosh
-      # ncdu
+      ncdu
       neofetch
       neovim
       ngrok
