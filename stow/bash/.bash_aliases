@@ -48,7 +48,7 @@ alias update='\
   cd ~/.dotfiles && \
   gl && \
   nix flake update --flake ~/.dotfiles/nix/home-manager && \
-  hms
+  hms'
 
 alias updates='\
   sudo apt update && \
@@ -60,7 +60,7 @@ alias updates='\
   nix-env -u && \
   cd ~/.dotfiles && \
   gl && \
-  hms
+  hms'
 
 # Git and GitHub
 alias fgco='gco $(gb | fzf)'
