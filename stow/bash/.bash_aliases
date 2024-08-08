@@ -48,8 +48,7 @@ alias update='\
   cd ~/.dotfiles && \
   gl && \
   nix flake update --flake ~/.dotfiles/nix/home-manager && \
-  hms && \
-  nvim --headless +PackerSync +PlugUpdate +qall'
+  hms
 
 alias updates='\
   sudo apt update && \
@@ -61,8 +60,7 @@ alias updates='\
   nix-env -u && \
   cd ~/.dotfiles && \
   gl && \
-  hms && \
-  nvim --headless +PackerSync +PlugUpdate +qall'
+  hms
 
 # Git and GitHub
 alias fgco='gco $(gb | fzf)'
