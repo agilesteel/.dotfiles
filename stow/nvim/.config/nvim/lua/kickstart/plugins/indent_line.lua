@@ -3,6 +3,7 @@ return {
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
+    enabled = vim.g.vscode == nil,
     main = 'ibl',
     opts = {
       scope = {
