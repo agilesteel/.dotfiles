@@ -68,6 +68,7 @@
       scalafmt
       scc
       sl
+      sshs
       stow
       tailspin
       tig
