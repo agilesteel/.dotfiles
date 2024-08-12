@@ -937,6 +937,10 @@ require('lazy').setup({
       vim.cmd 'highlight QuickScopePrimary gui=underline cterm=underline'
       vim.cmd 'highlight QuickScopeSecondary gui=nocombine cterm=nocombine'
       vim.cmd 'highlight Comment ctermbg=NONE ctermfg=167 guibg=NONE guifg=#ff5252 cterm=NONE gui=NONE'
+      vim.cmd 'highlight TreesitterContext gui=bold guibg=NONE'
+      vim.cmd 'highlight TreesitterContextLineNumber gui=bold guibg=NONE'
+      vim.cmd 'highlight TreesitterContextBottom gui=bold guibg=NONE'
+      vim.cmd 'highlight TreesitterContextLineNumberBottom gui=bold guibg=NONE'
     end,
     opts = {
       transparent_background = false,
@@ -1038,6 +1042,11 @@ require('lazy').setup({
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
+  { 'nvim-treesitter/nvim-treesitter-context', opts = {
+    max_lines = 10,
+    multiline_threshold = 1,
+    zindex = 1,
+  } },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
