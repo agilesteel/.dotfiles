@@ -99,21 +99,21 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
+vim.opt.autoindent = true -- not sure if I need this
+vim.opt.breakindent = true -- Enable break indent
+vim.opt.encoding = 'utf-8' -- the encoding displayed
+vim.opt.expandtab = true -- converts tabs to spaces
+vim.opt.hidden = true
+vim.opt.linebreak = true -- don't break words in half
+vim.opt.mouse = 'a' -- enable mouse
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.mouse = 'a' -- enable mouse
-vim.opt.showmode = false
-vim.opt.hidden = true
-vim.opt.breakindent = true -- Enable break indent
-vim.opt.undofile = true -- Save undo history
-vim.opt.linebreak = true -- don't break words in half
-vim.opt.encoding = 'utf-8' -- the encoding displayed
-vim.opt.tabstop = 2 -- insert 2 spaces instead of a tab
 vim.opt.shiftwidth = 2 -- 2 spaces for a tab
-vim.opt.smarttab = true -- figures out whether to use 2 or 4 spaces
-vim.opt.expandtab = true -- converts tabs to spaces
-vim.opt.autoindent = true -- not sure if I need this
+vim.opt.showmode = false
 vim.opt.showtabline = 2 -- always show tabline
+vim.opt.smarttab = true -- figures out whether to use 2 or 4 spaces
+vim.opt.tabstop = 2 -- insert 2 spaces instead of a tab
+vim.opt.undofile = true -- Save undo history
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
@@ -411,6 +411,9 @@ require('lazy').setup({
             require('telescope.themes').get_dropdown(),
           },
         },
+        defaults = {
+          layout_strategy = 'vertical',
+        },
       }
 
       -- Enable Telescope extensions if they are installed
@@ -527,19 +530,30 @@ require('lazy').setup({
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          -- map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('gd', function()
+            require('telescope.builtin').lsp_definitions {
+              show_line = false,
+            }
+          end, '[G]oto [D]efinition')
 
           -- Find references for the word under your cursor.
-          -- map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          map('gr', function()
+            require('telescope.builtin').lsp_references {
+              show_line = false,
+              include_declaration = false,
+            }
+          end, '[G]oto [R]eferences')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          -- map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          map('gi', function()
+            require('telescope.builtin').lsp_implementations { show_line = false }
+          end, '[G]oto [I]mplementation')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          -- map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
@@ -559,7 +573,78 @@ require('lazy').setup({
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+          -- LSP mappings
+          -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+          -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+          -- vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+          vim.keymap.set('n', 'gds', vim.lsp.buf.document_symbol)
+          vim.keymap.set('n', 'gws', vim.lsp.buf.workspace_symbol)
+          vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run)
+          vim.keymap.set('n', '<leader>sh', vim.lsp.buf.signature_help)
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
+          vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
+          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
+
+          vim.keymap.set('n', '<leader>ws', function()
+            require('metals').hover_worksheet()
+          end)
+
+          -- all workspace diagnostics
+          vim.keymap.set('n', '<leader>aa', vim.diagnostic.setqflist)
+
+          -- all workspace errors
+          vim.keymap.set('n', '<leader>ae', function()
+            vim.diagnostic.setqflist { severity = vim.diagnostic.severity.E }
+          end)
+
+          -- all workspace warnings
+          vim.keymap.set('n', '<leader>aw', function()
+            vim.diagnostic.setqflist { severity = vim.diagnostic.severity.W }
+          end)
+
+          -- buffer diagnostics only
+          vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
+
+          vim.keymap.set('n', '[c', function()
+            vim.diagnostic.goto_prev { wrap = false }
+          end)
+
+          vim.keymap.set('n', ']c', function()
+            vim.diagnostic.goto_next { wrap = false }
+          end)
+
+          -- Example mappings for usage with nvim-dap. If you don't use that, you can
+          -- skip these
+          vim.keymap.set('n', '<leader>dc', function()
+            require('dap').continue()
+          end)
+
+          vim.keymap.set('n', '<leader>dr', function()
+            require('dap').repl.toggle()
+          end)
+
+          vim.keymap.set('n', '<leader>dK', function()
+            require('dap.ui.widgets').hover()
+          end)
+
+          vim.keymap.set('n', '<leader>dt', function()
+            require('dap').toggle_breakpoint()
+          end)
+
+          vim.keymap.set('n', '<leader>dso', function()
+            require('dap').step_over()
+          end)
+
+          vim.keymap.set('n', '<leader>dsi', function()
+            require('dap').step_into()
+          end)
+
+          vim.keymap.set('n', '<leader>dl', function()
+            require('dap').run_last()
+          end)
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -1103,77 +1188,6 @@ require('lazy').setup({
 
       metals_config.on_attach = function(client, bufnr)
         require('metals').setup_dap()
-
-        -- LSP mappings
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references)
-        vim.keymap.set('n', 'gds', vim.lsp.buf.document_symbol)
-        vim.keymap.set('n', 'gws', vim.lsp.buf.workspace_symbol)
-        vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run)
-        vim.keymap.set('n', '<leader>sh', vim.lsp.buf.signature_help)
-        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
-        vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
-        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
-
-        vim.keymap.set('n', '<leader>ws', function()
-          require('metals').hover_worksheet()
-        end)
-
-        -- all workspace diagnostics
-        vim.keymap.set('n', '<leader>aa', vim.diagnostic.setqflist)
-
-        -- all workspace errors
-        vim.keymap.set('n', '<leader>ae', function()
-          vim.diagnostic.setqflist { severity = vim.diagnostic.severity.E }
-        end)
-
-        -- all workspace warnings
-        vim.keymap.set('n', '<leader>aw', function()
-          vim.diagnostic.setqflist { severity = vim.diagnostic.severity.W }
-        end)
-
-        -- buffer diagnostics only
-        vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
-
-        vim.keymap.set('n', '[c', function()
-          vim.diagnostic.goto_prev { wrap = false }
-        end)
-
-        vim.keymap.set('n', ']c', function()
-          vim.diagnostic.goto_next { wrap = false }
-        end)
-
-        -- Example mappings for usage with nvim-dap. If you don't use that, you can
-        -- skip these
-        vim.keymap.set('n', '<leader>dc', function()
-          require('dap').continue()
-        end)
-
-        vim.keymap.set('n', '<leader>dr', function()
-          require('dap').repl.toggle()
-        end)
-
-        vim.keymap.set('n', '<leader>dK', function()
-          require('dap.ui.widgets').hover()
-        end)
-
-        vim.keymap.set('n', '<leader>dt', function()
-          require('dap').toggle_breakpoint()
-        end)
-
-        vim.keymap.set('n', '<leader>dso', function()
-          require('dap').step_over()
-        end)
-
-        vim.keymap.set('n', '<leader>dsi', function()
-          require('dap').step_into()
-        end)
-
-        vim.keymap.set('n', '<leader>dl', function()
-          require('dap').run_last()
-        end)
       end
 
       return metals_config
@@ -1189,6 +1203,10 @@ require('lazy').setup({
       })
     end,
   },
+  { 'lukas-reineke/virt-column.nvim', opts = {
+    char = '│',
+    virtcolumn = '100',
+  } },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
