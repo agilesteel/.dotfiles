@@ -1206,6 +1206,7 @@ require('lazy').setup({
   { 'lukas-reineke/virt-column.nvim', opts = {
     char = '│',
     virtcolumn = '100',
+    highlight = 'LineNr',
   } },
 }, {
   ui = {
