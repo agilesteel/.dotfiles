@@ -1208,6 +1208,13 @@ require('lazy').setup({
     virtcolumn = '100',
     highlight = 'LineNr',
   } },
+  {
+    'Bekaboo/dropbar.nvim',
+    -- optional, but required for fuzzy finder support
+    dependencies = {
+      'nvim-telescope/telescope-fzf-native.nvim',
+    },
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
