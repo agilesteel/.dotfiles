@@ -938,10 +938,8 @@ require('lazy').setup({
       vim.cmd 'highlight QuickScopePrimary gui=underline cterm=underline'
       vim.cmd 'highlight QuickScopeSecondary gui=nocombine cterm=nocombine'
       vim.cmd 'highlight Comment ctermbg=NONE ctermfg=167 guibg=NONE guifg=#ff5252 cterm=NONE gui=NONE'
-      vim.cmd 'highlight TreesitterContext gui=bold guibg=NONE'
-      vim.cmd 'highlight TreesitterContextLineNumber gui=bold guibg=NONE'
-      vim.cmd 'highlight TreesitterContextBottom gui=bold guibg=NONE'
-      vim.cmd 'highlight TreesitterContextLineNumberBottom gui=bold guibg=NONE'
+      vim.cmd 'highlight TreesitterContextBottom gui=NONE'
+      vim.cmd 'highlight TreesitterContextLineNumberBottom gui=NONE'
     end,
     opts = {
       transparent_background = false,
@@ -1220,7 +1218,6 @@ require('lazy').setup({
   } },
   {
     'Bekaboo/dropbar.nvim',
-    -- optional, but required for fuzzy finder support
     dependencies = {
       'nvim-telescope/telescope-fzf-native.nvim',
     },
