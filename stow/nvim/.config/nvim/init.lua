@@ -113,6 +113,7 @@ vim.opt.showmode = false
 vim.opt.showtabline = 2 -- always show tabline
 vim.opt.smarttab = true -- figures out whether to use 2 or 4 spaces
 vim.opt.tabstop = 2 -- insert 2 spaces instead of a tab
+vim.opt.termguicolors = true
 vim.opt.undofile = true -- Save undo history
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
@@ -1222,6 +1223,13 @@ require('lazy').setup({
     -- optional, but required for fuzzy finder support
     dependencies = {
       'nvim-telescope/telescope-fzf-native.nvim',
+    },
+  },
+  {
+    'rcarriga/nvim-notify',
+    opts = {
+      fps = 120,
+      stages = 'slide',
     },
   },
 }, {
