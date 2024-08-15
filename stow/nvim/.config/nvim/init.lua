@@ -1189,6 +1189,11 @@ require('lazy').setup({
     opts = function()
       local metals_config = require('metals').bare_config()
 
+      -- Alternative way to save
+      vim.keymap.set('n', '<C-s>', ':update<CR>:MetalsCompileCascade<CR>', { desc = 'Save', silent = true })
+      vim.keymap.set('v', '<C-s>', '<C-c>:update<CR>:MetalsCompileCascade<CR>gv', { desc = 'Save', silent = true })
+      vim.keymap.set('i', '<C-s>', '<C-o>:update<CR><C-o>:MetalsCompileCascade<CR>', { desc = 'Save', silent = true })
+
       -- Example of settings
       metals_config.settings = {
         showImplicitArguments = true,
