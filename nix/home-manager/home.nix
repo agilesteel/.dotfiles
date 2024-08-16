@@ -58,9 +58,9 @@
       nix-direnv
       nixd
       nnn
+      nodejs
       nvd
       ookla-speedtest
-      # pulumi
       ripgrep
       ripgrep-all
       sbt

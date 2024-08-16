@@ -1,6 +1,7 @@
 nixpkgs: nixpkgsForJava: system: let
   mangling = {
     java = "graalvm-ce";
+    nodejs = "nodejs_20";
   };
 
   overlays = let
@@ -23,6 +24,10 @@ nixpkgs: nixpkgsForJava: system: let
       mill = prev.mill.override {
         jre = final.jre;
       };
+    };
+
+    nodejsOverlay = final: _: {
+      nodejs = final.${mangling.nodejs};
     };
 
     javaOverlay = _: _: let
@@ -49,6 +54,7 @@ nixpkgs: nixpkgsForJava: system: let
     javaOverlay
     scalaCliOverlay
     millOverlay
+    nodejsOverlay
   ];
 
   pkgs = import nixpkgs {
