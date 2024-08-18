@@ -597,24 +597,26 @@ require('lazy').setup({
           vim.keymap.set('n', '<leader>aa', vim.diagnostic.setqflist)
 
           -- all workspace errors
-          vim.keymap.set('n', '<leader>ae', function()
-            vim.diagnostic.setqflist { severity = vim.diagnostic.severity.E }
-          end)
+          map('<leader>ae', function()
+            require('telescope.builtin').diagnostics { severity = vim.diagnostic.severity.ERROR }
+          end, '[A]ll [E]rrors')
 
           -- all workspace warnings
-          vim.keymap.set('n', '<leader>aw', function()
-            vim.diagnostic.setqflist { severity = vim.diagnostic.severity.W }
-          end)
+          map('<leader>aw', function()
+            require('telescope.builtin').diagnostics { severity = vim.diagnostic.severity.WARN }
+          end, '[A]ll [W]arnings')
 
           -- buffer diagnostics only
           vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
 
-          vim.keymap.set('n', '[c', function()
-            vim.diagnostic.goto_prev { wrap = false }
+          vim.keymap.set('n', '<leader>[c', function()
+            vim.diagnostic.setqflist { severity = vim.diagnostic.severity.ERROR, open = false }
+            vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
           end)
 
-          vim.keymap.set('n', ']c', function()
-            vim.diagnostic.goto_next { wrap = false }
+          vim.keymap.set('n', '<leader>]c', function()
+            vim.diagnostic.setqflist { severity = vim.diagnostic.severity.ERROR, open = false }
+            vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
           end)
 
           -- Example mappings for usage with nvim-dap. If you don't use that, you can
