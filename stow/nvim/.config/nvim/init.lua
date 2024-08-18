@@ -1149,6 +1149,7 @@ require('lazy').setup({
       return conf
     end,
   },
+  { 'github/copilot.vim' },
   {
     'scalameta/nvim-metals',
     dependencies = {
@@ -1248,9 +1249,6 @@ require('lazy').setup({
       fps = 120,
       stages = 'slide',
     },
-  },
-  {
-    'github/copilot.vim',
   },
 }, {
   ui = {
