@@ -307,6 +307,10 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      current_line_blame = true,
+      current_line_blame_opts = {
+        delay = 0,
+      },
     },
   },
 
@@ -582,7 +586,10 @@ require('lazy').setup({
           -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
           -- vim.keymap.set('n', 'gr', vim.lsp.buf.references)
           vim.keymap.set('n', 'gds', vim.lsp.buf.document_symbol)
-          vim.keymap.set('n', 'gws', vim.lsp.buf.workspace_symbol)
+          -- vim.keymap.set('n', 'gws', vim.lsp.buf.workspace_symbol)
+          map('gws', function()
+            require('telescope.builtin').lsp_dynamic_workspace_symbols { show_line = false }
+          end, '[G]oto [W]orkspace [S]ymbols')
           vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run)
           vim.keymap.set('n', '<leader>sh', vim.lsp.buf.signature_help)
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)

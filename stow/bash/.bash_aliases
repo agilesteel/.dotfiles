@@ -110,7 +110,7 @@ alias hk='gcam housekeeping && gpe'
 alias hydrate='gfa && gcd && gl && gbdanr'
 alias lg='lazygit'
 alias nu='gcam "chore: nix flake update" && gpe'
-alias refresh='gfa grb grbom'
+alias refresh='gfa && grbom'
 alias refreshd='gfa && grbod'
 
 # Kickstart
