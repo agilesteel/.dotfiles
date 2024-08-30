@@ -615,15 +615,14 @@ require('lazy').setup({
 
           -- buffer diagnostics only
           vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
-
           vim.keymap.set('n', '<leader>[c', function()
-            vim.diagnostic.setqflist { severity = vim.diagnostic.severity.ERROR, open = false }
-            vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
+            require('trouble').prev { mode = 'diagnostics' }
+            require('trouble').jump_close { mode = 'diagnostics' }
           end)
 
           vim.keymap.set('n', '<leader>]c', function()
-            vim.diagnostic.setqflist { severity = vim.diagnostic.severity.ERROR, open = false }
-            vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
+            require('trouble').next { mode = 'diagnostics' }
+            require('trouble').jump_close { mode = 'diagnostics' }
           end)
 
           -- Example mappings for usage with nvim-dap. If you don't use that, you can
@@ -1257,6 +1256,45 @@ require('lazy').setup({
     opts = {
       fps = 120,
       stages = 'slide',
+    },
+  },
+  {
+    'folke/trouble.nvim',
+    opts = {
+      warn_no_results = false,
+    }, -- for default options, refer to the configuration section for custom setup.
+    cmd = 'Trouble',
+    keys = {
+      {
+        '<leader>xx',
+        '<cmd>Trouble diagnostics toggle<cr>',
+        desc = 'Diagnostics (Trouble)',
+      },
+      {
+        '<leader>xX',
+        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+        desc = 'Buffer Diagnostics (Trouble)',
+      },
+      {
+        '<leader>cs',
+        '<cmd>Trouble symbols toggle focus=false<cr>',
+        desc = 'Symbols (Trouble)',
+      },
+      {
+        '<leader>cl',
+        '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+        desc = 'LSP Definitions / references / ... (Trouble)',
+      },
+      {
+        '<leader>xL',
+        '<cmd>Trouble loclist toggle<cr>',
+        desc = 'Location List (Trouble)',
+      },
+      {
+        '<leader>xQ',
+        '<cmd>Trouble qflist toggle<cr>',
+        desc = 'Quickfix List (Trouble)',
+      },
     },
   },
 }, {
