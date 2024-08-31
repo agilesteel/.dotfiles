@@ -1297,6 +1297,19 @@ require('lazy').setup({
       },
     },
   },
+  {
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    opts = {
+      highlight_whole_line = false, -- this doesn't work for some reason
+    },
+    init = function()
+      vim.wo.signcolumn = 'yes'
+      vim.diagnostic.config {
+        virtual_text = false,
+        virtual_lines = { highlight_whole_line = false }, -- this doesn't work for some reason
+      }
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
