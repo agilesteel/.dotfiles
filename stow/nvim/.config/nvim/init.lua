@@ -953,6 +953,9 @@ require('lazy').setup({
       transparent_background = false,
       no_italic = true,
       no_bold = true,
+      integrations = {
+        notify = true,
+      },
     },
   },
 
