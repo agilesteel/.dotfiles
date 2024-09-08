@@ -1198,6 +1198,22 @@ require('lazy').setup({
       },
     },
     ft = { 'scala', 'sbt', 'java' },
+    keys = {
+      {
+        '<leader>cW',
+        function()
+          require('metals').hover_worksheet()
+        end,
+        desc = 'Metals Worksheet',
+      },
+      {
+        '<leader>cM',
+        function()
+          require('telescope').extensions.metals.commands()
+        end,
+        desc = 'Telescope Metals Commands',
+      },
+    },
     opts = function()
       local metals_config = require('metals').bare_config()
 
