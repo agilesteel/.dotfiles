@@ -1160,7 +1160,6 @@ require('lazy').setup({
       return conf
     end,
   },
-  { 'github/copilot.vim' },
   {
     'scalameta/nvim-metals',
     dependencies = {
@@ -1259,6 +1258,7 @@ require('lazy').setup({
       })
     end,
   },
+  { 'github/copilot.vim' },
   { 'lukas-reineke/virt-column.nvim', opts = {
     char = '│',
     virtcolumn = '100',
