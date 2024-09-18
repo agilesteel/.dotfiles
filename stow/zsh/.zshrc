@@ -257,6 +257,10 @@ docker-armageddon() {
   docker rmi -f $(docker images -qa) # rm all images
 }
 
+nix-prefetch-sri() {
+  nix-prefetch-url "$1" | xargs nix hash to-sri --type sha256
+}
+
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
