@@ -258,7 +258,7 @@ docker-armageddon() {
 }
 
 nix-prefetch-sri() {
-  nix-prefetch-url "$1" | xargs nix hash to-sri --type sha256
+  nix-prefetch-url "$1" | xargs nix hash convert --hash-algo sha256 --to sri
 }
 
 # source global settings
