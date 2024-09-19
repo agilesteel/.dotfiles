@@ -1029,6 +1029,7 @@ require('lazy').setup({
         'c',
         'diff',
         'gitcommit',
+        'git_rebase',
         'html',
         'just',
         'lua',
