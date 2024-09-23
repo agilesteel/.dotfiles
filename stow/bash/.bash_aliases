@@ -5,9 +5,9 @@ alias l='ls -lah --color=auto'
 alias ll='ls -lh --color=auto'
 
 # for eza
-alias el='eza --long --binary --icons=always --sort=name --all --all --modified --git'
-alias ell='eza --long --binary --icons=always --sort=name --all --modified --git'
-alias ellr='eza --long --binary --icons=always --sort=modified --reverse --all --modified --git'
+alias el='eza --long --binary --icons=always --sort=name --all --modified --git'
+alias ell='eza --long --binary --icons=always --sort=name --modified --git'
+alias ellr='eza --long --binary --icons=always --sort=modified --modified --git'
 
 alias asl='aws sso login'
 alias b='bloop'
