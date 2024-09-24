@@ -1259,7 +1259,7 @@ require('lazy').setup({
       })
     end,
   },
-  { 'github/copilot.vim' },
+  -- { 'github/copilot.vim' },
   { 'lukas-reineke/virt-column.nvim', opts = {
     char = '│',
     virtcolumn = '100',
