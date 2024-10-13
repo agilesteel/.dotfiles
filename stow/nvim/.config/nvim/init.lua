@@ -989,6 +989,9 @@ require('lazy').setup({
           map.gen_integration.diagnostic(),
           map.gen_integration.gitsigns(),
         },
+        window = {
+          winblend = 100,
+        },
       }
 
       -- now that setup ran we can use 'MiniMap' instead of 'map'
