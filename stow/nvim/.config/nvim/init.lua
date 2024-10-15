@@ -474,7 +474,13 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim', opts = {
+        notification = {
+          window = {
+            winblend = 0,
+          },
+        },
+      } },
 
       -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
@@ -950,11 +956,22 @@ require('lazy').setup({
       vim.cmd 'highlight TreesitterContextLineNumberBottom gui=NONE'
     end,
     opts = {
-      transparent_background = false,
+      term_colors = true,
+      transparent_background = true,
+      dim_inactive = {
+        enabled = false, -- dims the background color of inactive window
+        shade = 'dark',
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
+      },
       no_italic = true,
       no_bold = true,
       integrations = {
         notify = true,
+        fidget = true,
+        mini = {
+          enabled = true,
+          indentscope_color = '',
+        },
       },
     },
   },
@@ -990,7 +1007,7 @@ require('lazy').setup({
           map.gen_integration.gitsigns(),
         },
         window = {
-          winblend = 100,
+          winblend = 0,
         },
       }
 
@@ -1170,7 +1187,13 @@ require('lazy').setup({
       'nvim-lua/plenary.nvim',
       {
         'j-hui/fidget.nvim',
-        opts = {},
+        opts = {
+          notification = {
+            window = {
+              winblend = 0,
+            },
+          },
+        },
       },
       {
         'mfussenegger/nvim-dap',
