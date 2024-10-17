@@ -36,7 +36,7 @@
     context                 # user@hostname
     dir                     # current directory
     vcs                     # git status
-    # my_doppler_config       # too slow
+    my_doppler_config       # doppler project.config
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
@@ -1561,7 +1561,7 @@
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
 
   function prompt_my_doppler_config() {
-    local result=$(doppler --no-check-version configure --json | jq -r '.[] | {"enclave.project","enclave.config"}| join(".")')
+    local result=$(doppler --no-check-version configure --json | jq -r '.[] | {"enclave.project","enclave.config"} | join(".")' | tail -n1)
 
     if [[ "$result" == "." ]] ; then
       return
