@@ -1250,8 +1250,16 @@ require('lazy').setup({
 
       -- Example of settings
       metals_config.settings = {
-        showImplicitArguments = true,
+        autoImportBuild = 'all',
+        showImplicitArguments = true, -- does this even work?
         excludedPackages = { 'akka.actor.typed.javadsl', 'com.github.swagger.akka.javadsl' },
+        inlayHints = {
+          hintsInPatternMatch = { enable = true },
+          implicitArguments = { enable = true },
+          implicitConversions = { enable = true },
+          inferredTypes = { enable = true },
+          typeParameters = { enable = true },
+        },
       }
 
       -- *READ THIS*
