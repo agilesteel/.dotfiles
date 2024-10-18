@@ -9,9 +9,7 @@ alias el='eza --long --binary --icons=always --sort=name --all --modified --git'
 alias ell='eza --long --binary --icons=always --sort=name --modified --git'
 alias ellr='eza --long --binary --icons=always --sort=modified --modified --git'
 
-alias asl='aws sso login'
 alias b='bloop'
-alias bcb='bat cache --build'
 alias br='bloop exit && bloop about'
 alias c='code .'
 alias ce='code . && exit'
@@ -33,9 +31,7 @@ alias sbtk='(echo 1000 > /proc/self/oom_score_adj && exec sbt)'
 alias sbtnoss='sbt -Dsbt.supershell=false'
 alias scalac-phases='scalac -Xshow-phases'
 alias scalalines='find . -path "*/src*" -name "*.scala" | xargs wc -l | sort -n'
-alias vimc='vim ~/.config/nvim/general/config.vim'
-alias vimi='vim ~/.config/nvim/init.vim'
-alias vimp='vim ~/.config/nvim/plugins/all.vim'
+alias vimi='vim ~/.config/nvim/init.lua'
 
 alias update='\
   sudo apt update && \
@@ -72,7 +68,6 @@ alias gbdanr='git branch -D $(git for-each-ref --format="%(if:equals=[gone])%(up
 alias gca!='gaa && g commit --amend'
 alias gcaf='gaa && g commit --no-verify --fixup'
 alias gcam='gaa && gcmsg'
-alias gcamr='gcam "chore: refactoring"'
 alias gcan!='gaa && g commit --amend --no-edit --no-verify'
 alias gcangpf!='gcan! && gpf!'
 alias gcas='gaa && g commit --no-verify --squash'
@@ -113,9 +108,6 @@ alias nu='gcam "chore: nix flake update" && gpe'
 alias refresh='gfa && grbom'
 alias refreshd='gfa && grbod'
 
-# Kickstart
-alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
-
 # Nix
 alias din='echo "use nix" > .envrc && echo "watch_file nix/*" >> .envrc && di'
 alias nfu='nix flake update'
@@ -125,7 +117,7 @@ alias nix-shell-qq='echo -e ${buildInputs// /\\n} | sort -t- -k2,2 -k3,3' # like
 # Nix Home Manager
 alias hm='home-manager'
 alias hmd='cd ~/.dotfiles/nix/home-manager'
-alias hmgd='home-manager generations | head -n 2 | tac | cut -d " " -f 7 | xargs nix store diff-closures'
+alias hmgd='home-manager generations | head -n 2 | tac | cut -d " " -f 7 | xargs nix store diff-closures 2>/dev/null || true'
 alias hmp='home-manager packages'
 alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager#vlad && hmgd'
 alias hmu='nix flake update ~/.dotfiles/nix/home-manager && hms'
