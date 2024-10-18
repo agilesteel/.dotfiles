@@ -176,6 +176,11 @@ export JAVA_TOOL_OPTIONS="
 -Duser.timezone=UTC
 "
 
+if [ $(command -v fzf) ]; then
+  # Set up fzf key bindings and fuzzy completion
+  eval "$(fzf --zsh)"
+fi
+
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
 export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
@@ -208,6 +213,11 @@ fi
 # starship
 if [ $(command -v starship) ]; then
   eval "$(starship init zsh)"
+fi
+
+if [ $(command -v doppler) ]; then
+  doppler configure flags disable analytics --silent 2>/dev/null || true
+  doppler configure flags disable env-warning --silent 2>/dev/null || true
 fi
 
 # aliases
@@ -264,11 +274,6 @@ nix-prefetch-sri() {
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
-fi
-
-if [ $(command -v fzf) ]; then
-  # Set up fzf key bindings and fuzzy completion
-  eval "$(fzf --zsh)"
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

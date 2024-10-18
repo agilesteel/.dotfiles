@@ -1561,12 +1561,19 @@
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
 
   function prompt_my_doppler_config() {
-    local result=$(doppler --no-check-version configure --json | jq -r '.[] | {"enclave.project","enclave.config"} | join(".")' | tail -n1)
-
-    if [[ "$result" == "." ]] ; then
+    if [ ! $(command -v doppler) ]; then
       return
     else
-      p10k segment -f 32 -i '' -t "$result"
+      doppler configure flags disable analytics --silent 2>/dev/null || true
+      doppler configure flags disable env-warning --silent 2>/dev/null || true
+
+      local result=$(doppler --no-check-version configure --json | jq -r '.[] | {"enclave.project","enclave.config"} | join(".")' | tail -n1)
+
+      if [[ "$result" == "." ]] ; then
+        return
+      else
+        p10k segment -f 32 -i '' -t "$result"
+      fi
     fi
   }
 
