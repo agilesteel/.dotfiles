@@ -1260,6 +1260,7 @@ require('lazy').setup({
           inferredTypes = { enable = true },
           typeParameters = { enable = true },
         },
+        testUserInterface = 'Test Explorer',
       }
 
       -- *READ THIS*
