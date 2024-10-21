@@ -50,7 +50,7 @@
       kubectl
       less
       lolcat
-      mosh
+      # mosh
       ncdu
       neofetch
       neovim
@@ -62,7 +62,7 @@
       nvd
       ookla-speedtest
       ripgrep
-      ripgrep-all
+      # ripgrep-all
       sbt
       scala-cli
       scalafmt
