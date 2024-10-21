@@ -1569,7 +1569,7 @@
 
       local result=$(doppler --no-check-version configure --json | jq -r '.[] | {"enclave.project","enclave.config"} | join(".")' | tail -n1)
 
-      if [[ "$result" == "." ]] ; then
+      if [[ -z "$result" || "$result" == "." ]] ; then
         return
       else
         p10k segment -f 32 -i '' -t "$result"
