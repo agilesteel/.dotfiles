@@ -1567,7 +1567,10 @@
       doppler configure flags disable analytics --silent 2>/dev/null || true
       doppler configure flags disable env-warning --silent 2>/dev/null || true
 
-      local result=$(doppler --no-check-version configure --json | jq -r '.[] | {"enclave.project","enclave.config"} | join(".")' | tail -n1)
+      # local result=$(doppler --no-check-version configure --json | jq -r '.[] | {"enclave.project","enclave.config"} | join(".")' | tail -n1)
+      local project=$(doppler --no-check-version configure get project --plain)
+      local config=$(doppler --no-check-version configure get config --plain)
+      local result="$project.$config"
 
       if [[ -z "$result" || "$result" == "." ]] ; then
         return
