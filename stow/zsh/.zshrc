@@ -220,14 +220,20 @@ if [ $(command -v doppler) ]; then
   doppler configure flags disable env-warning --silent 2>/dev/null || true
 fi
 
-# aliases
-alias v="vim"
+# vim & nvim
+if [ $(command -v vim) ]; then
+  export EDITOR=$(which vim)
+  alias v=$EDITOR
+  alias vi=$EDITOR
+fi
 
 if [ $(command -v nvim) ]; then
   export EDITOR=$(which nvim)
   alias vim=$EDITOR
-  alias v=$EDITOR
 fi
+
+alias v=$EDITOR
+alias vi=$EDITOR
 
 export SUDO_EDITOR=$EDITOR
 export VISUAL=$EDITOR
