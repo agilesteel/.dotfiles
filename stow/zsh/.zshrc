@@ -221,7 +221,7 @@ if [ $(command -v doppler) ]; then
 fi
 
 # vim & nvim
-if [ $(command -v vim) ]; then
+if [[ $(command -v vim) && ! $(alias vim >/dev/null 2>&1) ]]; then
   export EDITOR=$(which vim)
   alias v=$EDITOR
   alias vi=$EDITOR
