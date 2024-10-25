@@ -61,6 +61,7 @@
       nodejs
       nvd
       ookla-speedtest
+      openssl
       ripgrep
       # ripgrep-all
       sbt
