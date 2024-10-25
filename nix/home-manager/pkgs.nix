@@ -5,15 +5,6 @@ nixpkgs: nixpkgsForJava: system: let
   };
 
   overlays = let
-    armOverlay = _: prev: let
-      pkgsForx86 = import nixpkgs {
-        localSystem = "x86_64-darwin";
-      };
-    in
-      prev.lib.optionalAttrs (prev.stdenv.isDarwin && prev.stdenv.isAarch64) {
-        inherit (pkgsForx86) bloop;
-      };
-
     bloopOverlay = final: prev: {
       bloop = prev.bloop.override {
         jre = final.jre;
@@ -49,7 +40,6 @@ nixpkgs: nixpkgsForJava: system: let
       };
     };
   in [
-    armOverlay
     bloopOverlay
     javaOverlay
     scalaCliOverlay
