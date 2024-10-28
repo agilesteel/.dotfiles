@@ -48,6 +48,8 @@
       k9s
       keychain
       kubectl
+      lazydocker
+      lazygit
       less
       lolcat
       # mosh
