@@ -52,8 +52,8 @@
       lazygit
       less
       lolcat
-      # mosh
-      ncdu
+      mosh
+      # ncdu
       neofetch
       neovim
       ngrok
@@ -65,7 +65,7 @@
       ookla-speedtest
       openssl
       ripgrep
-      # ripgrep-all
+      ripgrep-all
       sbt
       scala-cli
       scalafmt
@@ -73,7 +73,7 @@
       sl
       sshs
       stow
-      tailspin
+      # tailspin
       tig
       tree
       unzip
