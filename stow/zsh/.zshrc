@@ -277,6 +277,16 @@ nix-prefetch-sri() {
   nix-prefetch-url "$1" | xargs nix hash convert --hash-algo sha256 --to sri
 }
 
+nix-prefetch-bloop() {
+  local version="$1"
+
+  nix-prefetch-sri https://github.com/scalacenter/bloop/releases/download/v$version/bloop-x86_64-pc-linux
+  echo
+  nix-prefetch-sri https://github.com/scalacenter/bloop/releases/download/v$version/bloop-x86_64-apple-darwin
+  echo
+  nix-prefetch-sri https://github.com/scalacenter/bloop/releases/download/v$version/bloop-aarch64-apple-darwin
+}
+
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
