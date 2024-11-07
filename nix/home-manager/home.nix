@@ -22,6 +22,7 @@
       coreutils
       coursier
       cowsay
+      curl
       delta
       direnv
       dive
@@ -77,6 +78,8 @@
       tig
       tree
       unzip
+      wget
+      wget2
       xq
       zip
       zsh
