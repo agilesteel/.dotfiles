@@ -5,6 +5,7 @@
 return {
   {
     'lewis6991/gitsigns.nvim',
+    enabled = vim.g.vscode == nil,
     opts = {
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'

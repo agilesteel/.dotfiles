@@ -3,6 +3,7 @@
 
 return {
   'windwp/nvim-autopairs',
+  enabled = vim.g.vscode == nil,
   event = 'InsertEnter',
   -- Optional dependency
   dependencies = { 'hrsh7th/nvim-cmp' },

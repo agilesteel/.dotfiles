@@ -299,6 +299,7 @@ require('lazy').setup({
   -- See `:help gitsigns` to understand what the configuration keys do
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
+    enabled = vim.g.vscode == nil,
     opts = {
       signs = {
         add = { text = '+' },
@@ -331,6 +332,7 @@ require('lazy').setup({
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
+    enabled = vim.g.vscode == nil,
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
       require('which-key').setup()
@@ -357,6 +359,7 @@ require('lazy').setup({
 
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
+    enabled = vim.g.vscode == nil,
     event = 'VimEnter',
     branch = '0.1.x',
     dependencies = {
@@ -466,6 +469,7 @@ require('lazy').setup({
 
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    enabled = vim.g.vscode == nil,
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
@@ -781,6 +785,7 @@ require('lazy').setup({
 
   { -- Autoformat
     'stevearc/conform.nvim',
+    enabled = vim.g.vscode == nil,
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     keys = {
@@ -819,6 +824,7 @@ require('lazy').setup({
 
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
+    enabled = vim.g.vscode == nil,
     event = 'InsertEnter',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
@@ -939,6 +945,7 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     'catppuccin/nvim',
+    enabled = vim.g.vscode == nil,
     name = 'catppuccin',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
@@ -977,10 +984,17 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  {
+    'folke/todo-comments.nvim',
+    enabled = vim.g.vscode == nil,
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
+    enabled = vim.g.vscode == nil,
     init = function()
       -- Better Around/Inside textobjects
       --
@@ -1088,11 +1102,15 @@ require('lazy').setup({
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     end,
   },
-  { 'nvim-treesitter/nvim-treesitter-context', opts = {
-    max_lines = 10,
-    multiline_threshold = 1,
-    zindex = 1,
-  } },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    enabled = vim.g.vscode == nil,
+    opts = {
+      max_lines = 10,
+      multiline_threshold = 1,
+      zindex = 1,
+    },
+  },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -1119,6 +1137,7 @@ require('lazy').setup({
   -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
   {
     'numToStr/Comment.nvim',
+    enabled = vim.g.vscode == nil,
     opts = {
       toggler = {
         line = '<C-_>',
@@ -1135,10 +1154,14 @@ require('lazy').setup({
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
   { 'tpope/vim-unimpaired' },
-  { 'tveskag/nvim-blame-line' },
+  {
+    'tveskag/nvim-blame-line',
+    enabled = vim.g.vscode == nil,
+  },
   { 'unblevable/quick-scope' },
   {
     'romgrk/barbar.nvim',
+    enabled = vim.g.vscode == nil,
     dependencies = {
       'lewis6991/gitsigns.nvim',
       'nvim-tree/nvim-web-devicons',
@@ -1152,6 +1175,7 @@ require('lazy').setup({
   {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
+    enabled = vim.g.vscode == nil,
     dependencies = {
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-vsnip' },
@@ -1183,6 +1207,7 @@ require('lazy').setup({
   },
   {
     'scalameta/nvim-metals',
+    enabled = vim.g.vscode == nil,
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -1298,19 +1323,25 @@ require('lazy').setup({
     end,
   },
   -- { 'github/copilot.vim' },
-  { 'lukas-reineke/virt-column.nvim', opts = {
-    char = '│',
-    virtcolumn = '100',
-    highlight = 'LineNr',
-  } },
+  {
+    'lukas-reineke/virt-column.nvim',
+    enabled = vim.g.vscode == nil,
+    opts = {
+      char = '│',
+      virtcolumn = '100',
+      highlight = 'LineNr',
+    },
+  },
   {
     'Bekaboo/dropbar.nvim',
+    enabled = vim.g.vscode == nil,
     dependencies = {
       'nvim-telescope/telescope-fzf-native.nvim',
     },
   },
   {
     'rcarriga/nvim-notify',
+    enabled = vim.g.vscode == nil,
     opts = {
       fps = 120,
       stages = 'slide',
@@ -1318,6 +1349,7 @@ require('lazy').setup({
   },
   {
     'folke/trouble.nvim',
+    enabled = vim.g.vscode == nil,
     opts = {
       warn_no_results = false,
     }, -- for default options, refer to the configuration section for custom setup.
@@ -1357,6 +1389,7 @@ require('lazy').setup({
   },
   {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    enabled = vim.g.vscode == nil,
     opts = {
       highlight_whole_line = false, -- this doesn't work for some reason
     },
@@ -1370,6 +1403,7 @@ require('lazy').setup({
   },
   {
     'nvim-lualine/lualine.nvim',
+    enabled = vim.g.vscode == nil,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {},
   },
