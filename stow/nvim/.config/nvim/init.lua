@@ -1275,7 +1275,7 @@ require('lazy').setup({
 
       -- Example of settings
       metals_config.settings = {
-        serverVersion = '1.3.5',
+        -- serverVersion = '1.3.5',
         autoImportBuild = 'all',
         showImplicitArguments = true,
         showImplicitConversionsAndClasses = true,
