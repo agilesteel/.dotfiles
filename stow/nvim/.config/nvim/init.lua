@@ -1339,12 +1339,27 @@ require('lazy').setup({
       'nvim-telescope/telescope-fzf-native.nvim',
     },
   },
+  -- {
+  --   'rcarriga/nvim-notify',
+  --   enabled = vim.g.vscode == nil,
+  --   opts = {
+  --     fps = 120,
+  --     stages = 'slide',
+  --   },
+  -- },
   {
-    'rcarriga/nvim-notify',
-    enabled = vim.g.vscode == nil,
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
     opts = {
-      fps = 120,
-      stages = 'slide',
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      bigfile = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
     },
   },
   {
