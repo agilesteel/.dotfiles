@@ -53,6 +53,7 @@
       lazygit
       less
       lolcat
+      lua51Packages.luarocks
       mosh
       # ncdu
       neofetch
