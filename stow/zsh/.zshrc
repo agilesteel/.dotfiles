@@ -191,8 +191,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
-# export LANG="C.UTF-8"
-export LANG="en_US.UTF-8"
+export LANG="C.UTF-8"
 
 # if [[ $(command -v keychain) && -e ~/.ssh/id_rsa ]]; then
   # eval `keychain --eval --quiet id_rsa`
