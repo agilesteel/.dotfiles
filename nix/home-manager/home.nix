@@ -55,7 +55,7 @@
       lolcat
       lua51Packages.luarocks
       mosh
-      # ncdu
+      ncdu
       neofetch
       neovim
       ngrok
