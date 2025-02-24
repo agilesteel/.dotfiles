@@ -75,7 +75,7 @@
       sl
       sshs
       stow
-      tailspin
+      # tailspin
       tig
       tree
       unzip
