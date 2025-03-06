@@ -107,7 +107,7 @@ alias lg='lazygit'
 alias nu='gcam "chore: nix flake update" && gpe'
 alias refresh='gfa && grbom'
 alias refreshd='gfa && grbod'
-alias zgfl='zg fl'
+alias fl='zg fl'
 
 # Nix
 alias din='echo "use nix" > .envrc && echo "watch_file nix/*" >> .envrc && di'
