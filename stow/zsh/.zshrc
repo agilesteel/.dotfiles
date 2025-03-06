@@ -295,7 +295,7 @@ zg() {
     fi
   done
 
-  cd $(printf "%s\n" "${trees[@]}" | fzf --reverse -e -i | cut -d " " -f1)
+  cd $(printf "%s\n" "${trees[@]}" | fzf -e -i | cut -d " " -f1)
 }
 
 # source global settings
