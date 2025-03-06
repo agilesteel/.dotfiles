@@ -283,6 +283,21 @@ nix-prefetch-bloop() {
   nix-prefetch-sri https://github.com/scalacenter/bloop/releases/download/v$version/bloop-aarch64-apple-darwin
 }
 
+zg() {
+  local repo="$1"
+  z $repo
+  trees=()
+
+  for tree in "."/*; do
+    if [ -d "$tree" ]; then
+      branch=$(git -C $tree rev-parse --abbrev-ref HEAD) 2>/dev/null || continue
+      trees+="${tree:2} $branch"
+    fi
+  done
+
+  cd $(printf "%s\n" "${trees[@]}" | fzf --reverse -e -i | cut -d " " -f1)
+}
+
 # source global settings
 if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
