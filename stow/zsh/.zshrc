@@ -3,6 +3,16 @@ if [ -f "$HOME/.zshrc4mac" ] ; then
   source "$HOME/.zshrc4mac"
 fi
 
+RESET='\033[0m'
+BLACK='\033[0;30m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+MAGENTA='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[0;37m'
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -291,11 +301,12 @@ zg() {
   for tree in "."/*; do
     if [ -d "$tree" ]; then
       branch=$(git -C $tree rev-parse --abbrev-ref HEAD) 2>/dev/null || continue
-      trees+="${tree:2} $branch"
+      timestamp=$(git -C $tree show --no-patch --format=%cr) 2>/dev/null || continue
+      trees+="${tree:2} ${CYAN}$branch${RESET} ${GREEN}$timestamp${RESET}"
     fi
   done
 
-  cd $(printf "%s\n" "${trees[@]}" | fzf -e -i | cut -d " " -f1)
+  cd $(printf "%b\n" "${trees[@]}" | fzf -e -i --ansi | cut -d " " -f1)
 }
 
 # source global settings
