@@ -314,6 +314,15 @@ if [ -f "$HOME/.bash_aliases" ] ; then
   source "$HOME/.bash_aliases"
 fi
 
+# these 2 use aliases so they need to come after the .bash_aliases file is loaded
+topic() {
+  hydrate ; gcb "$1"
+}
+
+hotfix() {
+  hydratem ; gcb "$1"
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
 
