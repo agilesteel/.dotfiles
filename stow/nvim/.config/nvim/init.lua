@@ -961,6 +961,20 @@ require('lazy').setup({
       vim.cmd 'highlight Comment ctermbg=NONE ctermfg=167 guibg=NONE guifg=#ff5252 cterm=NONE gui=NONE'
       vim.cmd 'highlight TreesitterContextBottom gui=NONE'
       vim.cmd 'highlight TreesitterContextLineNumberBottom gui=NONE'
+
+      vim.api.nvim_set_hl(0, '@punctuation.bracket', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@keyword.import', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@lsp.type.keyword', { fg = '#e78284' })
+
+      vim.api.nvim_set_hl(0, '@module', { fg = '#efc176' })
+      vim.api.nvim_set_hl(0, '@lsp.type.namespace', { fg = '#efc176' })
+
+      vim.api.nvim_set_hl(0, '@lsp.type.variable', { fg = 'Red' })
+      vim.api.nvim_set_hl(0, '@lsp.type.interface', { fg = '#e5c890' })
+      vim.api.nvim_set_hl(0, '@lsp.type.typeParameter', { fg = '#fcc5aa' })
+
+      vim.api.nvim_set_hl(0, '@lsp.mod.readonly', { fg = '#babbf1' })
+      vim.api.nvim_set_hl(0, '@variable.parameter', { fg = '#babbf1' })
     end,
     opts = {
       term_colors = true,
