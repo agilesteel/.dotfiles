@@ -962,9 +962,14 @@ require('lazy').setup({
       vim.cmd 'highlight TreesitterContextBottom gui=NONE'
       vim.cmd 'highlight TreesitterContextLineNumberBottom gui=NONE'
 
-      vim.api.nvim_set_hl(0, '@punctuation.bracket', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@keyword', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@keyword.conditional', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@keyword.function', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@keyword.import', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@keyword.operator', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@lsp.type.keyword', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@lsp.type.modifier', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@punctuation.bracket', { fg = '#e78284' })
 
       vim.api.nvim_set_hl(0, '@module', { fg = '#efc176' })
       vim.api.nvim_set_hl(0, '@lsp.type.namespace', { fg = '#efc176' })
@@ -1435,6 +1440,14 @@ require('lazy').setup({
     enabled = vim.g.vscode == nil,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {},
+  },
+  {
+    'norcalli/nvim-colorizer.lua',
+    enabled = vim.g.vscode == nil,
+    opts = {},
+    config = function()
+      require('colorizer').setup()
+    end,
   },
 }, {
   ui = {
