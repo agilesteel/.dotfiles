@@ -971,7 +971,9 @@ require('lazy').setup({
       vim.api.nvim_set_hl(0, '@keyword.type', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@lsp.type.keyword', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@lsp.type.modifier', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@operator', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@punctuation.bracket', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@punctuation.delimiter', { fg = '#e78284' })
 
       vim.api.nvim_set_hl(0, '@module', { fg = '#efc176' })
       vim.api.nvim_set_hl(0, '@lsp.type.namespace', { fg = '#efc176' })
