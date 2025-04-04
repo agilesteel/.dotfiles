@@ -1345,7 +1345,7 @@ require('lazy').setup({
       })
     end,
   },
-  -- { 'github/copilot.vim' },
+  { 'github/copilot.vim' },
   {
     'lukas-reineke/virt-column.nvim',
     enabled = vim.g.vscode == nil,
