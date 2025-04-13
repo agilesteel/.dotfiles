@@ -66,6 +66,7 @@
       nvd
       ookla-speedtest
       openssl
+      posting
       ripgrep
       ripgrep-all
       sbt
