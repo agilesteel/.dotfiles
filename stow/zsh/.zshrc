@@ -280,7 +280,14 @@ docker-armageddon() {
 }
 
 nix-prefetch-sri() {
+  echo "Without unpack:"
+  echo
   nix-prefetch-url "$1" | xargs nix hash convert --hash-algo sha256 --to sri
+
+  echo
+  echo "With unpack:"
+  echo
+  nix-prefetch-url --unpack "$1" | xargs nix hash convert --hash-algo sha256 --to sri
 }
 
 nix-prefetch-bloop() {
