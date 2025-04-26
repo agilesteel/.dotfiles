@@ -66,6 +66,6 @@
 [commit]
 	gpgSign = true
 [gpg "ssh"]
-	allowedSignersFile = ~/.config/git/allowed-signers
+	allowedSignersFile = ~/.config/git/allowed-ssh-signers
 [tag]
 	gpgSign = true
