@@ -300,9 +300,9 @@ nix-prefetch-bloop() {
   nix-prefetch-sri https://github.com/scalacenter/bloop/releases/download/v$version/bloop-aarch64-apple-darwin
 }
 
-zg() {
+cdg() {
   local repo="$1"
-  z $repo
+  cd $repo
   trees=()
 
   for tree in "."/*; do
