@@ -290,6 +290,16 @@ nix-prefetch-sri() {
   nix-prefetch-url --unpack "$1" | xargs nix hash convert --hash-algo sha256 --to sri
 }
 
+nix-prefetch-ammonite() {
+  local version="$1"
+
+  nix-prefetch-sri https://github.com/lihaoyi/Ammonite/releases/download/$version/2.12-$version
+  echo
+  nix-prefetch-sri https://github.com/lihaoyi/Ammonite/releases/download/$version/2.13-$version
+  echo
+  nix-prefetch-sri https://github.com/lihaoyi/Ammonite/releases/download/$version/3.3-$version
+}
+
 nix-prefetch-bloop() {
   local version="$1"
 
