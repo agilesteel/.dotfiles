@@ -59,7 +59,7 @@
       neofetch
       neovim
       ngrok
-      nix-direnv
+      # nix-direnv
       nixd
       nnn
       nodejs
