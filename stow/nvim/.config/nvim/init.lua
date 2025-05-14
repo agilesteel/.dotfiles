@@ -1303,14 +1303,19 @@ require('lazy').setup({
         showImplicitArguments = true,
         showImplicitConversionsAndClasses = true,
         showInferredType = true,
-        excludedPackages = { 'akka.actor.typed.javadsl', 'com.github.swagger.akka.javadsl' },
-        -- inlayHints = {
-        --   hintsInPatternMatch = { enable = true },
-        --   implicitArguments = { enable = true },
-        --   implicitConversions = { enable = true },
-        --   inferredTypes = { enable = true },
-        --   typeParameters = { enable = true },
-        -- },
+        excludedPackages = {
+          'akka.actor.typed.javadsl',
+          'com.github.swagger.akka.javadsl',
+        },
+        inlayHints = {
+          byNameParameters = { enable = true },
+          namedParameters = { enable = true },
+          hintsInPatternMatch = { enable = true },
+          implicitArguments = { enable = true },
+          implicitConversions = { enable = true },
+          inferredTypes = { enable = true },
+          typeParameters = { enable = true },
+        },
         testUserInterface = 'Test Explorer',
       }
 
