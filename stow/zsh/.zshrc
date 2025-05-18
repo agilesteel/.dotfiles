@@ -340,6 +340,10 @@ hotfix() {
   hydratem ; gcb "$1"
 }
 
+open() {
+  xdg-open "$1"
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
 
