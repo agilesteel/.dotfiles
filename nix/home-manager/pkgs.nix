@@ -1,7 +1,7 @@
 nixpkgs: nixpkgsForJava: system: let
   mangling = {
     java = "graalvm-ce";
-    nodejs = "nodejs_20";
+    nodejs = "nodejs_22";
   };
 
   overlays = let
