@@ -33,6 +33,7 @@
       duf
       dust
       eza
+      fastfetch
       fd
       figlet
       fx
@@ -56,7 +57,6 @@
       lua51Packages.luarocks
       mosh
       ncdu
-      neofetch
       neovim
       ngrok
       # nix-direnv
