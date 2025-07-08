@@ -1299,7 +1299,7 @@ require('lazy').setup({
       -- Example of settings
       metals_config.settings = {
         -- serverVersion = '1.3.5',
-        automaticImportBuild = 'all',
+        -- automaticImportBuild = 'all',
         showImplicitArguments = true,
         showImplicitConversionsAndClasses = true,
         showInferredType = true,
@@ -1344,7 +1344,9 @@ require('lazy').setup({
       vim.api.nvim_create_autocmd('FileType', {
         pattern = self.ft,
         callback = function()
-          require('metals').initialize_or_attach(metals_config)
+          vim.schedule(function()
+            require('metals').initialize_or_attach(metals_config)
+          end)
         end,
         group = nvim_metals_group,
       })
