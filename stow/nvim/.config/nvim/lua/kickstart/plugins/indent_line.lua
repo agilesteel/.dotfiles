@@ -10,10 +10,11 @@ return {
         show_start = false,
         show_end = false,
         injected_languages = true,
-        highlight = { 'WinBar' },
-        -- highlight = { 'IndentBlanklineContextChar' },
-        -- priority = 1024,
+        char = '│',
+        -- highlight = { 'WinBar' },
+        highlight = { 'LineNr' },
         include = {
+          -- node_type = { ['*'] = { '*' } },
           node_type = {
             ['*'] = {
               'arguments',
@@ -38,7 +39,7 @@ return {
         },
       },
       indent = {
-        char = '│',
+        char = ' ',
       },
     },
   },

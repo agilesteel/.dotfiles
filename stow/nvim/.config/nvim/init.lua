@@ -1379,6 +1379,7 @@ require('lazy').setup({
   -- },
   {
     'folke/snacks.nvim',
+    enabled = vim.g.vscode == nil,
     priority = 1000,
     lazy = false,
     opts = {
@@ -1462,6 +1463,7 @@ require('lazy').setup({
   },
   {
     'ravitemer/mcphub.nvim',
+    enabled = vim.g.vscode == nil,
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
