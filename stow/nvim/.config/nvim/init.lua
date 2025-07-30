@@ -1460,6 +1460,16 @@ require('lazy').setup({
       require('colorizer').setup()
     end,
   },
+  {
+    'ravitemer/mcphub.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    build = 'npm install -g mcp-hub@latest',
+    config = function()
+      require('mcphub').setup()
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

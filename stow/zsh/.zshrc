@@ -159,8 +159,12 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
   . $HOME/.nix-profile/etc/profile.d/nix.sh;
 fi # added by Nix installer
 
+
 if [ -d "$HOME/bin" ] ; then
   PATH="$PATH:$HOME/bin"
+
+  mkdir -p "$HOME/bin/.npm-global/bin"
+  PATH="$PATH:$HOME/bin/.npm-global/bin"
 fi
 
 # set PATH so it includes coursier bin if it exists
