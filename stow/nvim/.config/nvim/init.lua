@@ -963,6 +963,7 @@ require('lazy').setup({
       vim.cmd 'highlight TreesitterContextLineNumber guibg=#292c3c'
       vim.cmd 'highlight TreesitterContextBottom gui=NONE'
       vim.cmd 'highlight TreesitterContextLineNumberBottom gui=NONE'
+      vim.cmd 'highlight FloatBorder guifg=#626880'
 
       vim.api.nvim_set_hl(0, '@keyword', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@keyword.conditional', { fg = '#e78284' })
