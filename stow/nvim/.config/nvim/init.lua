@@ -959,6 +959,8 @@ require('lazy').setup({
       vim.cmd 'highlight QuickScopePrimary gui=underline cterm=underline'
       vim.cmd 'highlight QuickScopeSecondary gui=nocombine cterm=nocombine'
       vim.cmd 'highlight Comment ctermbg=NONE ctermfg=167 guibg=NONE guifg=#ff5252 cterm=NONE gui=NONE'
+      vim.cmd 'highlight TreesitterContext guibg=#292c3c'
+      vim.cmd 'highlight TreesitterContextLineNumber guibg=#292c3c'
       vim.cmd 'highlight TreesitterContextBottom gui=NONE'
       vim.cmd 'highlight TreesitterContextLineNumberBottom gui=NONE'
 
@@ -988,6 +990,10 @@ require('lazy').setup({
     opts = {
       term_colors = true,
       transparent_background = true,
+      float = {
+        transparent = true,
+        solid = false,
+      },
       dim_inactive = {
         enabled = false, -- dims the background color of inactive window
         shade = 'dark',
@@ -1313,6 +1319,7 @@ require('lazy').setup({
           hintsInPatternMatch = { enable = true },
           implicitArguments = { enable = true },
           implicitConversions = { enable = true },
+          hintsXRayMode = { enable = true },
           inferredTypes = { enable = true },
           typeParameters = { enable = true },
         },
