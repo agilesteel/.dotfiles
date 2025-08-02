@@ -1239,7 +1239,6 @@ require('lazy').setup({
     'scalameta/nvim-metals',
     enabled = vim.g.vscode == nil,
     dependencies = {
-      'nvim-lua/plenary.nvim',
       {
         'j-hui/fidget.nvim',
         opts = {
