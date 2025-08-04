@@ -964,6 +964,11 @@ require('lazy').setup({
       vim.cmd 'highlight TreesitterContextBottom gui=NONE'
       vim.cmd 'highlight TreesitterContextLineNumberBottom gui=NONE'
       vim.cmd 'highlight FloatBorder guifg=#626880'
+      vim.cmd 'highlight DiagnosticUnderlineInfo gui=nocombine cterm=nocombine' -- disable underline for now
+      vim.cmd 'highlight DiagnosticUnderlineWarn gui=nocombine cterm=nocombine' -- disable underline for now
+      vim.cmd 'highlight DiagnosticUnderlineError gui=nocombine cterm=nocombine' -- disable underline for now
+      -- https://github.com/wezterm/wezterm/issues/4783#issuecomment-1911272667
+      -- vim.cmd 'highlight DiagnosticUnderlineInfo cterm=undercurl gui=undercurl guisp=#be95ff'
 
       vim.api.nvim_set_hl(0, '@keyword', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@keyword.conditional', { fg = '#e78284' })
