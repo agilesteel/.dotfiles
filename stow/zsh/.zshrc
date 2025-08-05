@@ -164,6 +164,7 @@ if [ -d "$HOME/bin" ] ; then
   PATH="$PATH:$HOME/bin"
 
   mkdir -p "$HOME/bin/.npm-global/bin"
+  npm set prefix "$HOME/bin/.npm-global"
   PATH="$PATH:$HOME/bin/.npm-global/bin"
 fi
 
