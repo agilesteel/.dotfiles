@@ -163,9 +163,13 @@ fi # added by Nix installer
 if [ -d "$HOME/bin" ] ; then
   PATH="$PATH:$HOME/bin"
 
-  mkdir -p "$HOME/bin/.npm-global/bin"
-  npm set prefix "$HOME/bin/.npm-global"
-  PATH="$PATH:$HOME/bin/.npm-global/bin"
+  g="$HOME/bin/.npm-global"
+  npm set prefix $g
+
+  mkdir -p "$g/bin"
+  mkdir -p "$g/lib"
+
+  PATH="$PATH:$g/bin"
 fi
 
 # set PATH so it includes coursier bin if it exists
