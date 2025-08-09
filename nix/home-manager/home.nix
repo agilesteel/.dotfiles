@@ -81,7 +81,7 @@
       tree
       unzip
       wget
-      # wget2
+      wget2
       xdg-utils
       xq
       zip
