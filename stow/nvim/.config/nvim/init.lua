@@ -482,9 +482,21 @@ require('lazy').setup({
         'j-hui/fidget.nvim',
         opts = {
           notification = {
+            view = {
+              line_margin = 0,
+            },
             window = {
               winblend = 0,
               x_padding = 0,
+            },
+          },
+          progress = {
+            ignore_done_already = true,
+            ignore_empty_message = true,
+
+            display = {
+              done_ttl = 1,
+              render_limit = 100,
             },
           },
         },
