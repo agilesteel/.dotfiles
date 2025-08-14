@@ -484,6 +484,7 @@ require('lazy').setup({
           notification = {
             window = {
               winblend = 0,
+              x_padding = 0,
             },
           },
         },
