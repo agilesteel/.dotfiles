@@ -497,6 +497,9 @@ require('lazy').setup({
             display = {
               done_ttl = 1,
               render_limit = 100,
+              format_message = function(msg) -- this removes the double perecentages
+                return msg.message
+              end,
             },
           },
         },
