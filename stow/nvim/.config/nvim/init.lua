@@ -478,13 +478,16 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {
-        notification = {
-          window = {
-            winblend = 0,
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          notification = {
+            window = {
+              winblend = 0,
+            },
           },
         },
-      } },
+      },
 
       -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
@@ -562,6 +565,10 @@ require('lazy').setup({
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
           map('gi', function()
+            require('telescope.builtin').lsp_implementations { show_line = false, default_text = '!test' }
+          end, '[G]oto [I]mplementation')
+
+          map('gti', function()
             require('telescope.builtin').lsp_implementations { show_line = false }
           end, '[G]oto [I]mplementation')
 
