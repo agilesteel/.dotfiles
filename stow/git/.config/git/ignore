@@ -75,3 +75,8 @@ dependency-graph.svg
 **/._.DS_Store
 .DS_Store
 ._.DS_Store
+
+# AI #
+###########
+.mcp.json
+**/.claude/settings.local.json

@@ -1267,19 +1267,10 @@ require('lazy').setup({
     'scalameta/nvim-metals',
     enabled = vim.g.vscode == nil,
     dependencies = {
-      {
-        'j-hui/fidget.nvim',
-        opts = {
-          notification = {
-            window = {
-              winblend = 0,
-            },
-          },
-        },
-      },
+      { 'j-hui/fidget.nvim' },
       {
         'mfussenegger/nvim-dap',
-        config = function(self, opts)
+        config = function(_, _)
           -- Debug settings if you're using nvim-dap
           local dap = require 'dap'
 
@@ -1338,7 +1329,10 @@ require('lazy').setup({
       -- Example of settings
       metals_config.settings = {
         -- serverVersion = '1.3.5',
-        -- automaticImportBuild = 'all',
+        automaticImportBuild = 'all',
+        -- defaultBspToBuildTool = true,
+        startMcpServer = vim.g.vscode == nil,
+        mcpClient = 'claude',
         showImplicitArguments = true,
         showImplicitConversionsAndClasses = true,
         showInferredType = true,
