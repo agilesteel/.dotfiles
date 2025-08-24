@@ -1330,7 +1330,7 @@ require('lazy').setup({
       metals_config.settings = {
         -- serverVersion = '1.3.5',
         automaticImportBuild = 'all',
-        -- defaultBspToBuildTool = true,
+        defaultBspToBuildTool = true,
         startMcpServer = vim.g.vscode == nil,
         mcpClient = 'claude',
         showImplicitArguments = true,
