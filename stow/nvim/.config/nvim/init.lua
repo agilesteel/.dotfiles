@@ -581,7 +581,7 @@ require('lazy').setup({
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
           map('gi', function()
-            require('telescope.builtin').lsp_implementations { show_line = false, default_text = '!test' }
+            require('telescope.builtin').lsp_implementations { show_line = false, default_text = '!test ' }
           end, '[G]oto [I]mplementation')
 
           map('gti', function()
