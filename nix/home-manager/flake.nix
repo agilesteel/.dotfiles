@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgsForJava.url = "github:nixos/nixpkgs?rev=1939434b4ae04cb855edec936573c778a9ddeab0";
+    nixpkgsForJava.url = "github:nixos/nixpkgs?rev=040ad577fef7b972d7e92cd1db79b9c9b697844a";
 
     flake-utils = {
       url = "github:numtide/flake-utils";
