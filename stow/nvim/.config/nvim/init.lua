@@ -570,6 +570,10 @@ require('lazy').setup({
             }
           end, '[G]oto [D]efinition')
 
+          map('gs', function()
+            require('metals').goto_super_method()
+          end, '[G]oto [S]uper Method')
+
           -- Find references for the word under your cursor.
           map('gr', function()
             require('telescope.builtin').lsp_references {
