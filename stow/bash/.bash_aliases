@@ -37,6 +37,7 @@ alias update='\
   sudo apt update && \
   sudo apt -y full-upgrade && \
   sudo apt -y autoremove && \
+  cs update && \
   refresh-completions && \
   nix-channel --update && \
   nix-env -u && \
@@ -49,6 +50,7 @@ alias updates='\
   sudo apt update && \
   sudo apt -y full-upgrade && \
   sudo apt -y autoremove && \
+  cs update && \
   refresh-completions && \
   nix-channel --update && \
   nix-env -u && \
