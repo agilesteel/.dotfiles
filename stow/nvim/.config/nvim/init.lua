@@ -297,35 +297,41 @@ vim.opt.rtp:prepend(lazypath)
 -- All plugins are now modularized in lua/kickstart/plugins/
 require('lazy').setup({
   -- Core plugins
+  require 'kickstart.plugins.cmp',
+  require 'kickstart.plugins.conform',
+  require 'kickstart.plugins.lspconfig',
+  require 'kickstart.plugins.telescope',
   require 'kickstart.plugins.vim-sleuth',
   require 'kickstart.plugins.which-key',
-  require 'kickstart.plugins.telescope',
-  require 'kickstart.plugins.lspconfig',
-  require 'kickstart.plugins.conform',
-  require 'kickstart.plugins.cmp',
 
   -- UI and visual
   require 'kickstart.plugins.catppuccin',
-  require 'kickstart.plugins.todo-comments',
   require 'kickstart.plugins.mini',
+  require 'kickstart.plugins.todo-comments',
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.ui',
 
   -- Additional functionality
-  require 'kickstart.plugins.comment',
-  require 'kickstart.plugins.simple-plugins',
   require 'kickstart.plugins.barbar',
+  require 'kickstart.plugins.comment',
+  require 'kickstart.plugins.copilot',
+  require 'kickstart.plugins.editorconfig',
+  require 'kickstart.plugins.nvim-blame-line',
+  require 'kickstart.plugins.quick-scope',
+  require 'kickstart.plugins.vim-indent-object',
+  require 'kickstart.plugins.vim-repeat',
+  require 'kickstart.plugins.vim-unimpaired',
 
   -- Language-specific
   require 'kickstart.plugins.nvim-metals',
 
   -- Optional kickstart plugins
+  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.gitsigns',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
-  require 'kickstart.plugins.gitsigns',
 
   -- Integrations
   require 'kickstart.plugins.mcphub',
