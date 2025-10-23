@@ -1,13 +1,18 @@
 -- UI enhancements and visual plugins
 return {
   {
-    'lukas-reineke/virt-column.nvim',
+    'xiyaowong/virtcolumn.nvim',
     enabled = vim.g.vscode == nil,
-    opts = {
-      char = '│',
-      virtcolumn = '100',
-      highlight = 'LineNr',
-    },
+    init = function()
+      vim.g.virtcolumn_char = '│'
+      vim.g.virtcolumn_priority = 10
+    end,
+    config = function()
+      -- Set colorcolumn to 100
+      vim.opt.colorcolumn = '100'
+      -- Set highlight to match LineNr
+      vim.api.nvim_set_hl(0, 'VirtColumn', { link = 'LineNr' })
+    end,
   },
   {
     'Bekaboo/dropbar.nvim',
@@ -90,7 +95,7 @@ return {
     opts = {},
   },
   {
-    'norcalli/nvim-colorizer.lua',
+    'NvChad/nvim-colorizer.lua',
     enabled = vim.g.vscode == nil,
     opts = {},
     config = function()
