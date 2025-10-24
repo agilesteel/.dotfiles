@@ -31,6 +31,7 @@ alias sbtk='(echo 1000 > /proc/self/oom_score_adj && exec sbt)'
 alias sbtnoss='sbt -Dsbt.supershell=false'
 alias scalac-phases='scalac -Xshow-phases'
 alias scalalines='find . -path "*/src*" -name "*.scala" | xargs wc -l | sort -n'
+alias uuidv4winclip='uuidgen --random | tr -d "\n" | clip.exe'
 alias vimi='vim ~/.config/nvim/init.lua'
 
 alias update='\
