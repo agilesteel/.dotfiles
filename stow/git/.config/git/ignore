@@ -80,3 +80,4 @@ dependency-graph.svg
 ###########
 .mcp.json
 **/.claude/settings.local.json
+CLAUDE.md
