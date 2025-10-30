@@ -6,7 +6,15 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     enabled = vim.g.vscode == nil,
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
@@ -21,7 +29,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal { ']c', bang = true }
           else
-            gitsigns.nav_hunk 'next'
+            gitsigns.next_hunk()
           end
         end, { desc = 'Jump to next git [c]hange' })
 
@@ -29,7 +37,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal { '[c', bang = true }
           else
-            gitsigns.nav_hunk 'prev'
+            gitsigns.prev_hunk()
           end
         end, { desc = 'Jump to previous git [c]hange' })
 
