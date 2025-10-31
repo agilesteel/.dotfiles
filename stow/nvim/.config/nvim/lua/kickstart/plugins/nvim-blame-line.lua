@@ -4,10 +4,7 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   init = function()
     -- Configure blame line settings before plugin loads
-    vim.g.blameLineVirtualTextFormat = '%s'
-    vim.g.blameLineUseVirtualText = 1
     vim.g.blameLineVirtualTextHighlight = 'LineNr'
-    vim.g.blameLineGitFormat = '%an | %ar | %s'
   end,
   config = function()
     -- Enable blame line automatically when entering buffers
