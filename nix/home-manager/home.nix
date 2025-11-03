@@ -88,7 +88,7 @@
       zsh
     ];
 
-    stateVersion = "25.11";
+    stateVersion = "25.05";
     username = "vlad";
   };
 
