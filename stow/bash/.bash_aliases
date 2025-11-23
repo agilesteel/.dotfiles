@@ -32,6 +32,7 @@ alias sbtnoss='sbt -Dsbt.supershell=false'
 alias scalac-phases='scalac -Xshow-phases'
 alias scalalines='find . -path "*/src*" -name "*.scala" | xargs wc -l | sort -n'
 alias uuidv4winclip='uuidgen --random | tr -d "\n" | clip.exe'
+alias uuidv4macclip='uuidgen --random | tr -d "\n" | pbcopy'
 alias vimi='vim ~/.config/nvim/init.lua'
 
 alias update='\
