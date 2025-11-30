@@ -1,7 +1,7 @@
-nixpkgs: nixpkgsForJava: system: let
+nixpkgs: nixpkgsForJava: nixpkgsForFrequentUpdates: system: let
   mangling = {
     java = "graalvm-ce";
-    nodejs = "nodejs_22";
+    nodejs = "nodejs_24";
   };
 
   overlays = let
@@ -9,6 +9,16 @@ nixpkgs: nixpkgsForJava: system: let
       bloop = prev.bloop.override {
         jre = final.jre;
       };
+    };
+
+    claudeCodeOverlay = final: prev: let
+      overlays = [ (_: _: { nodejs = final.${mangling.nodejs}; }) ];
+      pkgsForFrequentUpdates = import nixpkgsForFrequentUpdates {
+        inherit system overlays;
+        config.allowUnfree = true;
+      };
+    in {
+      claude-code = pkgsForFrequentUpdates.claude-code;
     };
 
     millOverlay = final: prev: {
@@ -41,6 +51,7 @@ nixpkgs: nixpkgsForJava: system: let
     };
   in [
     bloopOverlay
+    claudeCodeOverlay
     javaOverlay
     scalaCliOverlay
     millOverlay

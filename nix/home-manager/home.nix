@@ -17,6 +17,7 @@
       bottom
       btop
       cachix
+      claude-code
       cmatrix
       cocogitto
       coreutils

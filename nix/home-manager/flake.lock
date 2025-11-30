@@ -54,6 +54,21 @@
         "type": "github"
       }
     },
+    "nixpkgsForFrequentUpdates": {
+      "locked": {
+        "lastModified": 1764500245,
+        "narHash": "sha256-lJrBw3t9un/yRXJS1PV56LlpMknTLy/i/0b1RTUNboo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "26750d9efff81193a6e20695f283557933a57730",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgsForJava": {
       "locked": {
         "lastModified": 1759778612,
@@ -75,6 +90,7 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgsForFrequentUpdates": "nixpkgsForFrequentUpdates",
         "nixpkgsForJava": "nixpkgsForJava"
       }
     },

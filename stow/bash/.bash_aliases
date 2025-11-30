@@ -48,6 +48,19 @@ alias update='\
   nix flake update --flake ~/.dotfiles/nix/home-manager && \
   hms'
 
+alias updatef='\
+  sudo apt update && \
+  sudo apt -y full-upgrade && \
+  sudo apt -y autoremove && \
+  cs update && \
+  refresh-completions && \
+  nix-channel --update && \
+  nix-env -u && \
+  cd ~/.dotfiles && \
+  gl && \
+  nix flake update nixpkgsForFrequentUpdates --flake ~/.dotfiles/nix/home-manager && \
+  hms'
+
 alias updates='\
   sudo apt update && \
   sudo apt -y full-upgrade && \
