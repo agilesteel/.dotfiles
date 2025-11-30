@@ -45,8 +45,7 @@ alias update='\
   nix-env -u && \
   cd ~/.dotfiles && \
   gl && \
-  nix flake update --flake ~/.dotfiles/nix/home-manager && \
-  hms'
+  hmu'
 
 alias updatef='\
   sudo apt update && \
@@ -58,8 +57,7 @@ alias updatef='\
   nix-env -u && \
   cd ~/.dotfiles && \
   gl && \
-  nix flake update nixpkgsForFrequentUpdates --flake ~/.dotfiles/nix/home-manager && \
-  hms'
+  hmuf'
 
 alias updates='\
   sudo apt update && \
@@ -138,4 +136,5 @@ alias hmgd='home-manager generations | head -n 2 | tac | cut -d " " -f 7 | xargs
 alias hmp='home-manager packages'
 alias hms='home-manager switch --flake ~/.dotfiles/nix/home-manager#vlad && hmgd'
 alias hmu='nix flake update --flake ~/.dotfiles/nix/home-manager && hms'
+alias hmuf='nix flake update nixpkgsForFrequentUpdates --flake ~/.dotfiles/nix/home-manager && hms'
 alias hmhe='nvim ~/.dotfiles/nix/home-manager/home.nix'
