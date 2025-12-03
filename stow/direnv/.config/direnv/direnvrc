@@ -1,5 +1,5 @@
 if [ -f "$HOME/.nix-profile/share/nix-direnv/direnvrc" ] ; then
-  source $HOME/.nix-profile/share/nix-direnv/direnvrc
+  source "$HOME/.nix-profile/share/nix-direnv/direnvrc"
 fi
 
 dotenv_if_exists
