@@ -217,7 +217,8 @@ export LANG="C.UTF-8"
 # fi
 
 if [[ $(command -v keychain) && -e ~/.ssh/id_ed25519 ]]; then
-  eval `keychain --eval --quiet --ssh-agent-socket ~/.keychain/agent id_ed25519`
+  eval "$(ssh-agent -s)" &> /dev/null
+  eval `keychain --eval --quiet id_ed25519`
 fi
 
 if [ $(command -v direnv) ]; then
