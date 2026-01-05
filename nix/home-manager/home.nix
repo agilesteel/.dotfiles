@@ -29,7 +29,7 @@
       dive
       docker
       docker-compose
-      dogdns
+      doggo
       doppler
       duf
       dust
