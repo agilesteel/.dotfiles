@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgsForFrequentUpdates.url = "github:nixos/nixpkgs";
-    nixpkgsForJava.url = "github:nixos/nixpkgs?rev=1939434b4ae04cb855edec936573c778a9ddeab0";
+    nixpkgsForJava.url = "github:nixos/nixpkgs?rev=ffbc9f8cbaacfb331b6017d5a5abb21a492c9a38";
 
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -14,26 +14,30 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    nixpkgsForJava,
-    nixpkgsForFrequentUpdates,
-    flake-utils,
-    home-manager,
-    ...
-  }: let
-    supportedSystems = [
-      "aarch64-darwin"
-      "aarch64-linux"
-      "x86_64-linux"
-      "x86_64-darwin"
-    ];
-  in
+  outputs =
+    {
+      nixpkgs,
+      nixpkgsForJava,
+      nixpkgsForFrequentUpdates,
+      flake-utils,
+      home-manager,
+      ...
+    }:
+    let
+      supportedSystems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-linux"
+        "x86_64-darwin"
+      ];
+    in
     flake-utils.lib.eachSystem supportedSystems (
-      system: let
+      system:
+      let
         pkgs = import ./pkgs.nix nixpkgs nixpkgsForJava nixpkgsForFrequentUpdates system;
-      in {
-        formatter = pkgs.alejandra;
+      in
+      {
+        formatter = pkgs.nixfmt;
 
         packages.homeConfigurations.vlad = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

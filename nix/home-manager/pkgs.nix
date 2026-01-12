@@ -1,62 +1,66 @@
-nixpkgs: nixpkgsForJava: nixpkgsForFrequentUpdates: system: let
+nixpkgs: nixpkgsForJava: nixpkgsForFrequentUpdates: system:
+let
   mangling = {
     java = "graalvm-ce";
     nodejs = "nodejs_24";
   };
 
-  overlays = let
-    bloopOverlay = final: prev: {
-      bloop = prev.bloop.override {
-        jre = final.jre;
-      };
-    };
+  pkgsForJava = import nixpkgsForJava {
+    inherit system;
+  };
 
-    claudeCodeOverlay = final: prev: let
-      overlays = [ (_: _: { nodejs = final.${mangling.nodejs}; }) ];
-      pkgsForFrequentUpdates = import nixpkgsForFrequentUpdates {
-        inherit system overlays;
-        config.allowUnfree = true;
-      };
-    in {
-      claude-code = pkgsForFrequentUpdates.claude-code;
-    };
+  graalvm = pkgsForJava.graalvmPackages.${mangling.java};
 
-    millOverlay = final: prev: {
-      mill = prev.mill.override {
-        jre = final.jre;
+  overlays =
+    let
+      bloopOverlay = final: prev: {
+        bloop = prev.bloop.override {
+          jre = final.jre;
+        };
       };
-    };
 
-    nodejsOverlay = final: _: {
-      nodejs = final.${mangling.nodejs};
-    };
+      claudeCodeOverlay =
+        final: prev:
+        let
+          overlays = [ (_: _: { nodejs = final.${mangling.nodejs}; }) ];
+          pkgsForFrequentUpdates = import nixpkgsForFrequentUpdates {
+            inherit system overlays;
+            config.allowUnfree = true;
+          };
+        in
+        {
+          claude-code = pkgsForFrequentUpdates.claude-code;
+        };
 
-    javaOverlay = _: _: let
-      pkgsForJava = import nixpkgsForJava {
-        inherit system;
+      millOverlay = final: prev: {
+        mill = prev.mill.override {
+          jre = final.jre;
+        };
       };
-    in {
-      jdk = pkgsForJava.${mangling.java};
-      jre = pkgsForJava.${mangling.java};
-    };
 
-    scalaCliOverlay = _: prev: let
-      pkgsForJava = import nixpkgsForJava {
-        inherit system;
+      nodejsOverlay = final: _: {
+        nodejs = final.${mangling.nodejs};
       };
-    in {
-      scala-cli = prev.scala-cli.override {
-        jre = pkgsForJava.${mangling.java};
+
+      javaOverlay = _: _: {
+        jdk = graalvm;
+        jre = graalvm;
       };
-    };
-  in [
-    bloopOverlay
-    claudeCodeOverlay
-    javaOverlay
-    scalaCliOverlay
-    millOverlay
-    nodejsOverlay
-  ];
+
+      scalaCliOverlay = final: prev: {
+        scala-cli = prev.scala-cli.override {
+          jre = final.jre;
+        };
+      };
+    in
+    [
+      bloopOverlay
+      claudeCodeOverlay
+      javaOverlay
+      scalaCliOverlay
+      millOverlay
+      nodejsOverlay
+    ];
 
   pkgs = import nixpkgs {
     inherit system overlays;
@@ -67,4 +71,4 @@ nixpkgs: nixpkgsForJava: nixpkgsForFrequentUpdates: system: let
     };
   };
 in
-  pkgs
+pkgs
