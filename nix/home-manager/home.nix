@@ -82,7 +82,7 @@
       wget
       wget2
       xdg-utils
-      xq
+      # xq
       zip
       zsh
     ];
