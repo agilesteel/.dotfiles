@@ -354,6 +354,40 @@ open() {
   xdg-open "$1"
 }
 
+
+# Kill selected JVM processes by selecting them via fzf
+jps() {
+  unset JAVA_TOOL_OPTIONS
+
+  f() {
+    command jps -lm | rg -v '\.jps\.Jps' || true
+  }
+
+  local processes=$(f)
+
+  if [[ -z "$processes" ]]; then
+    echo "No JVM processes are running." >&2
+    return 0
+  fi
+
+  local selected=$(echo "$processes" | fzf --reverse -m -e -i) || true
+
+  if [[ -n "$selected" ]]; then
+    echo "$selected" | awk '{print $1}' | xargs kill -9 2>/dev/null || true
+  fi
+
+  sleep 0.1
+
+  processes=$(f)
+
+  if [[ -z "$processes" ]]; then
+    echo "No JVM processes are running." >&2
+    return 0
+  else
+    echo $processes
+  fi
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
 
