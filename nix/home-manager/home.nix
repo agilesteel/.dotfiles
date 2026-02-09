@@ -24,6 +24,7 @@
       curl
       delta
       direnv
+      direnv-instant
       dive
       docker
       docker-compose

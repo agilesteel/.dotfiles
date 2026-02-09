@@ -221,9 +221,9 @@ if [[ $(command -v keychain) && -e ~/.ssh/id_ed25519 ]]; then
   eval `keychain --eval --quiet id_ed25519`
 fi
 
-if [ $(command -v direnv) ]; then
+if [ $(command -v direnv-instant) ]; then
   export DIRENV_LOG_FORMAT=
-  eval "$(direnv hook zsh)"
+  eval "$(direnv-instant hook zsh)"
 fi
 
 # starship

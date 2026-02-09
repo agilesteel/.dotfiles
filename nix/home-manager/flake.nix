@@ -4,9 +4,12 @@
     nixpkgsForFrequentUpdates.url = "github:nixos/nixpkgs";
     nixpkgsForJava.url = "github:nixos/nixpkgs?rev=ffbc9f8cbaacfb331b6017d5a5abb21a492c9a38";
 
-    flake-utils = {
-      url = "github:numtide/flake-utils";
+    direnv-instant = {
+      url = "github:Mic92/direnv-instant";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-utils.url = "github:numtide/flake-utils";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,6 +22,7 @@
       nixpkgs,
       nixpkgsForJava,
       nixpkgsForFrequentUpdates,
+      direnv-instant,
       flake-utils,
       home-manager,
       ...
@@ -34,7 +38,7 @@
     flake-utils.lib.eachSystem supportedSystems (
       system:
       let
-        pkgs = import ./pkgs.nix nixpkgs nixpkgsForJava nixpkgsForFrequentUpdates system;
+        pkgs = import ./pkgs.nix nixpkgs nixpkgsForJava nixpkgsForFrequentUpdates direnv-instant system;
       in
       {
         formatter = pkgs.nixfmt;

@@ -1,4 +1,4 @@
-nixpkgs: nixpkgsForJava: nixpkgsForFrequentUpdates: system:
+nixpkgs: nixpkgsForJava: nixpkgsForFrequentUpdates: direnv-instant: system:
 let
   mangling = {
     java = "graalvm-ce";
@@ -38,6 +38,10 @@ let
         };
       };
 
+      direnvInstantOverlay = _: _: {
+        direnv-instant = direnv-instant.packages.${system}.default;
+      };
+
       nodejsOverlay = final: _: {
         nodejs = final.${mangling.nodejs};
       };
@@ -56,6 +60,7 @@ let
     [
       bloopOverlay
       claudeCodeOverlay
+      direnvInstantOverlay
       javaOverlay
       scalaCliOverlay
       millOverlay
