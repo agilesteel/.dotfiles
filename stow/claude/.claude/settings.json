@@ -27,30 +27,20 @@
     ],
     "Notification": [
       {
+        "matcher": "permission_prompt|elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/play-sound.sh ~/.claude/sounds/permission-request.wav"
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt|auth_success",
         "hooks": [
           {
             "type": "command",
             "command": "~/.claude/play-sound.sh ~/.claude/sounds/notification.wav"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/pre-tool-use.wav"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/post-tool-use.wav"
           }
         ]
       }
@@ -71,26 +61,6 @@
           {
             "type": "command",
             "command": "~/.claude/play-sound.sh ~/.claude/sounds/permission-request.wav"
-          }
-        ]
-      }
-    ],
-    "SubagentStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/subagent-start.wav"
-          }
-        ]
-      }
-    ],
-    "SubagentStop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/subagent-stop.wav"
           }
         ]
       }
