@@ -74,6 +74,7 @@
       scala-cli
       scalafmt
       scc
+      sd
       sl
       sshs
       stow
