@@ -41,6 +41,7 @@
       gh
       git
       glow
+      gping
       graphviz
       gum
       htop
@@ -83,7 +84,7 @@
       wget
       wget2
       xdg-utils
-      # xq
+      xq
       zip
       zsh
     ];
