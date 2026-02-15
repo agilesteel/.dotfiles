@@ -85,7 +85,6 @@
       wget
       wget2
       xdg-utils
-      xq
       zip
       zsh
     ];
