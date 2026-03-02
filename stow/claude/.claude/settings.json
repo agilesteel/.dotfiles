@@ -5,16 +5,6 @@
     "padding": 0
   },
   "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/session-start.wav"
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "hooks": [
@@ -45,16 +35,6 @@
         ]
       }
     ],
-    "PostToolUseFailure": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/post-tool-use-failure.wav"
-          }
-        ]
-      }
-    ],
     "PermissionRequest": [
       {
         "hooks": [
@@ -71,16 +51,6 @@
           {
             "type": "command",
             "command": "~/.claude/play-sound.sh ~/.claude/sounds/task-completed.wav"
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/session-end.wav"
           }
         ]
       }
