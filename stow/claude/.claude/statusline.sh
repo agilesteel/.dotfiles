@@ -63,4 +63,4 @@ else
 fi
 
 # Format: Model ████░░░░░░ 42% | branch
-printf "\033[0;36m%s\033[0m ${BAR_COLOR}%s\033[0m %d%% \033[0;35m%s\033[0m" "$MODEL" "$BAR" "$CTX_PCT" "$GIT_BRANCH"
+printf "\033[0;36m%s\033[0m ${BAR_COLOR}%s %d%%\033[0m \033[0;35m%s\033[0m" "$MODEL" "$BAR" "$CTX_PCT" "$GIT_BRANCH"
