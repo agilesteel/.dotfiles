@@ -2,7 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgsForFrequentUpdates.url = "github:nixos/nixpkgs";
-    nixpkgsForJava.url = "github:nixos/nixpkgs?rev=ffbc9f8cbaacfb331b6017d5a5abb21a492c9a38";
+    nixpkgsForJava.url = "github:nixos/nixpkgs?rev=a83174ab77153b9a4e31e8547334a95c28374197";
 
     direnv-instant = {
       url = "github:Mic92/direnv-instant";
