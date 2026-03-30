@@ -47,6 +47,7 @@
       ipfetch
       jdk
       jq
+      just
       k9s
       keychain
       kubectl
