@@ -212,11 +212,9 @@ export MANROFFOPT="-c"
 
 export LANG="C.UTF-8"
 
-# eval `keychain --eval --quiet --ssh-agent-socket ~/.keychain/agent id_rsa`
-
-if [[ $(command -v keychain) && -e ~/.ssh/id_rsa ]]; then
-  eval `keychain --eval --quiet id_rsa`
-fi
+# if [[ $(command -v keychain) && -e ~/.ssh/id_rsa ]]; then
+#   eval `keychain --eval --quiet id_rsa`
+# fi
 
 if [[ $(command -v keychain) && -e ~/.ssh/id_ed25519 ]]; then
   eval "$(ssh-agent -s)" &> /dev/null
