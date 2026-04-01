@@ -8,6 +8,7 @@ alias ll='ls -lh --color=auto'
 alias el='eza --long --binary --icons=always --sort=name --all --modified --git'
 alias ell='eza --long --binary --icons=always --sort=name --modified --git'
 alias ellr='eza --long --binary --icons=always --sort=modified --modified --git'
+alias etree='eza --long --binary --icons=always --sort=name --all --modified --git --tree'
 
 alias b='bloop'
 alias br='bloop exit && bloop about'
