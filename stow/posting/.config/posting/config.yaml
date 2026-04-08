@@ -1,0 +1,9 @@
+animation: full
+collection_browser:
+  position: right
+focus:
+  on_startup: collection
+  on_response: body
+  on_request_open: body
+use_host_environment: true
+theme: catppuccin-frappe
