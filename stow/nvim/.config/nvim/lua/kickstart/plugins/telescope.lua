@@ -4,7 +4,6 @@ return {
     'nvim-telescope/telescope.nvim',
     enabled = vim.g.vscode == nil,
     event = 'VimEnter',
-    branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
       {

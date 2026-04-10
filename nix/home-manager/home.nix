@@ -56,6 +56,7 @@
       less
       lolcat
       lua51Packages.luarocks
+      lua51Packages.tree-sitter-cli
       mosh
       ncdu
       neovim

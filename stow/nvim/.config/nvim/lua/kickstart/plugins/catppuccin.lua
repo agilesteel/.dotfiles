@@ -5,7 +5,31 @@ return {
     enabled = vim.g.vscode == nil,
     name = 'catppuccin',
     priority = 1000,
-    init = function()
+    opts = {
+      term_colors = true,
+      transparent_background = true,
+      float = {
+        transparent = true,
+        solid = false,
+      },
+      dim_inactive = {
+        enabled = false,
+        shade = 'dark',
+        percentage = 0.15,
+      },
+      no_italic = true,
+      no_bold = true,
+      integrations = {
+        notify = true,
+        fidget = true,
+        mini = {
+          enabled = true,
+          indentscope_color = '',
+        },
+      },
+    },
+    config = function(_, opts)
+      require('catppuccin').setup(opts)
       vim.cmd.colorscheme 'catppuccin-frappe'
 
       vim.cmd 'highlight QuickScopePrimary gui=underline cterm=underline'
@@ -30,6 +54,7 @@ return {
       vim.api.nvim_set_hl(0, '@lsp.type.keyword', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@lsp.type.modifier', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@operator', { fg = '#e78284' })
+      vim.api.nvim_set_hl(0, '@punctuation', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@punctuation.bracket', { fg = '#e78284' })
       vim.api.nvim_set_hl(0, '@punctuation.delimiter', { fg = '#e78284' })
 
@@ -43,28 +68,5 @@ return {
       vim.api.nvim_set_hl(0, '@lsp.mod.readonly', { fg = '#babbf1' })
       vim.api.nvim_set_hl(0, '@variable.parameter', { fg = '#babbf1' })
     end,
-    opts = {
-      term_colors = true,
-      transparent_background = true,
-      float = {
-        transparent = true,
-        solid = false,
-      },
-      dim_inactive = {
-        enabled = false,
-        shade = 'dark',
-        percentage = 0.15,
-      },
-      no_italic = true,
-      no_bold = true,
-      integrations = {
-        notify = true,
-        fidget = true,
-        mini = {
-          enabled = true,
-          indentscope_color = '',
-        },
-      },
-    },
   },
 }

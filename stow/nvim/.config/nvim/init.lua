@@ -103,7 +103,6 @@ vim.opt.autoindent = true -- not sure if I need this
 vim.opt.breakindent = true -- Enable break indent
 vim.opt.encoding = 'utf-8' -- the encoding displayed
 vim.opt.expandtab = true -- converts tabs to spaces
-vim.opt.hidden = true
 vim.opt.linebreak = true -- don't break words in half
 vim.opt.mouse = 'a' -- enable mouse
 vim.opt.number = true
@@ -114,6 +113,7 @@ vim.opt.showtabline = 2 -- always show tabline
 vim.opt.smarttab = true -- figures out whether to use 2 or 4 spaces
 vim.opt.tabstop = 2 -- insert 2 spaces instead of a tab
 vim.opt.termguicolors = true
+vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
 vim.opt.undofile = true -- Save undo history
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
@@ -297,7 +297,6 @@ vim.opt.rtp:prepend(lazypath)
 -- All plugins are now modularized in lua/kickstart/plugins/
 require('lazy').setup({
   -- Core plugins
-  require 'kickstart.plugins.cmp',
   require 'kickstart.plugins.conform',
   require 'kickstart.plugins.lspconfig',
   require 'kickstart.plugins.telescope',

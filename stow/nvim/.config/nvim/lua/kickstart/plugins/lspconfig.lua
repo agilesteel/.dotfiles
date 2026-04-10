@@ -51,6 +51,8 @@ return {
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
+          vim.lsp.completion.enable(true, event.data.client_id, event.buf, { autotrigger = true })
+
           map('gd', function()
             require('telescope.builtin').lsp_definitions {
               show_line = false,
@@ -177,7 +179,6 @@ return {
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local servers = {
         lua_ls = {

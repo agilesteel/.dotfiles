@@ -82,10 +82,11 @@ return {
       }
 
       metals_config.init_options.statusBarProvider = 'off'
-      metals_config.capabilities = require('cmp_nvim_lsp').default_capabilities()
+      metals_config.capabilities = vim.lsp.protocol.make_client_capabilities()
 
       metals_config.on_attach = function(client, bufnr)
         require('metals').setup_dap()
+        vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
       end
 
       return metals_config
@@ -101,34 +102,6 @@ return {
         end,
         group = nvim_metals_group,
       })
-    end,
-  },
-  {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
-    enabled = vim.g.vscode == nil,
-    dependencies = {
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-vsnip' },
-      { 'hrsh7th/vim-vsnip' },
-    },
-    opts = function()
-      local cmp = require 'cmp'
-      local conf = {
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'vsnip' },
-        },
-        snippet = {
-          expand = function(args)
-            vim.fn['vsnip#anonymous'](args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert {
-          ['<CR>'] = cmp.mapping.confirm { select = true },
-        },
-      }
-      return conf
     end,
   },
 }
