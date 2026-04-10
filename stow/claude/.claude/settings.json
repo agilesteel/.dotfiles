@@ -56,5 +56,6 @@
     "command": "~/.claude/statusline.sh",
     "padding": 0
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "model": "opus"
 }
