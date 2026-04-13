@@ -4,9 +4,16 @@
   ...
 }:
 let
+  scala = with pkgs; [
+    bloop
+    coursier
+    sbt
+    scala-cli
+    scalafmt
+  ];
   scalaNative = with pkgs; [
-    clang
     boehmgc
+    clang
     libunwind
     zlib
   ];
@@ -20,7 +27,6 @@ in
       [
         asciiquarium
         bat
-        bloop
         bottom
         btop
         cachix
@@ -28,7 +34,6 @@ in
         cmatrix
         cocogitto
         coreutils
-        coursier
         cowsay
         curl
         delta
@@ -81,9 +86,6 @@ in
         posting
         ripgrep
         ripgrep-all
-        sbt
-        scala-cli
-        scalafmt
         scc
         sd
         sl
@@ -99,6 +101,7 @@ in
         zip
         zsh
       ]
+      ++ scala
       ++ scalaNative;
 
     stateVersion = "25.05";
