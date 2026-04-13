@@ -273,6 +273,8 @@ up_widget() {
   zle accept-line
 }
 
+tmux set -g mouse off && tmux set -g mouse on
+
 zle -N up_widget
 bindkey "^\\" up_widget
 
