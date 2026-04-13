@@ -3,92 +3,103 @@
   pkgs,
   ...
 }:
+let
+  scalaNative = with pkgs; [
+    clang
+    boehmgc
+    libunwind
+    zlib
+  ];
+in
 {
   home = {
     homeDirectory = if pkgs.stdenv.isLinux then "/home/vlad" else "/Users/vlad";
 
-    packages = with pkgs; [
-      asciiquarium
-      bat
-      bloop
-      bottom
-      btop
-      cachix
-      claude-code
-      cmatrix
-      cocogitto
-      coreutils
-      coursier
-      cowsay
-      curl
-      delta
-      direnv
-      direnv-instant
-      dive
-      docker
-      docker-compose
-      doggo
-      doppler
-      duf
-      dust
-      eza
-      fastfetch
-      fd
-      figlet
-      fx
-      fzf
-      gh
-      git
-      glow
-      gping
-      graphviz
-      gum
-      htop
-      ipfetch
-      jdk
-      jq
-      just
-      k9s
-      keychain
-      kubectl
-      lazydocker
-      lazygit
-      less
-      lolcat
-      lua51Packages.luarocks
-      lua51Packages.tree-sitter-cli
-      mosh
-      ncdu
-      neovim
-      ngrok
-      nix-direnv
-      nixd
-      nnn
-      nodejs
-      nvd
-      ookla-speedtest
-      openssl
-      posting
-      ripgrep
-      ripgrep-all
-      sbt
-      scala-cli
-      scalafmt
-      scc
-      sd
-      sl
-      sshs
-      stow
-      tailspin
-      tig
-      tree
-      unzip
-      wget
-      wget2
-      xdg-utils
-      zip
-      zsh
-    ];
+    packages =
+      with pkgs;
+      [
+        asciiquarium
+        bat
+        bloop
+        bottom
+        btop
+        cachix
+        claude-code
+        cmatrix
+        cocogitto
+        coreutils
+        coursier
+        cowsay
+        curl
+        delta
+        direnv
+        direnv-instant
+        dive
+        docker
+        docker-compose
+        doggo
+        doppler
+        duf
+        dust
+        eza
+        fastfetch
+        fd
+        figlet
+        fx
+        fzf
+        gh
+        git
+        glow
+        gping
+        graphviz
+        gum
+        htop
+        ipfetch
+        jdk
+        jq
+        just
+        k9s
+        keychain
+        kubectl
+        lazydocker
+        lazygit
+        less
+        lolcat
+        lua51Packages.luarocks
+        lua51Packages.tree-sitter-cli
+        mosh
+        ncdu
+        neovim
+        ngrok
+        nix-direnv
+        nixd
+        nnn
+        nodejs
+        nvd
+        ookla-speedtest
+        openssl
+        posting
+        ripgrep
+        ripgrep-all
+        sbt
+        scala-cli
+        scalafmt
+        scc
+        sd
+        sl
+        sshs
+        stow
+        tailspin
+        tig
+        tree
+        unzip
+        wget
+        wget2
+        xdg-utils
+        zip
+        zsh
+      ]
+      ++ scalaNative;
 
     stateVersion = "25.05";
     username = "vlad";
