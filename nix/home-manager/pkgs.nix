@@ -19,6 +19,12 @@ let
         };
       };
 
+      giter8Overlay = final: prev: {
+        giter8 = prev.giter8.override {
+          jre = final.jre;
+        };
+      };
+
       claudeCodeOverlay =
         final: prev:
         let
@@ -42,6 +48,12 @@ let
         direnv-instant = direnv-instant.packages.${system}.default;
       };
 
+      direnvOverlay = _: prev: {
+        direnv = prev.direnv.overrideAttrs (_: {
+          doCheck = false;
+        });
+      };
+
       nodejsOverlay = final: _: {
         nodejs = final.${mangling.nodejs};
       };
@@ -61,8 +73,10 @@ let
       bloopOverlay
       claudeCodeOverlay
       direnvInstantOverlay
+      direnvOverlay
       javaOverlay
       scalaCliOverlay
+      giter8Overlay
       millOverlay
       nodejsOverlay
     ];

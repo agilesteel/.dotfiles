@@ -7,6 +7,7 @@ let
   scala = with pkgs; [
     bloop
     coursier
+    giter8
     sbt
     scala-cli
     scalafmt
