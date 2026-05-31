@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgsForFrequentUpdates.url = "github:nixos/nixpkgs";
     nixpkgsForJava.url = "github:nixos/nixpkgs?rev=a83174ab77153b9a4e31e8547334a95c28374197";
 
