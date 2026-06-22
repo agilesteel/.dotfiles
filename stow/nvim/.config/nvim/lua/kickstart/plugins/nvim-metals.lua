@@ -56,7 +56,7 @@ return {
       vim.keymap.set('i', '<C-s>', '<Esc>:update<CR>:MetalsCompileCascade<CR>a', { desc = 'Save', silent = true })
 
       metals_config.settings = {
-        automaticImportBuild = 'all',
+        autoImportBuilds = 'all',
         defaultBspToBuildTool = true,
         startMcpServer = vim.g.vscode == nil,
         mcpClient = 'claude',
