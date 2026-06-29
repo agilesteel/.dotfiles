@@ -57,5 +57,6 @@
     "padding": 0
   },
   "effortLevel": "high",
+  "inputNeededNotifEnabled": true,
   "tui": "fullscreen"
 }
