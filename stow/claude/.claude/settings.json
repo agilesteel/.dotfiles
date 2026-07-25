@@ -57,6 +57,7 @@
     "padding": 0
   },
   "effortLevel": "high",
-  "inputNeededNotifEnabled": true,
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "theme": "dark",
+  "inputNeededNotifEnabled": true
 }
