@@ -59,5 +59,6 @@
   "effortLevel": "high",
   "tui": "fullscreen",
   "theme": "dark",
-  "inputNeededNotifEnabled": true
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
 }
