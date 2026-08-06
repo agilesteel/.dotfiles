@@ -1575,11 +1575,11 @@
       if [[ -z "$result" || "$result" == "." ]] ; then
         return
       elif [[ "$config" == prd* ]] ; then # do not put double quotes around "prd*"
-        p10k segment -f 1 -i '' -t "$result" # red
+        p10k segment -f 1 -i '' -t "$result" # red
       elif [[ "$config" == loc* ]] ; then # do not put double quotes around "loc*"
-        p10k segment -f 32 -i '' -t "$result" # blue
+        p10k segment -f 32 -i '' -t "$result" # blue
       else
-        p10k segment -f 3 -i '' -t "$result" # yellow
+        p10k segment -f 3 -i '' -t "$result" # yellow
       fi
     fi
   }
