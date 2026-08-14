@@ -59,6 +59,7 @@ in
         gping
         graphviz
         gum
+        herdr
         htop
         ipfetch
         jdk
