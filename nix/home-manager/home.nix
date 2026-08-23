@@ -8,6 +8,7 @@ let
     bloop
     coursier
     giter8
+    metals
     sbt
     scala-cli
     scalafmt

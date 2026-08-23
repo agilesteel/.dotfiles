@@ -13,18 +13,6 @@ let
 
   overlays =
     let
-      bloopOverlay = final: prev: {
-        bloop = prev.bloop.override {
-          jre = final.jre;
-        };
-      };
-
-      giter8Overlay = final: prev: {
-        giter8 = prev.giter8.override {
-          jre = final.jre;
-        };
-      };
-
       claudeCodeOverlay =
         final: prev:
         let
@@ -37,12 +25,6 @@ let
         {
           claude-code = pkgsForFrequentUpdates.claude-code;
         };
-
-      millOverlay = final: prev: {
-        mill = prev.mill.override {
-          jre = final.jre;
-        };
-      };
 
       direnvInstantOverlay = _: _: {
         direnv-instant = direnv-instant.packages.${system}.default;
@@ -58,26 +40,19 @@ let
         nodejs = final.${mangling.nodejs};
       };
 
+      # Every scala tool in nixpkgs takes a `jre` argument resolved against the
+      # final package set, so setting jdk/jre here is enough: bloop, coursier,
+      # giter8, metals, sbt, scala-cli and scalafmt all run on graal.
       javaOverlay = _: _: {
         jdk = graalvm;
         jre = graalvm;
       };
-
-      scalaCliOverlay = final: prev: {
-        scala-cli = prev.scala-cli.override {
-          jre = final.jre;
-        };
-      };
     in
     [
-      bloopOverlay
       claudeCodeOverlay
       direnvInstantOverlay
       direnvOverlay
       javaOverlay
-      scalaCliOverlay
-      giter8Overlay
-      millOverlay
       nodejsOverlay
     ];
 
