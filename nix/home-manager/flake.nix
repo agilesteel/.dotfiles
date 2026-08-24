@@ -32,24 +32,27 @@
         "aarch64-darwin"
         "aarch64-linux"
         "x86_64-linux"
-        "x86_64-darwin"
       ];
     in
     flake-utils.lib.eachSystem supportedSystems (
       system:
       let
         pkgs = import ./pkgs.nix nixpkgs nixpkgsForJava nixpkgsForFrequentUpdates direnv-instant system;
-      in
-      {
-        formatter = pkgs.nixfmt;
 
-        packages.homeConfigurations.vlad = home-manager.lib.homeManagerConfiguration {
+        homeConfiguration = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
           modules = [
             ./home.nix
           ];
         };
+      in
+      {
+        formatter = pkgs.nixfmt-tree;
+
+        legacyPackages.homeConfigurations.vlad = homeConfiguration;
+
+        packages.default = homeConfiguration.activationPackage;
       }
     );
 }

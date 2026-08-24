@@ -1,18 +1,22 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
 let
-  scala = with pkgs; [
-    bloop
-    coursier
-    giter8
-    metals
-    sbt
-    scala-cli
-    scalafmt
-  ];
+  scala =
+    with pkgs;
+    # bloop has no aarch64-linux build upstream
+    lib.optional bloop.meta.available bloop
+    ++ [
+      coursier
+      giter8
+      metals
+      sbt
+      scala-cli
+      scalafmt
+    ];
   scalaNative = with pkgs; [
     boehmgc
     clang
