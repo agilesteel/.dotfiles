@@ -63,46 +63,54 @@ version_check = false
 # prefix = "ctrl+b"
 
 # Prefix-mode actions
-# help = "prefix+?"
-# settings = "prefix+s"
-# detach = "prefix+q"
-# reload_config = "prefix+shift+r"
+# byobu-compatible additions: the first element of each array is herdr's stock
+# default, the rest are byobu's direct (no-prefix) F-key / arrow chords.
+# Nothing herdr bound by default was removed.
+help = ["prefix+?", "f1", "shift+f1"]                  # byobu F1 / S-F1 = help
+settings = ["prefix+s", "f9"]                          # byobu F9 = byobu-config menu
+detach = ["prefix+q", "f6", "shift+f6"]                # byobu F6 / S-F6 = detach
+reload_config = ["prefix+shift+r", "f5"]               # byobu F5 = reload profile
 # open_notification_target = "prefix+o"
 # workspace_picker = "prefix+w"
 # goto = "prefix+g"
-# new_workspace = "prefix+shift+n"
+new_workspace = ["prefix+shift+n", "ctrl+shift+f2"]    # byobu C-S-F2 = new session
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
-# rename_workspace = "prefix+shift+w"
+rename_workspace = ["prefix+shift+w", "ctrl+f8"]       # byobu C-F8 = rename session
 # close_workspace = "prefix+shift+d"
-# previous_workspace = "" # optional, unset by default
-# next_workspace = ""     # optional, unset by default
+previous_workspace = "alt+up"                          # byobu M-Up = previous session
+next_workspace = "alt+down"                            # byobu M-Down = next session
 # previous_agent = ""     # optional, unset by default
 # next_agent = ""         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
-# new_tab = "prefix+c"
-# rename_tab = "prefix+shift+t"
-# previous_tab = "prefix+p"
-# next_tab = "prefix+n"
+new_tab = ["prefix+c", "f2"]                           # byobu F2 = new window
+rename_tab = ["prefix+shift+t", "f8"]                  # byobu F8 = rename window
+previous_tab = ["prefix+p", "f3", "alt+left"]          # byobu F3 / M-Left
+next_tab = ["prefix+n", "f4", "alt+right"]             # byobu F4 / M-Right
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
-# edit_scrollback = "prefix+e"
-# focus_pane_left = "prefix+h"
-# focus_pane_down = "prefix+j"
-# focus_pane_up = "prefix+k"
-# focus_pane_right = "prefix+l"
-# cycle_pane_next = "prefix+tab"
-# cycle_pane_previous = "prefix+shift+tab"
+edit_scrollback = ["prefix+e", "shift+f7"]             # byobu S-F7 = scrollback in editor
+copy_mode = "f7"                                       # byobu F7 = scrollback / copy mode
+focus_pane_left = ["prefix+h", "shift+left"]           # byobu S-Left
+focus_pane_down = ["prefix+j", "shift+down"]           # byobu S-Down
+focus_pane_up = ["prefix+k", "shift+up"]               # byobu S-Up
+focus_pane_right = ["prefix+l", "shift+right"]         # byobu S-Right
+swap_pane_left = "ctrl+f3"                             # byobu C-F3 = swap pane back
+swap_pane_right = "ctrl+f4"                            # byobu C-F4 = swap pane forward
+cycle_pane_next = ["prefix+tab", "shift+f4"]           # byobu S-F4 = next pane
+cycle_pane_previous = ["prefix+shift+tab", "shift+f3"] # byobu S-F3 = previous pane
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
-# split_vertical = "prefix+v"
-# split_horizontal = "prefix+minus"
-# close_pane = "prefix+x"
-# zoom = "prefix+z"       # legacy alias: fullscreen
-# resize_mode = "prefix+r"
+split_vertical = ["prefix+v", "ctrl+f2"]               # byobu C-F2 = split side-by-side
+split_horizontal = ["prefix+minus", "shift+f2"]        # byobu S-F2 = split stacked
+close_pane = ["prefix+x", "ctrl+f6"]                   # byobu C-F6 = kill pane
+zoom = ["prefix+z", "shift+f11"]                       # byobu S-F11 = zoom pane
+# byobu M-S-arrows resize directly; herdr has no directional resize action,
+# so the chords enter resize mode instead (then arrows resize).
+resize_mode = ["prefix+r", "alt+shift+left", "alt+shift+right", "alt+shift+up", "alt+shift+down"]
 # toggle_sidebar = "prefix+b"
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
