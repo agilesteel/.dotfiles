@@ -13,7 +13,9 @@ let
 
   overlays =
     let
-      claudeCodeOverlay =
+      # These track the frequently updated nixpkgs rather than the pinned one.
+      # The nodejs injection is claude-code's; herdr takes no nodejs argument.
+      frequentUpdatesOverlay =
         final: prev:
         let
           overlays = [ (_: _: { nodejs = final.${mangling.nodejs}; }) ];
@@ -23,7 +25,7 @@ let
           };
         in
         {
-          claude-code = pkgsForFrequentUpdates.claude-code;
+          inherit (pkgsForFrequentUpdates) claude-code herdr;
         };
 
       direnvInstantOverlay = _: _: {
@@ -49,9 +51,9 @@ let
       };
     in
     [
-      claudeCodeOverlay
       direnvInstantOverlay
       direnvOverlay
+      frequentUpdatesOverlay
       javaOverlay
       nodejsOverlay
     ];
