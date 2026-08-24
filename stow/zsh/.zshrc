@@ -221,10 +221,15 @@ if [[ $(command -v keychain) && -e ~/.ssh/id_ed25519 ]]; then
   eval `keychain --eval --quiet id_ed25519`
 fi
 
-if [ $(command -v direnv-instant) ]; then
+if [ $(command -v direnv) ]; then
   export DIRENV_LOG_FORMAT=
-  eval "$(direnv-instant hook zsh)"
+  eval "$(direnv hook zsh)"
 fi
+
+# if [ $(command -v direnv-instant) ]; then
+#   export DIRENV_LOG_FORMAT=
+#   eval "$(direnv-instant hook zsh)"
+# fi
 
 # starship
 if [ $(command -v starship) ]; then
@@ -273,7 +278,7 @@ up_widget() {
   zle accept-line
 }
 
-if [ $(command -v tmux) ]; then
+if [ -n "$TMUX" ]; then
   tmux set -g mouse off && tmux set -g mouse on
 fi
 
