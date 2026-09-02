@@ -1,0 +1,4 @@
+[gateway]
+always_on_discovery = true
+suppress_nested_agent_push = false
+usage_collection = true
