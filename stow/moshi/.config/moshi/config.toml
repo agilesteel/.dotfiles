@@ -1,4 +1,5 @@
 [gateway]
 always_on_discovery = true
+scan_ports = [80, 443, 8080, 9000]
 suppress_nested_agent_push = false
 usage_collection = true
