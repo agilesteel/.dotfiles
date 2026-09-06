@@ -1561,80 +1561,43 @@
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%fat '
 
   function prompt_my_doppler_config() {
-    if [ ! $(command -v doppler) ]; then
-      return
+    emulate -L zsh
+
+    (( $+commands[doppler] )) || return
+
+    # analytics/env-warning flags are disabled once at shell startup in .zshrc
+
+    local -a scope
+    scope=( ${(f)"$(doppler --no-check-version configure get project config --plain 2>/dev/null)"} )
+    (( $#scope == 2 )) || return
+
+    local project=$scope[1] config=$scope[2]
+    local result="$project.$config"
+
+    if [[ $config == prd* ]] ; then # do not put double quotes around "prd*"
+      p10k segment -f 1 -i '' -t "$result" # red
+    elif [[ $config == loc* ]] ; then # do not put double quotes around "loc*"
+      p10k segment -f 32 -i '' -t "$result" # blue
     else
-      doppler configure flags disable analytics --silent 2>/dev/null || true
-      doppler configure flags disable env-warning --silent 2>/dev/null || true
-
-      # local result=$(doppler --no-check-version configure --json | jq -r '.[] | {"enclave.project","enclave.config"} | join(".")' | tail -n1)
-      local project=$(doppler --no-check-version configure get project --plain)
-      local config=$(doppler --no-check-version configure get config --plain)
-      local result="$project.$config"
-
-      if [[ -z "$result" || "$result" == "." ]] ; then
-        return
-      elif [[ "$config" == prd* ]] ; then # do not put double quotes around "prd*"
-        p10k segment -f 1 -i '' -t "$result" # red
-      elif [[ "$config" == loc* ]] ; then # do not put double quotes around "loc*"
-        p10k segment -f 32 -i '' -t "$result" # blue
-      else
-        p10k segment -f 3 -i '' -t "$result" # yellow
-      fi
+      p10k segment -f 3 -i '' -t "$result" # yellow
     fi
   }
 
   function prompt_my_sbt_version() {
-    if [ -f "project/build.properties" ] ; then
-      # read lines from project/build.properties in reverse
-      local lines=$(tac project/build.properties)
+    emulate -L zsh
 
-      # extract first version and exit
-      # trim left and right spaces
-      local sbt_version=$(echo $lines | awk -F "=" '/sbt\.version/{gsub(/ /,"");print $NF;exit;}' 2>/dev/null || echo 'bug')
-    else
-      return
-    fi
+    [[ -f project/build.properties ]] || return
 
-    # if $cache_file exists and
-    # it's not older than timeout
-    # get the content which is the version
-    # else get the version from GitHub
-    # make sure it's on Maven
-    # write to $cache_file
-    # or at least touch it to modify the timestamp
+    # last sbt.version in the file wins
+    local line stripped sbt_version
+    while IFS= read -r line || [[ -n $line ]]; do
+      stripped=${line//[[:space:]]/}
+      [[ $stripped == sbt.version=* ]] && sbt_version=${stripped#*=}
+    done < project/build.properties
 
-    local cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}/p10k-${(%):-%n}/devinsideyou
-    mkdir -p $cache_dir # just ensuring that it exists
-    local cache_file=$cache_dir/latest_sbt_version
+    [[ -n $sbt_version ]] || return
 
-    local timeout_in_hours=24
-    local timeout_in_seconds=$(($timeout_in_hours*60*60))
-
-    if [[ ! (-f "$cache_file" && $(($(date +%s) - $(stat -c '%Y' "$cache_file") < $timeout_in_seconds)) -gt 0) ]]; then
-      local github_reponse=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/sbt/sbt/releases/latest)
-      local latest_sbt_version_on_github=$(echo $github_reponse | awk -F "v" '/^https:\/\/github.com\/sbt\/sbt\/releases\/tag\//{print $NF}')
-      local maven_url="https://ossindex.sonatype.org/component/pkg:maven/org.scala-sbt/sbt@$latest_sbt_version_on_github"
-      local maven_return_code=$(curl -o /dev/null -s -w "%{http_code}\n" $maven_url)
-
-      # if url has nonzero length and
-      # and latest_sv has nonzero length and
-      # it's published to maven
-      if [[ -n "$github_reponse" && -n "$latest_sbt_version_on_github" && $maven_return_code -eq 200 ]]; then
-         echo "$latest_sbt_version_on_github" > $cache_file
-      else
-         touch $cache_file
-      fi
-    fi
-
-    local latest_sbt_version=$(cat $cache_file)
-
-    # if latest_sv has nonzero length and versions differ
-    if [[ -n "$latest_sbt_version" && "$sbt_version" != "$latest_sbt_version" ]]; then
-       p10k segment -s "NOT_UP_TO_DATE" -f 32 -i '󰛸' -t "⇣$sbt_version"
-    else
-       p10k segment -s "UP_TO_DATE" -f 32 -i '󰛸' -t "$sbt_version"
-    fi
+    p10k segment -f 32 -i '󰛸' -t "$sbt_version"
   }
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
