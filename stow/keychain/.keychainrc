@@ -1,0 +1,15 @@
+# keychain 3 persistent preferences -- see `keychain man topic:config`
+# Config keys mirror CLI flags; CLI flags override this file.
+
+[output]
+# suppress routine startup chatter (--quiet). Interactive prompts,
+# `keychain list` output, warnings and errors still print.
+quiet = true
+
+# no ssh-askpass binary exists on this machine, but WSLg sets DISPLAY.
+# force a TTY passphrase prompt instead of a doomed GUI askpass exec (--no-gui).
+gui = false
+
+[keys]
+# tolerate machines in this dotfiles repo that lack a given key (--ignore-missing)
+ignore_missing = true

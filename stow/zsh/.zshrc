@@ -217,13 +217,18 @@ export MANROFFOPT="-c"
 
 export LANG="C.UTF-8"
 
-# if [[ $(command -v keychain) && -e ~/.ssh/id_rsa ]]; then
-#   eval `keychain --eval --quiet id_rsa`
+# if [[ $(command -v keychain) ]]; then
+#   # git only tracks the exec bit, so a fresh clone under umask 002 yields 664
+#   # and keychain refuses a group/other-writable config. Re-assert it here.
+#   [[ -f ~/.keychainrc ]] && chmod go-w ~/.keychainrc
+#   eval "$(keychain add --eval id_rsa)"
 # fi
 
-if [[ $(command -v keychain) && -e ~/.ssh/id_ed25519 ]]; then
-  eval "$(ssh-agent -s)" &> /dev/null
-  eval `keychain --eval --quiet id_ed25519`
+if [[ $(command -v keychain) ]]; then
+  # git only tracks the exec bit, so a fresh clone under umask 002 yields 664
+  # and keychain refuses a group/other-writable config. Re-assert it here.
+  [[ -f ~/.keychainrc ]] && chmod go-w ~/.keychainrc
+  eval "$(keychain add --eval id_ed25519)"
 fi
 
 if [ $(command -v direnv) ]; then
