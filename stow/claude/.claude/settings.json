@@ -1,31 +1,13 @@
 {
   "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/stop.wav"
-          }
-        ]
-      }
-    ],
     "Notification": [
       {
-        "matcher": "permission_prompt|elicitation_dialog",
+        "matcher": "permission_prompt",
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/permission-request.wav"
-          }
-        ]
-      },
-      {
-        "matcher": "idle_prompt|auth_success",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/notification.wav"
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": true
           }
         ]
       }
@@ -35,29 +17,106 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/permission-request.wav"
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": false
           }
         ]
       }
     ],
-    "TaskCompleted": [
+    "PostToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "ExitPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "ExitPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/play-sound.sh ~/.claude/sounds/task-completed.wav"
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": true
           }
         ]
       }
     ],
     "SessionStart": [
       {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
+      },
+      {
         "matcher": "*",
         "hooks": [
           {
             "type": "command",
-            "command": "if [ -f \"$HOME/.claude/hooks/herdr-agent-state.sh\" ]; then bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session; fi",
+            "command": "bash '/home/vlad/.claude/hooks/herdr-agent-state.sh' session",
             "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/home/vlad/.local/bin/moshi-hook' claude-hook",
+            "async": true
           }
         ]
       }

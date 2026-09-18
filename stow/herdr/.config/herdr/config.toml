@@ -283,7 +283,7 @@ position = "top-right"
 # [ui.sound.agents]
 # droid = "off"
 
-enabled = false
+enabled = true
 [session]
 # Resume supported AI-agent panes into their native conversation sessions after
 # a Herdr server restart. Requires official integrations that report session refs.
