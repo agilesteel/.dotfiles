@@ -187,7 +187,7 @@ if [ -d "$HOME/Library/Application Support/Coursier/bin" ] ; then
 fi
 
 if [ -e $HOME/.nix-profile/bin/java ]; then
-  export JAVA_HOME="${$(readlink -e $HOME/.nix-profile/bin/java)%*/bin/java}" 2>/dev/null
+  export JAVA_HOME="${$(readlink -f $HOME/.nix-profile/bin/java)%*/bin/java}" 2>/dev/null
 fi
 
 export JAVA_TOOL_OPTIONS="

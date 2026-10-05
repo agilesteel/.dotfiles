@@ -1,5 +1,9 @@
 # Mac manages zsh so every mac upgrade overrides /etc/zshrc that includes these lines.
 # If exists, this file is loaded as the very first thing in ~/.zshrc thus fixing the issue.
+# The guard is exported, so shells spawned from a multiplexer inherit it and skip the hook
+# after path_helper has moved /usr/bin to the front; reset it to always re-prepend Nix.
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  typeset -U path
+  unset __ETC_PROFILE_NIX_SOURCED
   source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
