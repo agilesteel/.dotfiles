@@ -20,10 +20,22 @@ onboarding = false
 # Override individual color tokens on top of the base theme.
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
 # [theme.custom]
+# sidebar_bg = "#181825"
+# active_row_bg = "#1e1e2e"
+# selection_bg = "#313244"
 # panel_bg = "reset"
 # accent = "#f5c2e7"
 # red = "#ff6188"
 # green = "#a6e3a1"
+
+# Layer appearance-specific overrides on top when auto_switch is enabled.
+# [theme.custom.light]
+# panel_bg = "#eff1f5"
+# text = "#4c4f69"
+#
+# [theme.custom.dark]
+# panel_bg = "#1e1e2e"
+# text = "#cdd6f4"
 
 [terminal]
 # Executable used for new interactive panes.
@@ -39,10 +51,13 @@ onboarding = false
 # "current" for Herdr's process directory, or a fixed path such as "~/Projects".
 # new_cwd = "follow"
 
+# Render pane images in Kitty graphics-compatible outer terminals.
+# kitty_graphics = true
+
 [update]
 # Update channel used by background version checks and `herdr update`.
-# Defaults to "stable" on Linux/macOS and "preview" on Windows.
-# Set explicitly to choose stable releases or opt-in preview builds.
+# Stable builds default to "stable". Windows preview builds default to "preview"
+# so existing preview installs stay there until explicitly switched.
 # channel = "stable"
 
 # Check herdr.dev for new Herdr versions in the background.
@@ -89,12 +104,15 @@ new_tab = ["prefix+c", "f2"]                           # byobu F2 = new window
 rename_tab = ["prefix+shift+t", "f8"]                  # byobu F8 = rename window
 previous_tab = ["prefix+p", "f3", "alt+left"]          # byobu F3 / M-Left
 next_tab = ["prefix+n", "f4", "alt+right"]             # byobu F4 / M-Right
+move_tab_previous = "ctrl+shift+f3"                    # byobu C-S-F3 = move window left
+move_tab_next = "ctrl+shift+f4"                        # byobu C-S-F4 = move window right
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 edit_scrollback = ["prefix+e", "shift+f7"]             # byobu S-F7 = scrollback in editor
 copy_mode = "f7"                                       # byobu F7 = scrollback / copy mode
+# clear_pane = ""                  # unbound; e.g. "prefix+ctrl+k"
 focus_pane_left = ["prefix+h", "shift+left"]           # byobu S-Left
 focus_pane_down = ["prefix+j", "shift+down"]           # byobu S-Down
 focus_pane_up = ["prefix+k", "shift+up"]               # byobu S-Up
@@ -108,9 +126,12 @@ split_vertical = ["prefix+v", "ctrl+f2"]               # byobu C-F2 = split side
 split_horizontal = ["prefix+minus", "shift+f2"]        # byobu S-F2 = split stacked
 close_pane = ["prefix+x", "ctrl+f6"]                   # byobu C-F6 = kill pane
 zoom = ["prefix+z", "shift+f11"]                       # byobu S-F11 = zoom pane
-# byobu M-S-arrows resize directly; herdr has no directional resize action,
-# so the chords enter resize mode instead (then arrows resize).
-resize_mode = ["prefix+r", "alt+shift+left", "alt+shift+right", "alt+shift+up", "alt+shift+down"]
+# resize_mode = "prefix+r"
+# byobu M-S-arrows resize the focused pane directly, without entering resize mode.
+resize_pane_left = "alt+shift+left"
+resize_pane_down = "alt+shift+down"
+resize_pane_up = "alt+shift+up"
+resize_pane_right = "alt+shift+right"
 # toggle_sidebar = "prefix+b"
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
@@ -141,6 +162,12 @@ resize_mode = ["prefix+r", "alt+shift+left", "alt+shift+right", "alt+shift+up", 
 # tabs = ""       # e.g. "ctrl" makes ctrl+1..9 switch tabs directly
 # workspaces = "" # e.g. "ctrl+shift" makes ctrl+shift+1..9 switch workspaces directly
 # agents = ""     # e.g. "alt" makes alt+1..9 focus agent rows directly
+
+# Size of the virtual terminal used when no client is attached.
+# Attached clients always use their own terminal size.
+[server]
+# headless_cols = 120
+# headless_rows = 40
 
 # [worktrees]
 # directory = "~/.herdr/worktrees"
@@ -203,7 +230,14 @@ prompt_new_tab_name = false
 # prompt_new_workspace_name = false
 
 # Draw borders around split panes.
-# pane_borders = true
+# "auto" draws them only for split panes, "always" also frames a lone pane
+# (only while pane_outer_borders is enabled), "off" disables them.
+# Legacy booleans still parse: true = "auto", false = "off".
+# pane_borders = "auto"
+
+# Draw borders along the outside edge of the pane area.
+# Disable for tmux-style internal splitters without an outside frame.
+# pane_outer_borders = true
 
 # Draw interactive scrollbars beside terminal panes.
 # Set false to reclaim the scrollbar column and keep it out of terminal-native selections.
@@ -222,22 +256,50 @@ show_agent_labels_on_pane_borders = true
 # Desktop tab row placement: "top" or "bottom".
 # tab_bar_position = "top"
 
+# Ordered status entries at the right edge of the desktop tab bar.
+# Supported types: zoom, hostname, datetime, text, and command.
+# Hostname, datetime, and command entries resolve on the Herdr server.
+# byobu-style status: hostname, local time, and UTC time.
+# datetime has no timezone option, so UTC comes from a command entry.
+tab_bar_right = [
+  { type = "hostname" },
+  { type = "datetime", format = "%H:%M" },
+  { type = "command", command = "date -u +'%H:%MZ'", interval_seconds = 5, timeout_seconds = 2 },
+]
+# tab_bar_right_separator = " "
+
+# Title Herdr writes to the terminal it runs in, which is what window managers
+# show in title, tab, and group bars. Tokens are {hostname}, {workspace}, {tab},
+# {pane}, and {terminal_title}; {{ and }} are literal braces.
+# The title renders on the Herdr server, so {hostname} names the host the panes
+# run on even when attaching from a remote client.
+# Set to "" to leave the outer terminal title alone.
+# window_title = "{hostname}: {workspace}"
+
 # Agent panel ordering: "spaces" (grouped by space) or "priority" (attention queue).
 # "workspaces" is accepted as an alias for "spaces".
-# agent_panel_sort = "spaces"
+agent_panel_sort = "priority"
 
-# Expanded agent rows. Built-ins are state_icon, state_text, workspace, tab, pane, agent,
-# terminal_title, and terminal_title_stripped.
+# Agent status indicators: "dots" preserves the compact color marks; "symbols" uses
+# distinct static glyphs for blocked, working, done, idle, and unknown states.
+status_indicators = "dots"
+
+# Accent color for highlights, borders, and navigation UI.
+# Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
+# accent = "cyan"
+
+# Expanded agent rows. Built-ins are state_icon, state_text, machine, workspace, tab,
+# pane, agent, terminal_title, and terminal_title_stripped.
 # Custom values reported through pane metadata use a $name token.
 # A token occurrence may be styled with { token = "workspace", fg = "#89b4fa", bold = true, dim = false }.
 # Omitted style fields preserve the contextual default.
 # [ui.sidebar.agents]
 # Blank rows between agent entries. Set to 1 to restore the previous spacing.
 # row_gap = 0
-# rows = [["state_icon", "workspace", "tab"], ["agent"]]
+# rows = [["state_icon", "machine", "workspace", "tab"], ["agent"]]
 # Optional canonical agent IDs replace the default rows for matching agents.
 # [ui.sidebar.agents.rows_by_agent]
-# claude = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+# claude = [["state_icon", "machine", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
 
 # Expanded space rows. Built-ins are state_icon, state_text, workspace, branch, and git_status.
 # Custom values reported through workspace metadata use a $name token, for example $jj_status.
@@ -247,22 +309,15 @@ show_agent_labels_on_pane_borders = true
 # row_gap = 0
 # rows = [["state_icon", "workspace"], ["branch", "git_status"]]
 
-# Accent color for highlights, borders, and navigation UI.
-# Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
-# accent = "cyan"
-
 # Background notification popup delivery
-agent_panel_sort = "priority"
-status_indicators = "dots"
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
 # terminal = ask the outer terminal to show a desktop notification
 # system = ask the OS notification service directly
-# delivery = "off"
+delivery = "herdr"
 # delay_seconds = 1
 
-delivery = "herdr"
 [ui.toast.herdr]
 position = "top-right"
 
@@ -272,7 +327,7 @@ position = "top-right"
 
 # Play sounds when agents change state in background workspaces
 [ui.sound]
-# enabled = true
+enabled = true
 # Optional custom mp3 sound files. Relative paths are resolved from this config file's directory.
 # path = "sounds/notification.mp3"   # one mp3 file for all sound notifications
 # done_path = "sounds/done.mp3"      # overrides only finished notifications
@@ -283,11 +338,12 @@ position = "top-right"
 # [ui.sound.agents]
 # droid = "off"
 
-enabled = true
 [session]
 # Resume supported AI-agent panes into their native conversation sessions after
 # a Herdr server restart. Requires official integrations that report session refs.
 # resume_agents_on_restore = true
+# Milliseconds between automatic agent restores; 0 starts them without spacing.
+# startup_per_agent_delay_ms = 100
 
 [remote]
 # Whether herdr manages the ssh config used for `herdr --remote`.
@@ -303,9 +359,6 @@ enabled = true
 [experimental]
 # Allow launching herdr from inside a herdr-managed pane.
 # allow_nested = false
-# Experimental local Kitty graphics rendering for attached clients.
-# Requires a Kitty graphics-compatible outer terminal.
-# kitty_graphics = false
 # Save recent pane screen history across full server restarts.
 pane_history = false
 # While prefix mode is active, temporarily switch the host input source to
@@ -324,7 +377,8 @@ pane_history = false
 # matches one of these names. Empty means apply to any focused pane.
 # If the list contains no valid names, the reveal does not apply.
 # Accepted: pi, claude, codex, gemini, cursor, devin, cline, opencode,
-# copilot, kimi, kiro, droid, amp, grok, hermes, kilo, qodercli, qoder.
+# copilot, kimi, kiro, droid, amp, grok, hermes, kilo, qodercli, qoder, qwen,
+# qwen-code, letta, letta-code, maki.
 # cjk_ime_agents = []
 # Cursor shape rendered when reveal_hidden_cursor_for_cjk_ime is true.
 # Values: block, steady_block (default), underline, steady_underline, bar, steady_bar.
