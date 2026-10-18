@@ -3,7 +3,7 @@ input=$(cat)
 
 MODEL=$(echo "$input" | jq -r '.model.display_name')
 WORKSPACE=$(echo "$input" | jq -r '.workspace.current_dir')
-GIT_BRANCH=$(git --git-dir="$WORKSPACE/.git" --work-tree="$WORKSPACE" branch --show-current 2>/dev/null || echo "")
+GIT_BRANCH=$(git -C "$WORKSPACE" branch --show-current 2>/dev/null || echo "")
 
 # Context usage
 CONTEXT_SIZE=$(echo "$input" | jq -r '.context_window.context_window_size')
@@ -16,15 +16,15 @@ else
 fi
 
 # Fira Code progress bar glyphs (Private Use Area)
-# U+EE00: left cap empty, U+EE01: left cap filled
-# U+EE02: middle empty,   U+EE03: middle filled
-# U+EE04: right cap empty, U+EE05: right cap filled
-LEFT_EMPTY=$'\uEE00'
-MID_EMPTY=$'\uEE01'
-RIGHT_EMPTY=$'\uEE02'
-LEFT_FILLED=$'\uEE03'
-MID_FILLED=$'\uEE04'
-RIGHT_FILLED=$'\uEE05'
+# U+EE00/EE01/EE02: left cap / middle / right cap, empty
+# U+EE03/EE04/EE05: left cap / middle / right cap, filled
+# Written as raw UTF-8 bytes: macOS /bin/bash is 3.2, which predates $'\u' (bash 4.2+)
+LEFT_EMPTY=$'\xee\xb8\x80'
+MID_EMPTY=$'\xee\xb8\x81'
+RIGHT_EMPTY=$'\xee\xb8\x82'
+LEFT_FILLED=$'\xee\xb8\x83'
+MID_FILLED=$'\xee\xb8\x84'
+RIGHT_FILLED=$'\xee\xb8\x85'
 
 # Build graphical bar (total BAR_WIDTH segments including caps)
 BAR_WIDTH=12
@@ -62,5 +62,5 @@ else
     BAR_COLOR="\033[0;31m"
 fi
 
-# Format: Model ████░░░░░░ 42% | branch
+# Format: Model branch ████░░░░░░ 42%
 printf "\033[38;5;39m%s\033[0m \033[38;5;76m%s\033[0m ${BAR_COLOR}%s %d%%\033[0m" "$MODEL" "$GIT_BRANCH" "$BAR" "$CTX_PCT"
