@@ -315,7 +315,7 @@ require('lazy').setup({
   require 'kickstart.plugins.comment',
   require 'kickstart.plugins.copilot',
   require 'kickstart.plugins.editorconfig',
-  require 'kickstart.plugins.nvim-blame-line',
+  require 'kickstart.plugins.git-blame',
   require 'kickstart.plugins.quick-scope',
   require 'kickstart.plugins.vim-indent-object',
   require 'kickstart.plugins.vim-repeat',
