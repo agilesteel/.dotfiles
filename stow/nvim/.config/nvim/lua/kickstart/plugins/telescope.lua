@@ -17,7 +17,45 @@ return {
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
+      -- find_files with toggleable hidden / gitignored files (<M-h> / <M-g> inside the picker)
+      local include = { hidden = false, ignored = false }
+
+      local function find_files(opts)
+        opts = opts or {}
+        opts.hidden = include.hidden
+        opts.no_ignore = include.ignored
+        opts.file_ignore_patterns = include.hidden and { '^%.git/' } or nil
+        local extra = {}
+        if include.hidden then
+          table.insert(extra, '+hidden')
+        end
+        if include.ignored then
+          table.insert(extra, '+ignored')
+        end
+        opts.prompt_title = 'Find Files' .. (#extra > 0 and ' (' .. table.concat(extra, ' ') .. ')' or '')
+        require('telescope.builtin').find_files(opts)
+      end
+
+      local function toggle(flag)
+        return function(prompt_bufnr)
+          local state = require 'telescope.actions.state'
+          local text = state.get_current_line()
+          local cwd = state.get_current_picker(prompt_bufnr).cwd
+          require('telescope.actions').close(prompt_bufnr)
+          include[flag] = not include[flag]
+          find_files { default_text = text, cwd = cwd }
+        end
+      end
+
       require('telescope').setup {
+        pickers = {
+          find_files = {
+            mappings = {
+              i = { ['<M-h>'] = toggle 'hidden', ['<M-g>'] = toggle 'ignored' },
+              n = { ['<M-h>'] = toggle 'hidden', ['<M-g>'] = toggle 'ignored' },
+            },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -36,8 +74,8 @@ return {
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>sf', find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<C-p>', find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -61,7 +99,7 @@ return {
       end, { desc = '[S]earch [/] in Open Files' })
 
       vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
+        find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
     end,
   },
