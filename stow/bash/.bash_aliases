@@ -41,6 +41,8 @@ alias update='\
   cs update && \
   gh extension install dlvhdr/gh-dash --force && \
   gh extension install github/gh-stack --force && \
+  moshi-hook update && \
+  moshi-hook service restart && \
   refresh-completions && \
   nix-channel --update && \
   nix-env -u && \
@@ -53,6 +55,10 @@ alias updatef='\
   sudo apt -y full-upgrade && \
   sudo apt -y autoremove && \
   cs update && \
+  gh extension install dlvhdr/gh-dash --force && \
+  gh extension install github/gh-stack --force && \
+  moshi-hook update && \
+  moshi-hook service restart && \
   refresh-completions && \
   nix-channel --update && \
   nix-env -u && \
@@ -67,6 +73,8 @@ alias updates='\
   cs update && \
   gh extension install dlvhdr/gh-dash --force && \
   gh extension install github/gh-stack --force && \
+  moshi-hook update && \
+  moshi-hook service restart && \
   refresh-completions && \
   nix-channel --update && \
   nix-env -u && \
