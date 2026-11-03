@@ -23,7 +23,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -244,6 +244,10 @@ fi
 # starship
 if [ $(command -v starship) ]; then
   eval "$(starship init zsh)"
+
+  # Blank line between prompts, but not before the first one (add_newline = false in starship.toml)
+  _starship_newline() { [[ -n $_starship_drawn ]] && print; _starship_drawn=1 }
+  precmd_functions+=(_starship_newline)
 fi
 
 if [ $(command -v doppler) ]; then
@@ -408,7 +412,7 @@ jps() {
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
+# [[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
 
 # source local settings
 if [ -f "$HOME/.local/.zshrc" ] ; then

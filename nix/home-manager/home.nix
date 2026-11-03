@@ -97,6 +97,7 @@ in
         sd
         sl
         sshs
+        starship
         stow
         tailspin
         tig

@@ -1,0 +1,282 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Port of stow/p10k/.p10k.zsh (lean style, 8-bit colors, nerd font).
+# Line 1: left segments, $fill, then "right prompt" segments; line 2: prompt char.
+
+add_newline = false  # handled in .zshrc so the first prompt has no blank line
+
+format = """\
+$os\
+($username$hostname${env_var.WSL_DISTRO_NAME} )\
+$directory\
+(${custom.github}$git_branch$git_commit$git_state$git_status$git_metrics )\
+${custom.doppler_prd}${custom.doppler_loc}${custom.doppler_other}\
+$fill\
+$sudo\
+$status\
+$cmd_duration\
+$jobs\
+$shlvl\
+$direnv\
+$nix_shell\
+${custom.java}\
+${custom.sbt}\
+${custom.ram}${custom.ram_macos}\
+${custom.disk}\
+$battery\
+$time\
+$line_break\
+$character"""
+
+[fill]
+style = ''
+symbol = ' '
+
+# ───────────────────────────── left ─────────────────────────────
+
+[os]
+disabled = false
+style = ''
+format = '[$symbol]($style) '
+
+[os.symbols]
+Ubuntu = "\uF31B"
+Debian = "\uF306"
+NixOS = "\uF313"
+Macos = "\uF179"
+Linux = "\uF17C"
+Windows = "\uF17A"
+
+[username]
+show_always = true
+style_user = 'fg:180'
+style_root = 'bold fg:178'
+format = '[$user]($style)'
+
+# Outside WSL: user@hostname
+[hostname]
+ssh_only = false
+detect_env_vars = ['!WSL_DISTRO_NAME']
+style = 'fg:180'
+format = '[@$hostname]($style)'
+
+# In WSL: user@<distro name> (matches POWERLEVEL9K_CONTEXT_TEMPLATE)
+[env_var.WSL_DISTRO_NAME]
+style = 'fg:180'
+format = '[@$env_value]($style)'
+
+[directory]
+style = 'fg:31'
+before_repo_root_style = 'fg:31'
+repo_root_style = 'bold fg:39'
+truncation_length = 0
+truncate_to_repo = false
+fish_style_pwd_dir_length = 1
+truncation_symbol = ''
+read_only = " \uF023"
+read_only_style = 'fg:31'
+format = "[\uF07C $path]($style)[$read_only]($read_only_style) "
+repo_root_format = "[\uF07C $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+
+# p10k's vcs icon for GitHub remotes
+[custom.github]
+when = 'git remote get-url origin 2>/dev/null | grep -q github.com'
+require_repo = true
+shell = ['sh']
+symbol = "\uF113 "
+style = 'fg:76'
+format = '[$symbol]($style)'
+
+[git_branch]
+symbol = "\uF126 "
+style = 'fg:76'
+only_attached = true
+truncation_length = 32
+truncation_symbol = '…'
+format = '[$symbol$branch]($style)'
+
+[git_commit]
+only_detached = true
+commit_hash_length = 8
+tag_disabled = false
+tag_symbol = ' #'
+style = 'fg:76'
+format = '[@$hash$tag]($style)'
+
+[git_metrics]
+disabled = false
+added_style = 'fg:76'
+deleted_style = 'fg:196'
+format = '( [+$added]($added_style))( [-$deleted]($deleted_style))'
+
+[git_state]
+style = 'fg:196'
+format = '( [$state( $progress_current/$progress_total)]($style))'
+
+[git_status]
+style = 'fg:76'
+format = '( $ahead_behind)( $stashed)( $conflicted)( $staged)( $modified)( $untracked)'
+ahead = '[⇡${count}](fg:76)'
+behind = '[⇣${count}](fg:76)'
+diverged = '[⇣${behind_count}⇡${ahead_count}](fg:76)'
+up_to_date = ''
+stashed = '[*${count}](fg:76)'
+conflicted = '[~${count}](fg:196)'
+staged = '[+${count}](fg:178)'
+modified = '[!${count}](fg:178)'
+untracked = '[?${count}](fg:76)'
+renamed = ''
+deleted = ''
+typechanged = ''
+
+# my_doppler_config: red for prd*, blue for loc*, yellow otherwise
+[custom.doppler_prd]
+when = '''c=$(doppler --no-check-version configure get project config --plain 2>/dev/null) && [ "$(printf '%s\n' "$c" | wc -l)" -eq 2 ] && case "$(printf '%s\n' "$c" | sed -n 2p)" in prd*) true;; *) false;; esac'''
+command = 'doppler --no-check-version configure get project config --plain 2>/dev/null | paste -sd.'
+shell = ['sh']
+style = 'fg:1'
+format = "[\uF023 $output]($style) "
+
+[custom.doppler_loc]
+when = '''c=$(doppler --no-check-version configure get project config --plain 2>/dev/null) && [ "$(printf '%s\n' "$c" | wc -l)" -eq 2 ] && case "$(printf '%s\n' "$c" | sed -n 2p)" in loc*) true;; *) false;; esac'''
+command = 'doppler --no-check-version configure get project config --plain 2>/dev/null | paste -sd.'
+shell = ['sh']
+style = 'fg:32'
+format = "[\uF023 $output]($style) "
+
+[custom.doppler_other]
+when = '''c=$(doppler --no-check-version configure get project config --plain 2>/dev/null) && [ "$(printf '%s\n' "$c" | wc -l)" -eq 2 ] && case "$(printf '%s\n' "$c" | sed -n 2p)" in prd*|loc*) false;; *) true;; esac'''
+command = 'doppler --no-check-version configure get project config --plain 2>/dev/null | paste -sd.'
+shell = ['sh']
+style = 'fg:3'
+format = "[\uF023 $output]($style) "
+
+# ───────────────────────────── right ─────────────────────────────
+
+[status]
+disabled = false
+pipestatus = true
+style = 'fg:160'
+symbol = '✘'
+format = ' [$symbol $status]($style)'
+pipestatus_format = ' [$symbol $pipestatus]($style)'
+pipestatus_segment_format = '$status'
+pipestatus_separator = '|'
+
+# Needs sudo >= 1.9 (runs `sudo -Nnv`); stays hidden on Ubuntu 20.04's sudo 1.8.31.
+[sudo]
+disabled = false
+symbol = "\uF132"
+style = 'fg:178'
+format = ' [$symbol]($style)'
+
+[shlvl]
+threshold = 3
+disabled = false
+symbol = "\uF120 "
+style = 'fg:66'
+format = ' [$symbol$shlvl]($style)'
+
+[cmd_duration]
+min_time = 3000
+style = 'fg:101'
+format = " [\uF252 $duration]($style)"
+
+[jobs]
+symbol = "\uF013"
+number_threshold = 2
+style = 'fg:70'
+format = ' [$symbol$number]($style)'
+
+[direnv]
+disabled = false
+symbol = '▼'
+style = 'fg:178'
+format = ' [$symbol]($style)'
+
+[nix_shell]
+symbol = "\uF313"
+style = 'fg:74'
+format = ' [$symbol]($style)'
+
+# Like p10k: full version from `java -fullversion`, cut at the first '-'
+# (25.0.4.1.1+1). Same detection rules as Starship's built-in java module.
+[custom.java]
+detect_extensions = ['java', 'class', 'gradle', 'jar', 'cljs', 'cljc']
+detect_files = ['pom.xml', 'build.gradle.kts', 'build.sbt', '.java-version', 'deps.edn', 'project.clj', 'build.boot', '.sdkmanrc']
+command = '''java -fullversion 2>&1 | sed -n 's/[^"]*"\([^"-]*\).*/\1/p' '''
+shell = ['sh']
+symbol = "\uE256 "
+style = 'fg:32'
+format = ' [$symbol$output]($style)'
+
+# my_sbt_version: last sbt.version in project/build.properties
+[custom.sbt]
+when = 'test -f project/build.properties'
+command = '''sed -n 's/^[[:space:]]*sbt\.version[[:space:]]*=[[:space:]]*//p' project/build.properties | tail -n1 | tr -d '[:space:]' '''
+shell = ['sh']
+symbol = '󰛸 '
+style = 'fg:32'
+format = ' [$symbol$output]($style)'
+
+# p10k's ram segment shows available memory, not used/total
+[custom.ram]
+when = true
+command = "free -g | awk '/^Mem:/ {print $7 \"G\"}'"
+os = 'linux'
+shell = ['sh']
+symbol = "\uF0E4 "
+style = 'fg:66'
+format = ' [$symbol$output]($style)'
+
+# macOS has no `free`: available = free + inactive + speculative pages (as p10k does)
+[custom.ram_macos]
+when = true
+os = 'macos'
+command = """vm_stat | awk '/page size of/ {ps=$8} /Pages (free|inactive|speculative)/ {n+=$NF} END {printf "%dG", n*ps/1073741824}'"""
+shell = ['sh']
+symbol = "\uF0E4 "
+style = 'fg:66'
+format = ' [$symbol$output]($style)'
+
+[custom.disk]
+when = true
+command = 'df --output=pcent / | tail -n1 | tr -d " "'
+shell = ['sh']
+symbol = "\uF0A0 "
+style = 'fg:35'
+format = ' [$symbol$output]($style)'
+
+[battery]
+format = ' [$symbol$percentage]($style)'
+
+[[battery.display]]
+threshold = 10
+style = 'fg:1'
+
+[[battery.display]]
+threshold = 100
+style = 'fg:70'
+
+[time]
+disabled = false
+time_format = '%H:%M:%S'
+style = 'fg:66'
+format = " [\uF017 $time]($style)"
+
+# Only shown in p10k while typing kubectl/aws commands; Starship can't do that.
+[kubernetes]
+disabled = true
+
+[aws]
+disabled = true
+
+# ───────────────────────────── line 2 ─────────────────────────────
+
+[character]
+success_symbol = '[❯](fg:76)'
+error_symbol = '[❯](fg:196)'
+vimcmd_symbol = '[❮](fg:76)'
+vimcmd_visual_symbol = '[V](fg:76)'
+vimcmd_replace_symbol = '[▶](fg:76)'
+vimcmd_replace_one_symbol = '[▶](fg:76)'
