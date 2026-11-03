@@ -1,4 +1,6 @@
-if [ -f "$HOME/.zshrc" ] ; then
+# Interactive login shells read ~/.zshrc on their own right after this file,
+# so only source it for non-interactive login shells (e.g. `zsh -lc ...`).
+if [[ ! -o interactive && -f "$HOME/.zshrc" ]] ; then
   source "$HOME/.zshrc"
 fi
 

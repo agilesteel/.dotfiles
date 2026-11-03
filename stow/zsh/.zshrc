@@ -247,7 +247,8 @@ if [ $(command -v starship) ]; then
 
   # Blank line between prompts, but not before the first one (add_newline = false in starship.toml)
   _starship_newline() { [[ -n $_starship_drawn ]] && print; _starship_drawn=1 }
-  precmd_functions+=(_starship_newline)
+  # Idempotent: on macOS login shells ~/.zprofile sources ~/.zshrc too, so this can run twice
+  precmd_functions=(${precmd_functions:#_starship_newline} _starship_newline)
 fi
 
 if [ $(command -v doppler) ]; then
