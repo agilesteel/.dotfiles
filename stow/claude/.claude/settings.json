@@ -125,7 +125,8 @@
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh",
-    "padding": 0
+    "padding": 0,
+    "refreshInterval": 5
   },
   "effortLevel": "high",
   "tui": "fullscreen",
