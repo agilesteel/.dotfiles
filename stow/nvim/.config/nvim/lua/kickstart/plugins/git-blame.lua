@@ -5,7 +5,6 @@ return {
   enabled = vim.g.vscode == nil,
   event = { 'BufReadPre', 'BufNewFile' },
   opts = {
-    signcolumn = false,
     current_line_blame = true,
     current_line_blame_opts = {
       delay = 100,
