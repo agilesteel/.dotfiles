@@ -100,6 +100,7 @@ in
         starship
         stow
         tailspin
+        teleport
         tig
         tree
         unzip
